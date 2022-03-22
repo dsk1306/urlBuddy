@@ -1,0 +1,85 @@
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+{% if catalogs %}
+{% set enumName %}{{param.enumName|default:"Asset"}}{% endset %}
+import UIKit
+
+// swiftlint:disable all
+{% macro enumBlock assets %}
+  {% call casesBlock assets %}
+{% endmacro %}
+{% macro casesBlock assets %}
+  {% for asset in assets %}
+  {% if asset.type == "color" %}
+  static var {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}: UIColor { Asset(name: "{{asset.value}}").color }
+  {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
+  enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:2 %}{% call casesBlock asset.items %}{% endfilter %}
+  }
+  {% elif asset.items %}
+  {% call casesBlock asset.items %}
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+{% macro allValuesBlock assets filter prefix %}
+  {% for asset in assets %}
+  {% if asset.type == filter %}
+  {{prefix}}{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}},
+  {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
+  {% set prefix2 %}{{prefix}}{{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}}.{% endset %}
+  {% call allValuesBlock asset.items filter prefix2 %}
+  {% elif asset.items %}
+  {% call allValuesBlock asset.items filter prefix %}
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+enum {{enumName}} {
+
+  {% if catalogs.count > 1 %}
+  {% for catalog in catalogs %}
+  enum {{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:1 %}{% call enumBlock catalog.assets %}{% endfilter %}
+  }
+  {% endfor %}
+  {% else %}
+  {% call enumBlock catalogs.first.assets %}
+  {% endif %}
+
+  static var onError: ((Error) -> Void)?
+
+}
+// swiftlint:enable all
+
+// MARK: - Color Asset
+
+private extension {{enumName}} {
+
+  struct Asset {
+
+    let name: String
+
+    var color: UIColor {
+      guard let result = UIColor(named: name) else {
+        {{enumName}}.onError?(InitError.colorInit(name: name))
+        return .clear
+      }
+      return result
+    }
+
+  }
+
+}
+
+// MARK: - InitError
+
+private extension {{enumName}} {
+
+  enum InitError: Error {
+
+    case colorInit(name: String)
+
+  }
+
+}
+{% else %}
+// No assets found
+{% endif %}

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8C27EA67A10095E352 /* ColorAsset.swift */; };
+		C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8D27EA67A10095E352 /* ImageAsset.swift */; };
 		C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */; };
 		C7DF18EB27EA590200D1FAD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18EA27EA590200D1FAD6 /* SceneDelegate.swift */; };
 		C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18F127EA590200D1FAD6 /* URLShortener.xcdatamodeld */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C78FCB8C27EA67A10095E352 /* ColorAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
+		C78FCB8D27EA67A10095E352 /* ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
 		C7DF18E527EA590200D1FAD6 /* URLShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DF18EA27EA590200D1FAD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		C7DF191D27EA5BB400D1FAD6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C78FCB8C27EA67A10095E352 /* ColorAsset.swift */,
+				C78FCB8D27EA67A10095E352 /* ImageAsset.swift */,
 				C7DF191E27EA5BC800D1FAD6 /* Colors.xcassets */,
 				C7DF18F427EA590400D1FAD6 /* Images.xcassets */,
 				C7DF18F127EA590200D1FAD6 /* URLShortener.xcdatamodeld */,
@@ -152,6 +158,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7DF191227EA590400D1FAD6 /* Build configuration list for PBXNativeTarget "URLShortener" */;
 			buildPhases = (
+				C78FCB8B27EA67280095E352 /* 🛠SwiftGen */,
 				C7DF18E127EA590200D1FAD6 /* Sources */,
 				C7DF18E227EA590200D1FAD6 /* Frameworks */,
 				C7DF18E327EA590200D1FAD6 /* Resources */,
@@ -271,13 +278,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C78FCB8B27EA67280095E352 /* 🛠SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "🛠SwiftGen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen >/dev/null; then\n    swiftgen\nelse\n    echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C7DF18E127EA590200D1FAD6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */,
 				C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */,
 				C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */,
+				C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */,
 				C7DF18EB27EA590200D1FAD6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,15 @@
+input_dir: URLShortener/Resources
+output_dir: URLShortener/Resources
+xcassets:
+  - inputs: Colors.xcassets
+    outputs:
+      - templatePath: SwiftGenTemplates/colors.stencil
+        output: ColorAsset.swift
+        params:
+          enumName: ColorAsset
+  - inputs: Images.xcassets
+    outputs:
+      - templatePath: SwiftGenTemplates/images.stencil
+        output: ImageAsset.swift
+        params:
+          enumName: ImageAsset
