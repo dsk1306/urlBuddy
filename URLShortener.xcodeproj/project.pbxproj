@@ -25,7 +25,9 @@
 		C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6D327F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift */; };
 		C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8C27EA67A10095E352 /* ColorAsset.swift */; };
 		C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8D27EA67A10095E352 /* ImageAsset.swift */; };
+		C7AB8B4227F10657006592C2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4127F10657006592C2 /* CoreDataStack.swift */; };
 		C7AB8B4427F10675006592C2 /* AppLifecycleSubscribableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4327F10675006592C2 /* AppLifecycleSubscribableService.swift */; };
+		C7AB8B4627F108FA006592C2 /* DefaultCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4527F108FA006592C2 /* DefaultCoreDataStack.swift */; };
 		C7CE0AE227F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */; };
 		C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */; };
 		C7DF18EB27EA590200D1FAD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18EA27EA590200D1FAD6 /* SceneDelegate.swift */; };
@@ -73,7 +75,9 @@
 		C77DD6D327F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultLinksShortenerService+ResponseModelResult.swift"; sourceTree = "<group>"; };
 		C78FCB8C27EA67A10095E352 /* ColorAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
 		C78FCB8D27EA67A10095E352 /* ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
+		C7AB8B4127F10657006592C2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C7AB8B4327F10675006592C2 /* AppLifecycleSubscribableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifecycleSubscribableService.swift; sourceTree = "<group>"; };
+		C7AB8B4527F108FA006592C2 /* DefaultCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoreDataStack.swift; sourceTree = "<group>"; };
 		C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLinksShortenerServiceTests.swift; sourceTree = "<group>"; };
 		C7DF18E527EA590200D1FAD6 /* URLShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				C7AB8B4327F10675006592C2 /* AppLifecycleSubscribableService.swift */,
 				C77DD6C327F077BB0037ACFF /* API */,
 				C77166EB27F103D300C0B472 /* Clipboard */,
+				C7AB8B4027F10649006592C2 /* CoreDataStack */,
 				C77DD6C827F079970037ACFF /* LinksShortener */,
 			);
 			path = Services;
@@ -183,6 +188,15 @@
 				C77DD6D327F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift */,
 			);
 			path = ResponseModels;
+			sourceTree = "<group>";
+		};
+		C7AB8B4027F10649006592C2 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				C7AB8B4127F10657006592C2 /* CoreDataStack.swift */,
+				C7AB8B4527F108FA006592C2 /* DefaultCoreDataStack.swift */,
+			);
+			path = CoreDataStack;
 			sourceTree = "<group>";
 		};
 		C7DF18DC27EA590200D1FAD6 = {
@@ -435,6 +449,7 @@
 				C77DD6CE27F07B680037ACFF /* LinksShortenerService.swift in Sources */,
 				C77166EA27F103B600C0B472 /* Link.swift in Sources */,
 				C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */,
+				C7AB8B4627F108FA006592C2 /* DefaultCoreDataStack.swift in Sources */,
 				C77DD6C727F079360037ACFF /* APIService.swift in Sources */,
 				C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */,
 				C7AB8B4427F10675006592C2 /* AppLifecycleSubscribableService.swift in Sources */,
@@ -445,6 +460,7 @@
 				C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */,
 				C77166ED27F103D800C0B472 /* ClipboardService.swift in Sources */,
 				C77DD6CA27F079AB0037ACFF /* DefaultLinksShortenerService.swift in Sources */,
+				C7AB8B4227F10657006592C2 /* CoreDataStack.swift in Sources */,
 				C7DF18EB27EA590200D1FAD6 /* SceneDelegate.swift in Sources */,
 				C77DD6CC27F07ABC0037ACFF /* LinksShortenerError.swift in Sources */,
 				C77166EF27F103E700C0B472 /* DefaultClipboardService.swift in Sources */,
