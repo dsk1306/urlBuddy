@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C427F078370037ACFF /* DefaultAPIService.swift */; };
+		C77DD6C727F079360037ACFF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C627F079360037ACFF /* APIService.swift */; };
 		C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8C27EA67A10095E352 /* ColorAsset.swift */; };
 		C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8D27EA67A10095E352 /* ImageAsset.swift */; };
 		C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C77DD6C427F078370037ACFF /* DefaultAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAPIService.swift; sourceTree = "<group>"; };
+		C77DD6C627F079360037ACFF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		C78FCB8C27EA67A10095E352 /* ColorAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
 		C78FCB8D27EA67A10095E352 /* ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
 		C7DF18E527EA590200D1FAD6 /* URLShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +85,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C77DD6C227F0779B0037ACFF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C77DD6C327F077BB0037ACFF /* API */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C77DD6C327F077BB0037ACFF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C77DD6C627F079360037ACFF /* APIService.swift */,
+				C77DD6C427F078370037ACFF /* DefaultAPIService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		C7DF18DC27EA590200D1FAD6 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +127,7 @@
 			children = (
 				C7DF191C27EA59F600D1FAD6 /* App */,
 				C7DF191D27EA5BB400D1FAD6 /* Resources */,
+				C77DD6C227F0779B0037ACFF /* Services */,
 			);
 			path = URLShortener;
 			sourceTree = "<group>";
@@ -323,6 +345,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */,
+				C77DD6C727F079360037ACFF /* APIService.swift in Sources */,
 				C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */,
 				C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */,
 				C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */,
