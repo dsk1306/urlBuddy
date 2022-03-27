@@ -2,16 +2,16 @@ import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-	// MARK: - Properties
+  // MARK: - Properties
 
-	var window: UIWindow?
+  var window: UIWindow?
 
-	// MARK: - UIWindowSceneDelegate
+  // MARK: - UIWindowSceneDelegate
 
-	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {}
+  func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {}
 
-	func sceneDidEnterBackground(_ scene: UIScene) {
-		(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-	}
+  func sceneDidEnterBackground(_ scene: UIScene) {
+    (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+  }
 
 }

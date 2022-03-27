@@ -3,8 +3,8 @@ import XCTest
 
 final class URLShortenerTests: XCTestCase {
 
-	// MARK: - Tests
+  // MARK: - Tests
 
-	func testExample() throws {}
+  func testExample() throws {}
 
 }
