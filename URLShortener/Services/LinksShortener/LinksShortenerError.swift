@@ -1,6 +1,6 @@
 import Foundation
 
-enum LinksShortenerError: LocalizedError {
+enum LinksShortenerError: LocalizedError, Equatable {
 
   case decoding
   case badURL
