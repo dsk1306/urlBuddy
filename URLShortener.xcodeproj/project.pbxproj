@@ -12,6 +12,7 @@
 		C767EE1127F0F9000053DC26 /* MockJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767EE1027F0F9000053DC26 /* MockJSON.swift */; };
 		C767EE1327F0F9840053DC26 /* MockJSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767EE1227F0F9840053DC26 /* MockJSONLoader.swift */; };
 		C767EE1527F0FA7E0053DC26 /* MockJSONType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767EE1427F0FA7E0053DC26 /* MockJSONType.swift */; };
+		C77166EA27F103B600C0B472 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77166E927F103B600C0B472 /* Link.swift */; };
 		C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C427F078370037ACFF /* DefaultAPIService.swift */; };
 		C77DD6C727F079360037ACFF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C627F079360037ACFF /* APIService.swift */; };
 		C77DD6CA27F079AB0037ACFF /* DefaultLinksShortenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C927F079AB0037ACFF /* DefaultLinksShortenerService.swift */; };
@@ -56,6 +57,7 @@
 		C767EE1027F0F9000053DC26 /* MockJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJSON.swift; sourceTree = "<group>"; };
 		C767EE1227F0F9840053DC26 /* MockJSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJSONLoader.swift; sourceTree = "<group>"; };
 		C767EE1427F0FA7E0053DC26 /* MockJSONType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJSONType.swift; sourceTree = "<group>"; };
+		C77166E927F103B600C0B472 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		C77DD6C427F078370037ACFF /* DefaultAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAPIService.swift; sourceTree = "<group>"; };
 		C77DD6C627F079360037ACFF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		C77DD6C927F079AB0037ACFF /* DefaultLinksShortenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLinksShortenerService.swift; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 				C767EE1427F0FA7E0053DC26 /* MockJSONType.swift */,
 			);
 			path = "-MockJSONs";
+			sourceTree = "<group>";
+		};
+		C77166E827F103AD00C0B472 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C77166E927F103B600C0B472 /* Link.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C77DD6C227F0779B0037ACFF /* Services */ = {
@@ -182,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				C7DF191C27EA59F600D1FAD6 /* App */,
+				C77166E827F103AD00C0B472 /* Models */,
 				C7DF191D27EA5BB400D1FAD6 /* Resources */,
 				C77DD6C227F0779B0037ACFF /* Services */,
 			);
@@ -405,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C77DD6CE27F07B680037ACFF /* LinksShortenerService.swift in Sources */,
+				C77166EA27F103B600C0B472 /* Link.swift in Sources */,
 				C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */,
 				C77DD6C727F079360037ACFF /* APIService.swift in Sources */,
 				C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */,
