@@ -28,7 +28,6 @@
 		C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18F127EA590200D1FAD6 /* URLShortener.xcdatamodeld */; };
 		C7DF18F527EA590400D1FAD6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DF18F427EA590400D1FAD6 /* Images.xcassets */; };
 		C7DF18F827EA590400D1FAD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DF18F627EA590400D1FAD6 /* LaunchScreen.storyboard */; };
-		C7DF190327EA590400D1FAD6 /* URLShortenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF190227EA590400D1FAD6 /* URLShortenerTests.swift */; };
 		C7DF190D27EA590400D1FAD6 /* URLShortenerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF190C27EA590400D1FAD6 /* URLShortenerUITests.swift */; };
 		C7DF190F27EA590400D1FAD6 /* URLShortenerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF190E27EA590400D1FAD6 /* URLShortenerUITestsLaunchTests.swift */; };
 		C7DF191F27EA5BC800D1FAD6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DF191E27EA5BC800D1FAD6 /* Colors.xcassets */; };
@@ -76,7 +75,6 @@
 		C7DF18F727EA590400D1FAD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7DF18F927EA590400D1FAD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7DF18FE27EA590400D1FAD6 /* URLShortenerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLShortenerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7DF190227EA590400D1FAD6 /* URLShortenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLShortenerTests.swift; sourceTree = "<group>"; };
 		C7DF190827EA590400D1FAD6 /* URLShortenerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLShortenerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF190C27EA590400D1FAD6 /* URLShortenerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLShortenerUITests.swift; sourceTree = "<group>"; };
 		C7DF190E27EA590400D1FAD6 /* URLShortenerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLShortenerUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */,
-				C7DF190227EA590400D1FAD6 /* URLShortenerTests.swift */,
 				C767EE0B27F0F88F0053DC26 /* -MockJSONs */,
 			);
 			path = URLShortenerTests;
@@ -431,7 +428,6 @@
 				C7CE0AE227F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift in Sources */,
 				C767EE1327F0F9840053DC26 /* MockJSONLoader.swift in Sources */,
 				C767EE1527F0FA7E0053DC26 /* MockJSONType.swift in Sources */,
-				C7DF190327EA590400D1FAD6 /* URLShortenerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
