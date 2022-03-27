@@ -14,14 +14,17 @@ enum LinksShortenerError: LocalizedError, Equatable {
   init(error: Error) {
     if let error = error as? LinksShortenerError {
       self = error
+      return
     }
 
     if let error = error as? URLError {
       switch error.code {
       case .badURL:
         self = .badURL
+        return
       case .badServerResponse:
         self = .badServerResponse
+        return
       default:
         break
       }
