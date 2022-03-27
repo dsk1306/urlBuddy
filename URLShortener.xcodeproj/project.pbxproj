@@ -13,6 +13,8 @@
 		C767EE1327F0F9840053DC26 /* MockJSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767EE1227F0F9840053DC26 /* MockJSONLoader.swift */; };
 		C767EE1527F0FA7E0053DC26 /* MockJSONType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767EE1427F0FA7E0053DC26 /* MockJSONType.swift */; };
 		C77166EA27F103B600C0B472 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77166E927F103B600C0B472 /* Link.swift */; };
+		C77166ED27F103D800C0B472 /* ClipboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77166EC27F103D800C0B472 /* ClipboardService.swift */; };
+		C77166EF27F103E700C0B472 /* DefaultClipboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77166EE27F103E700C0B472 /* DefaultClipboardService.swift */; };
 		C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C427F078370037ACFF /* DefaultAPIService.swift */; };
 		C77DD6C727F079360037ACFF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C627F079360037ACFF /* APIService.swift */; };
 		C77DD6CA27F079AB0037ACFF /* DefaultLinksShortenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C927F079AB0037ACFF /* DefaultLinksShortenerService.swift */; };
@@ -58,6 +60,8 @@
 		C767EE1227F0F9840053DC26 /* MockJSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJSONLoader.swift; sourceTree = "<group>"; };
 		C767EE1427F0FA7E0053DC26 /* MockJSONType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJSONType.swift; sourceTree = "<group>"; };
 		C77166E927F103B600C0B472 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
+		C77166EC27F103D800C0B472 /* ClipboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardService.swift; sourceTree = "<group>"; };
+		C77166EE27F103E700C0B472 /* DefaultClipboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultClipboardService.swift; sourceTree = "<group>"; };
 		C77DD6C427F078370037ACFF /* DefaultAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAPIService.swift; sourceTree = "<group>"; };
 		C77DD6C627F079360037ACFF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		C77DD6C927F079AB0037ACFF /* DefaultLinksShortenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLinksShortenerService.swift; sourceTree = "<group>"; };
@@ -129,10 +133,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C77166EB27F103D300C0B472 /* Clipboard */ = {
+			isa = PBXGroup;
+			children = (
+				C77166EC27F103D800C0B472 /* ClipboardService.swift */,
+				C77166EE27F103E700C0B472 /* DefaultClipboardService.swift */,
+			);
+			path = Clipboard;
+			sourceTree = "<group>";
+		};
 		C77DD6C227F0779B0037ACFF /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				C77DD6C327F077BB0037ACFF /* API */,
+				C77166EB27F103D300C0B472 /* Clipboard */,
 				C77DD6C827F079970037ACFF /* LinksShortener */,
 			);
 			path = Services;
@@ -425,9 +439,11 @@
 				C77DD6D027F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift in Sources */,
 				C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */,
 				C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */,
+				C77166ED27F103D800C0B472 /* ClipboardService.swift in Sources */,
 				C77DD6CA27F079AB0037ACFF /* DefaultLinksShortenerService.swift in Sources */,
 				C7DF18EB27EA590200D1FAD6 /* SceneDelegate.swift in Sources */,
 				C77DD6CC27F07ABC0037ACFF /* LinksShortenerError.swift in Sources */,
+				C77166EF27F103E700C0B472 /* DefaultClipboardService.swift in Sources */,
 				C77DD6D227F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
