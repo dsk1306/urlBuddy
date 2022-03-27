@@ -42,7 +42,6 @@ opt_in_rules:
   - line_length
   - mark
   - multiple_closures_with_trailing_closure
-  - nesting
   - no_fallthrough_only
   - no_space_in_method_call
   - notification_center_detachment
@@ -175,8 +174,9 @@ opt_in_rules:
   - yoda_condition
 
 disabled_rules:
-  - inclusive_language
   - file_length
+  - inclusive_language
+  - nesting
 
 allow_zero_lintable_files: true
 
