@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "combineextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dsk1306/combineExtensions",
+      "state" : {
+        "revision" : "a2f31ab53ed930b830b069dbe1db6ab88692e790",
+        "version" : "1.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAAE27F1BBE500A818F3 /* Services.swift */; };
+		C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C753FAB127F1BC2700A818F3 /* CombineExtensions */; };
 		C767EE0E27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json in Resources */ = {isa = PBXBuildFile; fileRef = C767EE0C27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json */; };
 		C767EE0F27F0F8EB0053DC26 /* URLShortenerTests_Success.json in Resources */ = {isa = PBXBuildFile; fileRef = C767EE0D27F0F8EB0053DC26 /* URLShortenerTests_Success.json */; };
 		C767EE1127F0F9000053DC26 /* MockJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767EE1027F0F9000053DC26 /* MockJSON.swift */; };
@@ -103,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +298,9 @@
 			dependencies = (
 			);
 			name = URLShortener;
+			packageProductDependencies = (
+				C753FAB127F1BC2700A818F3 /* CombineExtensions */,
+			);
 			productName = URLShortener;
 			productReference = C7DF18E527EA590200D1FAD6 /* URLShortener.app */;
 			productType = "com.apple.product-type.application";
@@ -368,6 +373,9 @@
 				Base,
 			);
 			mainGroup = C7DF18DC27EA590200D1FAD6;
+			packageReferences = (
+				C753FAB027F1BC2700A818F3 /* XCRemoteSwiftPackageReference "combineExtensions" */,
+			);
 			productRefGroup = C7DF18E627EA590200D1FAD6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -811,6 +819,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C753FAB027F1BC2700A818F3 /* XCRemoteSwiftPackageReference "combineExtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dsk1306/combineExtensions";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C753FAB127F1BC2700A818F3 /* CombineExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C753FAB027F1BC2700A818F3 /* XCRemoteSwiftPackageReference "combineExtensions" */;
+			productName = CombineExtensions;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C7DF18F127EA590200D1FAD6 /* URLShortener.xcdatamodeld */ = {
