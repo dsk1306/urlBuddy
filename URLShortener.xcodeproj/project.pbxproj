@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAAE27F1BBE500A818F3 /* Services.swift */; };
 		C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C753FAB127F1BC2700A818F3 /* CombineExtensions */; };
+		C753FABE27F2439B00A818F3 /* PersistenceDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FABD27F2439B00A818F3 /* PersistenceDecodingError.swift */; };
 		C767EE0E27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json in Resources */ = {isa = PBXBuildFile; fileRef = C767EE0C27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json */; };
 		C767EE0F27F0F8EB0053DC26 /* URLShortenerTests_Success.json in Resources */ = {isa = PBXBuildFile; fileRef = C767EE0D27F0F8EB0053DC26 /* URLShortenerTests_Success.json */; };
 		C767EE1127F0F9000053DC26 /* MockJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767EE1027F0F9000053DC26 /* MockJSON.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		C753FAAE27F1BBE500A818F3 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		C753FABD27F2439B00A818F3 /* PersistenceDecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceDecodingError.swift; sourceTree = "<group>"; };
 		C767EE0C27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = URLShortenerTests_InvalidURLSubmitted.json; sourceTree = "<group>"; };
 		C767EE0D27F0F8EB0053DC26 /* URLShortenerTests_Success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = URLShortenerTests_Success.json; sourceTree = "<group>"; };
 		C767EE1027F0F9000053DC26 /* MockJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJSON.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C753FAB327F1BD0A00A818F3 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				C753FABD27F2439B00A818F3 /* PersistenceDecodingError.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		C767EE0B27F0F88F0053DC26 /* -MockJSONs */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +174,7 @@
 				C77166EB27F103D300C0B472 /* Clipboard */,
 				C7AB8B4027F10649006592C2 /* CoreDataStack */,
 				C77DD6C827F079970037ACFF /* LinksShortener */,
+				C753FAB327F1BD0A00A818F3 /* Persistence */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -471,6 +482,7 @@
 				C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */,
 				C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */,
 				C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */,
+				C753FABE27F2439B00A818F3 /* PersistenceDecodingError.swift in Sources */,
 				C77DD6D027F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift in Sources */,
 				C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */,
 				C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */,
