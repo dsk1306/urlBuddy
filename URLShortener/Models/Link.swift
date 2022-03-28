@@ -40,26 +40,27 @@ extension Link: PersistenceDecodableModel {
     guard let id = keyValueRepresentation[PropertyKey.id] as? UUID else {
       throw PersistenceDecodingError.missingValue(key: PropertyKey.id)
     }
-    guard let original = keyValueRepresentation[PropertyKey.original] as? String else {
-      throw PersistenceDecodingError.missingValue(key: PropertyKey.original)
-    }
-    guard let originalURL = URL(string: original) else {
-      throw PersistenceDecodingError.unexpectedValue(key: PropertyKey.original)
-    }
-    guard let shorten = keyValueRepresentation[PropertyKey.shorten] as? String else {
-      throw PersistenceDecodingError.missingValue(key: PropertyKey.shorten)
-    }
-    guard let shortenURL = URL(string: shorten) else {
-      throw PersistenceDecodingError.unexpectedValue(key: PropertyKey.shorten)
-    }
     guard let modified = keyValueRepresentation[PropertyKey.modified] as? Date else {
       throw PersistenceDecodingError.missingValue(key: PropertyKey.modified)
     }
 
     self.id = id
-    self.original = originalURL
-    self.shorten = shortenURL
     self.modified = modified
+    self.original = try Self.url(for: PropertyKey.original, from: keyValueRepresentation)
+    self.shorten = try Self.url(for: PropertyKey.shorten, from: keyValueRepresentation)
+  }
+
+  private static func url(for key: String, from keyValueRepresentation: KeyValueRepresentation) throws -> URL {
+    guard let value = keyValueRepresentation[key] else {
+      throw PersistenceDecodingError.missingValue(key: key)
+    }
+    if let url = value as? URL {
+      return url
+    } else if let urlString = value as? String, let url = URL(string: urlString) {
+      return url
+    } else {
+      throw PersistenceDecodingError.unexpectedValue(key: key)
+    }
   }
 
 }
