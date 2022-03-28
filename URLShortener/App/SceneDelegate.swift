@@ -6,7 +6,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
 
-  private lazy var services = Services()
+  private lazy var services: Services = DefaultServices()
 
   private lazy var onError: (Error) -> Void = { error in
     // TODO: Handle Error
