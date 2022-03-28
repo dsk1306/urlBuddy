@@ -244,6 +244,14 @@
 			path = CoreDataStack;
 			sourceTree = "<group>";
 		};
+		C7BB4B3727F25F6E00AC3E1B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		C7DF18DC27EA590200D1FAD6 = {
 			isa = PBXGroup;
 			children = (
@@ -279,8 +287,8 @@
 		C7DF190127EA590400D1FAD6 /* URLShortenerTests */ = {
 			isa = PBXGroup;
 			children = (
-				C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */,
 				C767EE0B27F0F88F0053DC26 /* -MockJSONs */,
+				C7BB4B3727F25F6E00AC3E1B /* Services */,
 			);
 			path = URLShortenerTests;
 			sourceTree = "<group>";
