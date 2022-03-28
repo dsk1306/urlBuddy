@@ -1,3 +1,3 @@
 import Foundation
 
-protocol Services: AppLifecycleSubscribableService {}
+protocol Services: AnyObject, AppLifecycleSubscribableService {}
