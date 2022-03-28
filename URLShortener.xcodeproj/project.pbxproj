@@ -10,6 +10,8 @@
 		C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAAE27F1BBE500A818F3 /* Services.swift */; };
 		C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C753FAB127F1BC2700A818F3 /* CombineExtensions */; };
 		C753FABE27F2439B00A818F3 /* PersistenceDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FABD27F2439B00A818F3 /* PersistenceDecodingError.swift */; };
+		C753FAC027F2451500A818F3 /* PersistenceEncodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FABF27F2451500A818F3 /* PersistenceEncodableModel.swift */; };
+		C753FAC227F2452B00A818F3 /* PersistenceDecodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAC127F2452B00A818F3 /* PersistenceDecodableModel.swift */; };
 		C767EE0E27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json in Resources */ = {isa = PBXBuildFile; fileRef = C767EE0C27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json */; };
 		C767EE0F27F0F8EB0053DC26 /* URLShortenerTests_Success.json in Resources */ = {isa = PBXBuildFile; fileRef = C767EE0D27F0F8EB0053DC26 /* URLShortenerTests_Success.json */; };
 		C767EE1127F0F9000053DC26 /* MockJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767EE1027F0F9000053DC26 /* MockJSON.swift */; };
@@ -63,6 +65,8 @@
 /* Begin PBXFileReference section */
 		C753FAAE27F1BBE500A818F3 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		C753FABD27F2439B00A818F3 /* PersistenceDecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceDecodingError.swift; sourceTree = "<group>"; };
+		C753FABF27F2451500A818F3 /* PersistenceEncodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceEncodableModel.swift; sourceTree = "<group>"; };
+		C753FAC127F2452B00A818F3 /* PersistenceDecodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceDecodableModel.swift; sourceTree = "<group>"; };
 		C767EE0C27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = URLShortenerTests_InvalidURLSubmitted.json; sourceTree = "<group>"; };
 		C767EE0D27F0F8EB0053DC26 /* URLShortenerTests_Success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = URLShortenerTests_Success.json; sourceTree = "<group>"; };
 		C767EE1027F0F9000053DC26 /* MockJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJSON.swift; sourceTree = "<group>"; };
@@ -130,7 +134,9 @@
 		C753FAB327F1BD0A00A818F3 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				C753FAC127F2452B00A818F3 /* PersistenceDecodableModel.swift */,
 				C753FABD27F2439B00A818F3 /* PersistenceDecodingError.swift */,
+				C753FABF27F2451500A818F3 /* PersistenceEncodableModel.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 			files = (
 				C77DD6CE27F07B680037ACFF /* LinksShortenerService.swift in Sources */,
 				C77166EA27F103B600C0B472 /* Link.swift in Sources */,
+				C753FAC027F2451500A818F3 /* PersistenceEncodableModel.swift in Sources */,
 				C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */,
 				C7AB8B4627F108FA006592C2 /* DefaultCoreDataStack.swift in Sources */,
 				C77DD6C727F079360037ACFF /* APIService.swift in Sources */,
@@ -483,6 +490,7 @@
 				C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */,
 				C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */,
 				C753FABE27F2439B00A818F3 /* PersistenceDecodingError.swift in Sources */,
+				C753FAC227F2452B00A818F3 /* PersistenceDecodableModel.swift in Sources */,
 				C77DD6D027F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift in Sources */,
 				C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */,
 				C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */,
