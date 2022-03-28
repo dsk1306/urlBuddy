@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAAE27F1BBE500A818F3 /* Services.swift */; };
 		C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C753FAB127F1BC2700A818F3 /* CombineExtensions */; };
+		C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */; };
 		C753FAB827F1D7CC00A818F3 /* DatabaseLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAB627F1D7CC00A818F3 /* DatabaseLink.swift */; };
 		C753FABC27F1D86A00A818F3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C753FABB27F1D86A00A818F3 /* CloudKit.framework */; };
 		C753FABE27F2439B00A818F3 /* PersistenceDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FABD27F2439B00A818F3 /* PersistenceDecodingError.swift */; };
 		C753FAC027F2451500A818F3 /* PersistenceEncodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FABF27F2451500A818F3 /* PersistenceEncodableModel.swift */; };
 		C753FAC227F2452B00A818F3 /* PersistenceDecodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAC127F2452B00A818F3 /* PersistenceDecodableModel.swift */; };
+		C753FAC427F24CBC00A818F3 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAC327F24CBC00A818F3 /* PersistenceService.swift */; };
 		C767EE0E27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json in Resources */ = {isa = PBXBuildFile; fileRef = C767EE0C27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json */; };
 		C767EE0F27F0F8EB0053DC26 /* URLShortenerTests_Success.json in Resources */ = {isa = PBXBuildFile; fileRef = C767EE0D27F0F8EB0053DC26 /* URLShortenerTests_Success.json */; };
 		C767EE1127F0F9000053DC26 /* MockJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767EE1027F0F9000053DC26 /* MockJSON.swift */; };
@@ -66,11 +68,13 @@
 
 /* Begin PBXFileReference section */
 		C753FAAE27F1BBE500A818F3 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPersistenceService.swift; sourceTree = "<group>"; };
 		C753FAB627F1D7CC00A818F3 /* DatabaseLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLink.swift; sourceTree = "<group>"; };
 		C753FABB27F1D86A00A818F3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C753FABD27F2439B00A818F3 /* PersistenceDecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceDecodingError.swift; sourceTree = "<group>"; };
 		C753FABF27F2451500A818F3 /* PersistenceEncodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceEncodableModel.swift; sourceTree = "<group>"; };
 		C753FAC127F2452B00A818F3 /* PersistenceDecodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceDecodableModel.swift; sourceTree = "<group>"; };
+		C753FAC327F24CBC00A818F3 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		C767EE0C27F0F8EB0053DC26 /* URLShortenerTests_InvalidURLSubmitted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = URLShortenerTests_InvalidURLSubmitted.json; sourceTree = "<group>"; };
 		C767EE0D27F0F8EB0053DC26 /* URLShortenerTests_Success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = URLShortenerTests_Success.json; sourceTree = "<group>"; };
 		C767EE1027F0F9000053DC26 /* MockJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJSON.swift; sourceTree = "<group>"; };
@@ -139,9 +143,11 @@
 		C753FAB327F1BD0A00A818F3 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */,
 				C753FAC127F2452B00A818F3 /* PersistenceDecodableModel.swift */,
 				C753FABD27F2439B00A818F3 /* PersistenceDecodingError.swift */,
 				C753FABF27F2451500A818F3 /* PersistenceEncodableModel.swift */,
+				C753FAC327F24CBC00A818F3 /* PersistenceService.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -492,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C753FAB827F1D7CC00A818F3 /* DatabaseLink.swift in Sources */,
 				C77DD6CE27F07B680037ACFF /* LinksShortenerService.swift in Sources */,
 				C77166EA27F103B600C0B472 /* Link.swift in Sources */,
 				C753FAC027F2451500A818F3 /* PersistenceEncodableModel.swift in Sources */,
@@ -502,10 +509,12 @@
 				C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */,
 				C7AB8B4427F10675006592C2 /* AppLifecycleSubscribableService.swift in Sources */,
 				C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */,
+				C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */,
 				C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */,
 				C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */,
 				C753FABE27F2439B00A818F3 /* PersistenceDecodingError.swift in Sources */,
 				C753FAC227F2452B00A818F3 /* PersistenceDecodableModel.swift in Sources */,
+				C753FAC427F24CBC00A818F3 /* PersistenceService.swift in Sources */,
 				C77DD6D027F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift in Sources */,
 				C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */,
 				C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */,
