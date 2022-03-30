@@ -6,12 +6,23 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
 
+  private lazy var services: Services = DefaultServices()
+
+  private lazy var onError: (Error) -> Void = { error in
+    // TODO: Handle Error
+    print(error.localizedDescription)
+  }
+
   // MARK: - UIWindowSceneDelegate
 
-  func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {}
+  func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    services.handleConnectToScene(with: connectionOptions, onError: onError)
+    ImageAsset.onError = onError
+    ColorAsset.onError = onError
+  }
 
   func sceneDidEnterBackground(_ scene: UIScene) {
-    (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    services.handleSceneEnteringBackground(onError: onError)
   }
 
 }
