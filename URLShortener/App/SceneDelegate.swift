@@ -2,15 +2,18 @@ import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+  // MARK: - Typealiases
+
+  private typealias ErrorHandler = AppLifecycleSubscribableService.ErrorHandler
+
   // MARK: - Properties
 
   var window: UIWindow?
 
   private lazy var services: Services = DefaultServices()
 
-  private lazy var onError: (Error) -> Void = { error in
-    // TODO: Handle Error
-    print(error.localizedDescription)
+  private lazy var onError: ErrorHandler = { [weak services] error in
+    services?.logger.log(error: error)
   }
 
   // MARK: - UIWindowSceneDelegate
