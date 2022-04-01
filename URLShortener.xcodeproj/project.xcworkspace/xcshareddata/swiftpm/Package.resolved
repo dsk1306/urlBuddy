@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "bugsnag-cocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bugsnag/bugsnag-cocoa",
+      "state" : {
+        "revision" : "08d2bdbcebc096b76abc0088396f2de386e00e84",
+        "version" : "6.16.5"
+      }
+    },
+    {
       "identity" : "combineextensions",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dsk1306/combineExtensions",
