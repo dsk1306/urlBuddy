@@ -34,6 +34,7 @@
 		C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6D327F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift */; };
 		C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8C27EA67A10095E352 /* ColorAsset.swift */; };
 		C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8D27EA67A10095E352 /* ImageAsset.swift */; };
+		C796498E27F73AEE00B613F4 /* Bugsnag in Frameworks */ = {isa = PBXBuildFile; productRef = C796498D27F73AEE00B613F4 /* Bugsnag */; };
 		C7AB8B4227F10657006592C2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4127F10657006592C2 /* CoreDataStack.swift */; };
 		C7AB8B4427F10675006592C2 /* AppLifecycleSubscribableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4327F10675006592C2 /* AppLifecycleSubscribableService.swift */; };
 		C7AB8B4627F108FA006592C2 /* DefaultCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4527F108FA006592C2 /* DefaultCoreDataStack.swift */; };
@@ -120,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C796498E27F73AEE00B613F4 /* Bugsnag in Frameworks */,
 				C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */,
 				C753FABC27F1D86A00A818F3 /* CloudKit.framework in Frameworks */,
 			);
@@ -357,6 +359,7 @@
 			name = URLShortener;
 			packageProductDependencies = (
 				C753FAB127F1BC2700A818F3 /* CombineExtensions */,
+				C796498D27F73AEE00B613F4 /* Bugsnag */,
 			);
 			productName = URLShortener;
 			productReference = C7DF18E527EA590200D1FAD6 /* URLShortener.app */;
@@ -432,6 +435,7 @@
 			mainGroup = C7DF18DC27EA590200D1FAD6;
 			packageReferences = (
 				C753FAB027F1BC2700A818F3 /* XCRemoteSwiftPackageReference "combineExtensions" */,
+				C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
 			);
 			productRefGroup = C7DF18E627EA590200D1FAD6 /* Products */;
 			projectDirPath = "";
@@ -895,6 +899,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bugsnag/bugsnag-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -902,6 +914,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C753FAB027F1BC2700A818F3 /* XCRemoteSwiftPackageReference "combineExtensions" */;
 			productName = CombineExtensions;
+		};
+		C796498D27F73AEE00B613F4 /* Bugsnag */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */;
+			productName = Bugsnag;
 		};
 /* End XCSwiftPackageProductDependency section */
 
