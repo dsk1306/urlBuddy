@@ -3,14 +3,18 @@ import Foundation
 
 protocol PersistenceService {
 
-  typealias SaveResult = AnyPublisher<Void, Error>
-  typealias EditResult = AnyPublisher<Void, Error>
-  typealias DeleteResult = AnyPublisher<Void, Error>
-  typealias FetchResult<Output> = AnyPublisher<Output, Error>
+  typealias SavePublisher = AnyPublisher<Void, Error>
+  typealias EditPublisher = AnyPublisher<Void, Error>
+  typealias DeletePublisher = AnyPublisher<Void, Error>
+  typealias FetchPublisher<Output> = AnyPublisher<Output, Error>
   typealias ErrorHandler = (Error) -> Void
 
-  func save(link: Link) -> SaveResult
-  func delete(link: Link) -> DeleteResult
-  func fetchLinks(onError: @escaping ErrorHandler) -> FetchResult<[Link]>
+  func save(link: Link) -> SavePublisher
+  func save(link: Link) async throws
+
+  func delete(link: Link) -> DeletePublisher
+  func delete(link: Link) async throws
+
+  func fetchLinks(onError: @escaping ErrorHandler) -> FetchPublisher<[Link]>
 
 }

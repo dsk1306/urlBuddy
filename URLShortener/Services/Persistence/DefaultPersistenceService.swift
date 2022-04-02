@@ -22,7 +22,7 @@ private extension DefaultPersistenceService {
 
   func save(model: PersistenceEncodableModel,
             forEntityName entityName: String,
-            context: NSManagedObjectContext) -> SaveResult {
+            context: NSManagedObjectContext) -> SavePublisher {
 
     Future<Void, Error> { promise in
       context.perform {
@@ -44,10 +44,25 @@ private extension DefaultPersistenceService {
     .eraseToAnyPublisher()
   }
 
+  func save(model: PersistenceEncodableModel,
+            forEntityName entityName: String,
+            context: NSManagedObjectContext) async throws {
+
+    try await context.perform {
+      let entity = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context)
+
+      model.keyValueRepresentation
+        .compactMapValues { $0 }
+        .forEach { entity.setValue($0.value, forKey: $0.key) }
+
+      try context.save()
+    }
+  }
+
   func fetch(withEntityName entityName: String,
              context: NSManagedObjectContext,
              sortDescriptors: [NSSortDescriptor]? = nil,
-             predicate: NSPredicate? = nil) -> FetchResult<[NSManagedObject]> {
+             predicate: NSPredicate? = nil) -> FetchPublisher<[NSManagedObject]> {
 
     Future { promise in
       context.perform {
@@ -66,9 +81,23 @@ private extension DefaultPersistenceService {
     .eraseToAnyPublisher()
   }
 
+  func fetch(withEntityName entityName: String,
+             context: NSManagedObjectContext,
+             sortDescriptors: [NSSortDescriptor]? = nil,
+             predicate: NSPredicate? = nil) async throws -> [NSManagedObject] {
+
+    try await context.perform {
+      let request = NSFetchRequest<NSManagedObject>(entityName: entityName)
+      request.sortDescriptors = sortDescriptors
+      request.predicate = predicate
+
+      return try context.fetch(request)
+    }
+  }
+
   func delete<Object>(object: Object,
                       withEntityName entityName: String,
-                      context: NSManagedObjectContext) -> DeleteResult
+                      context: NSManagedObjectContext) -> DeletePublisher
                       where Object: PersistenceEncodableModel & Identifiable {
 
     guard let objectID = object.id as? UUID else {
@@ -105,9 +134,37 @@ private extension DefaultPersistenceService {
     .eraseToAnyPublisher()
   }
 
+  func delete<Object>(object: Object,
+                      withEntityName entityName: String,
+                      context: NSManagedObjectContext) async throws
+                      where Object: PersistenceEncodableModel & Identifiable {
+
+    guard let objectID = object.id as? UUID else {
+      throw ServiceError.unexpectedDeletedObjectID
+    }
+
+    let records = try await fetch(
+      withEntityName: entityName,
+      context: context,
+      predicate: NSPredicate(format: "id == %@", objectID as CVarArg)
+    )
+
+    if records.count > 1 {
+      throw ServiceError.unexpectedDeletedRecordsAmount
+    }
+    guard let record = records.first else {
+      throw ServiceError.nilDeleteRecord
+    }
+
+    try await context.perform {
+      context.delete(record)
+      try context.save()
+    }
+  }
+
   func edit<Object>(object: Object,
                     withEntityName entityName: String,
-                    context: NSManagedObjectContext) -> EditResult
+                    context: NSManagedObjectContext) -> EditPublisher
                     where Object: PersistenceEncodableModel & Identifiable {
 
     guard let objectID = object.id as? UUID else {
@@ -154,15 +211,23 @@ private extension DefaultPersistenceService {
 
 extension DefaultPersistenceService: PersistenceService {
 
-  func save(link: Link) -> SaveResult {
+  func save(link: Link) -> SavePublisher {
     save(model: link, forEntityName: Constant.linkEntityName, context: coreDataStack.backgroundContext)
   }
 
-  func delete(link: Link) -> DeleteResult {
+  func save(link: Link) async throws {
+    try await save(model: link, forEntityName: Constant.linkEntityName, context: coreDataStack.backgroundContext)
+  }
+
+  func delete(link: Link) -> DeletePublisher {
     delete(object: link, withEntityName: Constant.linkEntityName, context: coreDataStack.backgroundContext)
   }
 
-  func fetchLinks(onError: @escaping ErrorHandler) -> FetchResult<[Link]> {
+  func delete(link: Link) async throws {
+    try await delete(object: link, withEntityName: Constant.linkEntityName, context: coreDataStack.backgroundContext)
+  }
+
+  func fetchLinks(onError: @escaping ErrorHandler) -> FetchPublisher<[Link]> {
     fetch(
       withEntityName: Constant.linkEntityName,
       context: coreDataStack.viewContext,
