@@ -382,6 +382,7 @@
 				C7DF18E127EA590200D1FAD6 /* Sources */,
 				C7DF18E227EA590200D1FAD6 /* Frameworks */,
 				C7DF18E327EA590200D1FAD6 /* Resources */,
+				C7CC818B27F8B62F008EE891 /* 🛠Genstrings */,
 				C7BEF7D927EA6AD600FA651B /* 🛠SwiftLint */,
 			);
 			buildRules = (
@@ -546,6 +547,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C7CC818B27F8B62F008EE891 /* 🛠Genstrings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "🛠Genstrings";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ${PROJECT_DIR}/URLShortener\nfind . -name \\*.swift | xargs genstrings -o ${PROJECT_DIR}/URLShortener/Resources/en.lproj\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
