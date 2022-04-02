@@ -120,9 +120,9 @@ private extension LinksShortenerViewModel {
         }
         .subscribe(shortenedLinkRelay)
       errorRelay
-        .sink { [weak cordinator] in cordinator?.showAlert(for: $0) }
+        .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
       shortenedLinkRelay
-        .sink { [weak self] in self?.clipboardService.paste(link: $0) }
+        .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
     }
   }
 

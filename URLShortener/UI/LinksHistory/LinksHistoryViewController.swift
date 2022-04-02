@@ -22,9 +22,9 @@ final class LinksHistoryViewController: UICollectionViewController {
     cell.configure(with: .init(link: item))
     cell.reusableCancellable {
       cell.copy
-        .sink { viewModel?.input.copyLink.accept(item) }
+        .sinkValue { viewModel?.input.copyLink.accept(item) }
       cell.delete
-        .sink { viewModel?.input.deleteLink.accept(item) }
+        .sinkValue { viewModel?.input.deleteLink.accept(item) }
     }
     return cell
   }
@@ -79,7 +79,7 @@ final class LinksHistoryViewController: UICollectionViewController {
         return bounds.height - self.collectionView.safeAreaInsets.bottom
       }
       .removeDuplicates()
-      .sink { [weak self] inset in
+      .sinkValue { [weak self] inset in
         self?.collectionView.contentInset.bottom = inset
         self?.collectionView.verticalScrollIndicatorInsets.bottom = inset
         self?.emptyViewBottomConstraint?.constant = inset
@@ -127,11 +127,11 @@ private extension LinksHistoryViewController {
     cancellable {
       viewModel.output.savedLinks
         .map(Self.snapshot)
-        .sink { [weak dataSource] in dataSource?.apply($0) }
+        .sinkValue { [weak dataSource] in dataSource?.apply($0) }
       viewModel.output.savedLinks
         .map { $0.isEmpty }
         .removeDuplicates()
-        .sink { [weak self] isEmpty in
+        .sinkValue { [weak self] isEmpty in
           self?.navigationItem.titleView = isEmpty ? nil : self?.titleView
           self?.configureEmptyView(isEmpty: isEmpty)
         }

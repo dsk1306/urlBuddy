@@ -72,15 +72,15 @@ private extension LinksHistoryViewModel {
         }
         .subscribe(savedLinksRelay)
       input.copyLink
-        .sink { [weak self] link in
+        .sinkValue { [weak self] link in
           self?.clipboardService.paste(link: link)
         }
       input.deleteLink
-        .sink { [weak self] in self?.delete(link: $0) }
+        .sinkValue { [weak self] in self?.delete(link: $0) }
       input.saveLink
-        .sink { [weak self] in self?.save(link: $0) }
+        .sinkValue { [weak self] in self?.save(link: $0) }
       errorRelay
-        .sink { [weak cordinator] in cordinator?.showAlert(for: $0) }
+        .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
     }
   }
 

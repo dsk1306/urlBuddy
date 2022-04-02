@@ -109,13 +109,13 @@ private extension LinksShortenerViewController {
   func bind() {
     cancellable {
       viewModel.output.emptyURLError
-        .sink { [weak self] in self?.urlTextField.configure(for: .emptyLink) }
+        .sinkValue { [weak self] in self?.urlTextField.configure(for: .emptyLink) }
       Publishers.Merge3(
         viewModel.output.error.map { _ in () },
         viewModel.output.emptyURLError,
         viewModel.output.shortenedLink.map { _ in () }
       )
-      .sink { [weak shortenButton] in shortenButton?.configureLoadingState(isLoading: false) }
+      .sinkValue { [weak shortenButton] in shortenButton?.configureLoadingState(isLoading: false) }
     }
   }
 
