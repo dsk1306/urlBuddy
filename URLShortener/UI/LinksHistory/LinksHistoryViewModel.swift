@@ -76,9 +76,13 @@ private extension LinksHistoryViewModel {
           self?.clipboardService.paste(link: link)
         }
       input.deleteLink
-        .sinkValue { [weak self] in self?.delete(link: $0) }
+        .sinkValue { [weak self] link in
+          await self?.delete(link: link)
+        }
       input.saveLink
-        .sinkValue { [weak self] in self?.save(link: $0) }
+        .sinkValue { [weak self] link in
+          await self?.save(link: link)
+        }
       errorRelay
         .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
     }
@@ -90,30 +94,24 @@ private extension LinksHistoryViewModel {
       .eraseToAnyPublisher()
   }
 
-  func delete(link: Link) {
-    Task { [weak self] in
-      guard let self = self else { return }
-      do {
-        try await self.persistenceService.delete(link: link)
-      } catch {
-        self.errorRelay.accept(error)
-      }
+  func delete(link: Link) async {
+    do {
+      try await self.persistenceService.delete(link: link)
+    } catch {
+      self.errorRelay.accept(error)
     }
   }
 
-  func save(link: Link) {
-    Task { [weak self] in
-      guard let self = self else { return }
-      do {
-        if var link = try await self.persistenceService.fetchLinks(withOriginalURL: link.originalString).first {
-          link.modified = Date()
-          try await self.persistenceService.edit(link: link)
-        } else {
-          try await self.persistenceService.save(link: link)
-        }
-      } catch {
-        self.errorRelay.accept(error)
+  func save(link: Link) async {
+    do {
+      if var link = try await self.persistenceService.fetchLinks(withOriginalURL: link.originalString).first {
+        link.modified = Date()
+        try await self.persistenceService.edit(link: link)
+      } else {
+        try await self.persistenceService.save(link: link)
       }
+    } catch {
+      self.errorRelay.accept(error)
     }
   }
 
