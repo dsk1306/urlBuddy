@@ -106,6 +106,7 @@
 		C7AB8B4527F108FA006592C2 /* DefaultCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoreDataStack.swift; sourceTree = "<group>"; };
 		C7AB8B4727F10A90006592C2 /* DefaultServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServices.swift; sourceTree = "<group>"; };
 		C7BB4B3927F25FAB00AC3E1B /* LinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTests.swift; sourceTree = "<group>"; };
+		C7CC818A27F8B617008EE891 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLinksShortenerServiceTests.swift; sourceTree = "<group>"; };
 		C7DF18E527EA590200D1FAD6 /* URLShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -339,7 +340,6 @@
 				C7DF18F927EA590400D1FAD6 /* Info.plist */,
 				C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */,
 				C7DF18EA27EA590200D1FAD6 /* SceneDelegate.swift */,
-				C7DF18F627EA590400D1FAD6 /* LaunchScreen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -351,6 +351,7 @@
 				C78FCB8D27EA67A10095E352 /* ImageAsset.swift */,
 				C7DF191E27EA5BC800D1FAD6 /* Colors.xcassets */,
 				C7DF18F427EA590400D1FAD6 /* Images.xcassets */,
+				C7DF18F627EA590400D1FAD6 /* LaunchScreen.storyboard */,
 				C7DF18F127EA590200D1FAD6 /* URLShortener.xcdatamodeld */,
 			);
 			path = Resources;
@@ -612,6 +613,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C7DF18F727EA590400D1FAD6 /* Base */,
+				C7CC818A27F8B617008EE891 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
