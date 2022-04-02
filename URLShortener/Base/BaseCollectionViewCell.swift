@@ -31,7 +31,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
     reusableCancellable = CombineCancellable()
     reusableBind()
   }
-  
+
   // MARK: - Public
 
   /// Configures cell subviews.

@@ -20,5 +20,5 @@ class BaseView: UIView {
 
   /// Configures cell subviews.
   func configureSubviews() {}
-  
+
 }

@@ -3,7 +3,7 @@ import UIKit
 // MARK: - Constraints Makers
 
 extension UIView {
-  
+
   typealias ConstraintsMaker = (_ view: UIView, _ superView: UIView) -> [NSLayoutConstraint]
   typealias ArrangedSubviewConstraintsMaker = (_ view: UIView, _ stackView: UIStackView) -> [NSLayoutConstraint]
 
