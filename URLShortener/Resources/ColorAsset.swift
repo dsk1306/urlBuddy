@@ -4,6 +4,11 @@ import UIKit
 // swiftlint:disable all
 enum ColorAsset {
 
+  static var athensGray: UIColor { Asset(name: "athensGray").color }
+  static var martinique: UIColor { Asset(name: "martinique").color }
+  static var tuna: UIColor { Asset(name: "tuna").color }
+  static var turquoise: UIColor { Asset(name: "turquoise").color }
+  static var сarnation: UIColor { Asset(name: "сarnation").color }
 
   static var onError: ((Error) -> Void)?
 

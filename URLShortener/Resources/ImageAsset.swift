@@ -4,6 +4,9 @@ import UIKit
 // swiftlint:disable all
 enum ImageAsset {
 
+  static var background: UIImage { Asset(name: "background").image }
+  static var delete: UIImage { Asset(name: "delete").image }
+  static var logo: UIImage { Asset(name: "logo").image }
 
   static var onError: ((Error) -> Void)?
 
