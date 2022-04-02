@@ -7,7 +7,7 @@ struct Link: Codable, Hashable, Identifiable {
   let id: UUID
   let original: URL
   let shorten: URL
-  let modified: Date
+  var modified: Date
 
   var originalString: String {
     original.absoluteString.lowercased()

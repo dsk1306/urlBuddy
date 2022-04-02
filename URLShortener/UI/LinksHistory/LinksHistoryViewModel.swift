@@ -105,7 +105,12 @@ private extension LinksHistoryViewModel {
     Task { [weak self] in
       guard let self = self else { return }
       do {
-        try await self.persistenceService.save(link: link)
+        if var link = try await self.persistenceService.fetchLinks(withOriginalURL: link.originalString).first {
+          link.modified = Date()
+          try await self.persistenceService.edit(link: link)
+        } else {
+          try await self.persistenceService.save(link: link)
+        }
       } catch {
         self.errorRelay.accept(error)
       }
