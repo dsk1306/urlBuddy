@@ -32,6 +32,7 @@
 		C77DD6D027F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6CF27F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift */; };
 		C77DD6D227F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6D127F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift */; };
 		C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6D327F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift */; };
+		C78C88F127F8BACC00302E75 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */; };
 		C78C88F527F8BAFD00302E75 /* Publisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F427F8BAFD00302E75 /* Publisher+Ext.swift */; };
 		C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8C27EA67A10095E352 /* ColorAsset.swift */; };
 		C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8D27EA67A10095E352 /* ImageAsset.swift */; };
@@ -99,6 +100,7 @@
 		C77DD6CF27F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultLinksShortenerService+ResponseErrorModel.swift"; sourceTree = "<group>"; };
 		C77DD6D127F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultLinksShortenerService+ResponseModel.swift"; sourceTree = "<group>"; };
 		C77DD6D327F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultLinksShortenerService+ResponseModelResult.swift"; sourceTree = "<group>"; };
+		C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 		C78C88F427F8BAFD00302E75 /* Publisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Ext.swift"; sourceTree = "<group>"; };
 		C78FCB8C27EA67A10095E352 /* ColorAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
 		C78FCB8D27EA67A10095E352 /* ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				C78C88F427F8BAFD00302E75 /* Publisher+Ext.swift */,
+				C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */,
 				C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */,
 				C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */,
+				C78C88F127F8BACC00302E75 /* UICollectionView+Ext.swift in Sources */,
 				C753FABE27F2439B00A818F3 /* PersistenceDecodingError.swift in Sources */,
 				C7CC818827F8B549008EE891 /* LocalizedString.swift in Sources */,
 				C753FAC227F2452B00A818F3 /* PersistenceDecodableModel.swift in Sources */,
