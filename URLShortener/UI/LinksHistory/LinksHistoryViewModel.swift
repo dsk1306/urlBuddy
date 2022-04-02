@@ -85,7 +85,7 @@ private extension LinksHistoryViewModel {
   }
 
   func fetchedLinks() -> AnyPublisher<[Link], Never> {
-    persistenceService.fetchLinks { _ in }
+    persistenceService.fetchLinks()
       .catch { [weak self] in self?.errorRelay.accept($0) }
       .eraseToAnyPublisher()
   }

@@ -15,6 +15,13 @@ protocol PersistenceService {
   func delete(link: Link) -> DeletePublisher
   func delete(link: Link) async throws
 
-  func fetchLinks(onError: @escaping ErrorHandler) -> FetchPublisher<[Link]>
+  func edit(link: Link) -> EditPublisher
+  func edit(link: Link) async throws
+
+  func fetchLinks() -> FetchPublisher<[Link]>
+  func fetchLinks() async throws -> [Link]
+
+  func fetchLinks(withOriginalURL original: String) -> FetchPublisher<[Link]>
+  func fetchLinks(withOriginalURL original: String) async throws -> [Link]
 
 }
