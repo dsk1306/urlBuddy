@@ -10,7 +10,7 @@ protocol LinksShortenerViewModelBindable {
 
 // MARK: -
 
-final class LinksShortenerViewModel {
+final class LinksShortenerViewModel: BaseViewModel {
 
   // MARK: - Input
 
@@ -41,8 +41,6 @@ final class LinksShortenerViewModel {
   private let linksShortenerService: LinksShortenerService
   private let clipboardService: ClipboardService
 
-  private let cancellable = CombineCancellable()
-
   // MARK: - Properties - Relays
 
   private let urlTextRelay = CurrentValueRelay<String>("")
@@ -52,9 +50,9 @@ final class LinksShortenerViewModel {
 
   // MARK: - Initialization
 
-  init(linksShortenerService: LinksShortenerService, clipboardService: ClipboardService, cordinator: RootCoordinator) {
-    self.linksShortenerService = linksShortenerService
-    self.clipboardService = clipboardService
+  init(services: Services, cordinator: RootCoordinator) {
+    self.linksShortenerService = services.linksShortener
+    self.clipboardService = services.clipboard
     self.cordinator = cordinator
 
     self.output = Output(
@@ -63,7 +61,28 @@ final class LinksShortenerViewModel {
       shortenedLink: shortenedLinkRelay.prepareToOutput()
     )
 
-    bind()
+    super.init()
+  }
+
+  // MARK: - Base Class
+
+  override func bind() {
+    super.bind()
+
+    cancellable {
+      input.urlTextChanged.subscribe(urlTextRelay)
+      input.shorten
+        .withLatestFrom(urlTextRelay)
+        .compactMap { [weak self] in self?.url(from: $0) }
+        .flatMap { [weak self] url in
+          self?.shortenerPublisher(for: url) ?? Empty().eraseToAnyPublisher()
+        }
+        .subscribe(shortenedLinkRelay)
+      errorRelay
+        .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
+      shortenedLinkRelay
+        .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
+    }
   }
 
 }
@@ -101,29 +120,6 @@ private extension LinksShortenerViewModel {
       .map { Link(original: originalURL, shorten: $0) }
       .catch { [weak errorRelay] in errorRelay?.accept($0) }
       .eraseToAnyPublisher()
-  }
-
-}
-
-// MARK: - Private Methods - Binding
-
-private extension LinksShortenerViewModel {
-
-  func bind() {
-    cancellable {
-      input.urlTextChanged.subscribe(urlTextRelay)
-      input.shorten
-        .withLatestFrom(urlTextRelay)
-        .compactMap { [weak self] in self?.url(from: $0) }
-        .flatMap { [weak self] url in
-          self?.shortenerPublisher(for: url) ?? Empty().eraseToAnyPublisher()
-        }
-        .subscribe(shortenedLinkRelay)
-      errorRelay
-        .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
-      shortenedLinkRelay
-        .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
-    }
   }
 
 }

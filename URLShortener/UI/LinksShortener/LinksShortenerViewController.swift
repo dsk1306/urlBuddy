@@ -107,6 +107,8 @@ private extension LinksShortenerViewController {
 private extension LinksShortenerViewController {
 
   func bind() {
+    viewModel.bind()
+
     cancellable {
       viewModel.output.emptyURLError
         .sinkValue { [weak self] in self?.urlTextField.configure(for: .emptyLink) }

@@ -2,7 +2,7 @@ import Combine
 import CombineExtensions
 import Foundation
 
-final class LinksHistoryViewModel {
+final class LinksHistoryViewModel: BaseViewModel {
 
   // MARK: - Input
 
@@ -34,8 +34,6 @@ final class LinksHistoryViewModel {
   private let persistenceService: PersistenceService
   private let clipboardService: ClipboardService
 
-  private let cancellable = CombineCancellable()
-
   // MARK: - Properties - Relays
 
   private let errorRelay = PassthroughRelay<Error>()
@@ -43,25 +41,23 @@ final class LinksHistoryViewModel {
 
   // MARK: - Initialization
 
-  init(persistenceService: PersistenceService, clipboardService: ClipboardService, cordinator: RootCoordinator) {
-    self.persistenceService = persistenceService
-    self.clipboardService = clipboardService
+  init(services: Services, cordinator: RootCoordinator) {
+    self.persistenceService = services.persistence
+    self.clipboardService = services.clipboard
     self.cordinator = cordinator
 
     self.output = Output(
       savedLinks: savedLinksRelay.removeDuplicates().prepareToOutput()
     )
 
-    bind()
+    super.init()
   }
 
-}
+  // MARK: - Base Class
 
-// MARK: - Private Methods
+  override func bind() {
+    super.bind()
 
-private extension LinksHistoryViewModel {
-
-  func bind() {
     cancellable {
       NotificationCenter.default.publisher(for: .NSManagedObjectContextObjectsDidChange)
         .debounce(for: Constant.dataReloadDebounceTime, scheduler: RunLoop.main)
@@ -87,6 +83,12 @@ private extension LinksHistoryViewModel {
         .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
     }
   }
+
+}
+
+// MARK: - Private Methods
+
+private extension LinksHistoryViewModel {
 
   func fetchedLinks() -> AnyPublisher<[Link], Never> {
     persistenceService.fetchLinks()

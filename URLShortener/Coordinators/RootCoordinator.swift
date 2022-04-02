@@ -28,16 +28,14 @@ extension RootCoordinator {
     }
 
     let historyViewModel = LinksHistoryViewModel(
-      persistenceService: services.persistence,
-      clipboardService: services.clipboard,
+      services: services,
       cordinator: self
     )
     let historyController = LinksHistoryViewController(viewModel: historyViewModel)
     let navigationController = UINavigationController(rootViewController: historyController)
 
     let shortenerViewModel = LinksShortenerViewModel(
-      linksShortenerService: services.linksShortener,
-      clipboardService: services.clipboard,
+      services: services,
       cordinator: self
     )
     let shortenerController = LinksShortenerViewController(viewModel: shortenerViewModel)

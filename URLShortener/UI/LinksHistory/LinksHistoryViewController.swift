@@ -124,6 +124,8 @@ private extension LinksHistoryViewController {
 private extension LinksHistoryViewController {
 
   func bind() {
+    viewModel.bind()
+
     cancellable {
       viewModel.output.savedLinks
         .map(Self.snapshot)

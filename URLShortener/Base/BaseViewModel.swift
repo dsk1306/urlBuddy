@@ -8,4 +8,8 @@ class BaseViewModel {
 
   let cancellable = CombineCancellable()
 
+  // MARK: - Public Methods
+
+  func bind() {}
+
 }
