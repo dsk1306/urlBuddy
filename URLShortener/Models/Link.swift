@@ -2,6 +2,8 @@ import Foundation
 
 struct Link: Codable, Hashable, Identifiable {
 
+  // MARK: - Properties
+
   let id: UUID
   let original: URL
   let shorten: URL
@@ -13,6 +15,15 @@ struct Link: Codable, Hashable, Identifiable {
 
   var shortenString: String {
     shorten.absoluteString.lowercased()
+  }
+
+  // MARK: - Initialization
+
+  init(original: URL, shorten: URL, id: UUID = UUID(), modified: Date = Date()) {
+    self.id = id
+    self.original = original
+    self.shorten = shorten
+    self.modified = modified
   }
 
 }
