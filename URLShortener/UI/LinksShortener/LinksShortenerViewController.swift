@@ -16,17 +16,17 @@ final class LinksShortenerViewController: UIViewController {
 
   // MARK: - Properties - Subviews
 
-  private lazy var shortenButton = ActivityIndicatorButton() ->> { shortenButton in
-    shortenButton.backgroundColor = ColorAsset.turquoise
-    shortenButton.setTitle(LocalizedString.cta.uppercased(), for: .normal)
-    shortenButton.setTitleColor(.white, for: .normal)
-    shortenButton.addTarget(self, action: #selector(shortenButtonTouchUpInside), for: .touchUpInside)
-    shortenButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
+  private lazy var shortenButton = ActivityIndicatorButton() ->> {
+    $0.backgroundColor = ColorAsset.turquoise
+    $0.setTitle(LocalizedString.cta.uppercased(), for: .normal)
+    $0.setTitleColor(.white, for: .normal)
+    $0.addTarget(self, action: #selector(shortenButtonTouchUpInside), for: .touchUpInside)
+    $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
   }
 
-  private lazy var urlTextField = LinksShortenerURLTextField() ->> { urlTextField in
-    urlTextField.configure(for: .normal)
-    urlTextField.addTarget(self, action: #selector(urlTextFieldEditingChanged(sender:)), for: .editingChanged)
+  private lazy var urlTextField = LinksShortenerURLTextField() ->> {
+    $0.configure(for: .normal)
+    $0.addTarget(self, action: #selector(urlTextFieldEditingChanged(sender:)), for: .editingChanged)
   }
 
   // MARK: - Initialization
@@ -75,18 +75,18 @@ private extension LinksShortenerViewController {
 
   func configureSubviews() {
     // Stack view.
-    let stackView = UIStackView() ->> { stackView in
-      stackView.axis = .vertical
-      stackView.distribution = .fillEqually
-      stackView.alignment = .fill
-      stackView.spacing = 16
+    let stackView = UIStackView() ->> {
+      $0.axis = .vertical
+      $0.distribution = .fillEqually
+      $0.alignment = .fill
+      $0.spacing = 16
     }
 
-    stackView.add(to: view) { stackView, view in
-      stackView.leadingAnchor.constraint(equalTo: view.leadingSafeAnchor, constant: 48)
-      view.trailingSafeAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 48)
-      view.bottomSafeAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 50)
-      stackView.topAnchor.constraint(equalTo: view.topSafeAnchor, constant: 46)
+    stackView.add(to: view) {
+      $0.leadingAnchor.constraint(equalTo: $1.leadingSafeAnchor, constant: 48)
+      $1.trailingSafeAnchor.constraint(equalTo: $0.trailingAnchor, constant: 48)
+      $1.bottomSafeAnchor.constraint(equalTo: $0.bottomAnchor, constant: 50)
+      $0.topAnchor.constraint(equalTo: $1.topSafeAnchor, constant: 46)
     }
 
     // URL text field.

@@ -35,9 +35,9 @@ final class LinksHistoryViewController: UIViewController {
 
   private lazy var emptyView = LinksHistoryEmptyView()
 
-  private lazy var titleView = UILabel() ->> { titleView in
-    titleView.text = LocalizedString.LinksHistory.yourHistory
-    titleView.textColor = ColorAsset.tuna
+  private lazy var titleView = UILabel() ->> {
+    $0.text = LocalizedString.LinksHistory.yourHistory
+    $0.textColor = ColorAsset.tuna
   }
 
   // MARK: - Initialization
@@ -60,14 +60,6 @@ final class LinksHistoryViewController: UIViewController {
 
     view.backgroundColor = .systemBackground
 
-    collectionView.add(to: view) { collectionView, view in
-      collectionView.leadingAnchor.constraint(equalTo: view.leadingSafeAnchor)
-      collectionView.topAnchor.constraint(equalTo: view.topSafeAnchor)
-      view.trailingSafeAnchor.constraint(equalTo: collectionView.trailingAnchor)
-      view.bottomSafeAnchor.constraint(equalTo: collectionView.bottomAnchor)
-    }
-
-    configureTitleView()
     configureCollectionView()
     bind()
   }
@@ -76,10 +68,10 @@ final class LinksHistoryViewController: UIViewController {
     super.addChild(childController)
 
     // TODO: Maybe move it somewhere else.
-    childController.view.add(to: view) { childControllerView, view in
-      childControllerView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-      view.trailingAnchor.constraint(equalTo: childControllerView.trailingAnchor)
-      childControllerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    childController.view.add(to: view) {
+      $0.leadingAnchor.constraint(equalTo: $1.leadingAnchor)
+      $1.trailingAnchor.constraint(equalTo: $0.trailingAnchor)
+      $0.bottomAnchor.constraint(equalTo: $1.bottomAnchor)
     }
 
     childControllerFrameSubscription = childController.view.publisher(for: \.bounds)
@@ -117,14 +109,13 @@ private extension LinksHistoryViewController {
 
   func configureCollectionView() {
     collectionView.register(cellClass: LinksHistoryItemCell.self)
-  }
 
-  func configureTitleView() {
-    let titleView = UILabel() ->> { titleView in
-      titleView.text = LocalizedString.LinksHistory.yourHistory
-      titleView.textColor = ColorAsset.tuna
+    collectionView.add(to: view) {
+      $0.leadingAnchor.constraint(equalTo: $1.leadingSafeAnchor)
+      $0.topAnchor.constraint(equalTo: $1.topSafeAnchor)
+      $1.trailingSafeAnchor.constraint(equalTo: $0.trailingAnchor)
+      $1.bottomSafeAnchor.constraint(equalTo: $0.bottomAnchor)
     }
-    navigationItem.titleView = titleView
   }
 
 }
@@ -156,10 +147,10 @@ private extension LinksHistoryViewController {
     }
 
     if isEmpty, let backgroundView = collectionView.backgroundView {
-      emptyView.add(to: backgroundView) { emptyView, backgroundView in
-        emptyView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor)
-        emptyView.topAnchor.constraint(equalTo: backgroundView.topAnchor)
-        backgroundView.trailingAnchor.constraint(equalTo: emptyView.trailingAnchor)
+      emptyView.add(to: backgroundView) {
+        $0.leadingAnchor.constraint(equalTo: $1.leadingAnchor)
+        $0.topAnchor.constraint(equalTo: $1.topAnchor)
+        $1.trailingAnchor.constraint(equalTo: $0.trailingAnchor)
       }
 
       emptyViewBottomConstraint = backgroundView.bottomAnchor.constraint(

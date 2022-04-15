@@ -8,25 +8,25 @@ final class LinksHistoryEmptyView: BaseView {
 
   // MARK: - Properties
 
-  private lazy var backgroundImageView = UIImageView() ->> { backgroundImageView in
-    backgroundImageView.image = ImageAsset.background
-    backgroundImageView.contentMode = .scaleAspectFit
+  private lazy var backgroundImageView = UIImageView() ->> {
+    $0.image = ImageAsset.background
+    $0.contentMode = .scaleAspectFit
   }
 
-  private lazy var titleLabel = UILabel() ->> { titleLabel in
-    titleLabel.text = LocalizedString.title
-    titleLabel.textColor = ColorAsset.tuna
-    titleLabel.textAlignment = .center
-    titleLabel.numberOfLines = 0
-    titleLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+  private lazy var titleLabel = UILabel() ->> {
+    $0.text = LocalizedString.title
+    $0.textColor = ColorAsset.tuna
+    $0.textAlignment = .center
+    $0.numberOfLines = 0
+    $0.font = .systemFont(ofSize: 20, weight: .semibold)
   }
 
-  private lazy var messageLabel = UILabel() ->> { messageLabel in
-    messageLabel.text = LocalizedString.message
-    messageLabel.textColor = ColorAsset.tuna
-    messageLabel.textAlignment = .center
-    messageLabel.numberOfLines = 0
-    messageLabel.font = .systemFont(ofSize: 17)
+  private lazy var messageLabel = UILabel() ->> {
+    $0.text = LocalizedString.message
+    $0.textColor = ColorAsset.tuna
+    $0.textAlignment = .center
+    $0.numberOfLines = 0
+    $0.font = .systemFont(ofSize: 17)
   }
 
   // MARK: - Base Class
@@ -36,25 +36,25 @@ final class LinksHistoryEmptyView: BaseView {
 
     backgroundImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     backgroundImageView.setContentHuggingPriority(.defaultLow, for: .vertical)
-    backgroundImageView.add(to: self) { backgroundImageView, container in
-      backgroundImageView.topAnchor.constraint(equalTo: container.topAnchor, constant: 12)
-      backgroundImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 24)
-      container.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor, constant: 24)
+    backgroundImageView.add(to: self) {
+      $0.topAnchor.constraint(equalTo: $1.topAnchor, constant: Constant.verticalInset)
+      $0.leadingAnchor.constraint(equalTo: $1.leadingAnchor, constant: Constant.horizontalInset)
+      $1.trailingAnchor.constraint(equalTo: $0.trailingAnchor, constant: Constant.horizontalInset)
     }
 
     // Text stack view.
-    let textStackView = UIStackView() ->> { textStackView in
-      textStackView.axis = .vertical
-      textStackView.alignment = .fill
-      textStackView.distribution = .fill
-      textStackView.spacing = 4
+    let textStackView = UIStackView() ->> {
+      $0.axis = .vertical
+      $0.alignment = .fill
+      $0.distribution = .fill
+      $0.spacing = 4
     }
 
-    textStackView.add(to: self) { stackView, container in
-      stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 24)
-      container.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 24)
-      stackView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: 12)
-      container.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12)
+    textStackView.add(to: self) {
+      $0.leadingAnchor.constraint(equalTo: $1.leadingAnchor, constant: Constant.horizontalInset)
+      $1.trailingAnchor.constraint(equalTo: $0.trailingAnchor, constant: Constant.horizontalInset)
+      $0.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: Constant.verticalInset)
+      $1.bottomAnchor.constraint(equalTo: $0.bottomAnchor, constant: Constant.verticalInset)
     }
 
     // Title label.
@@ -66,6 +66,19 @@ final class LinksHistoryEmptyView: BaseView {
     messageLabel.addAsArrangedSubview(to: textStackView)
     messageLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
     messageLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+  }
+
+}
+
+// MARK: - Constants
+
+private extension LinksHistoryEmptyView {
+
+  enum Constant {
+
+    static let horizontalInset: CGFloat = 24
+    static let verticalInset: CGFloat = 12
+
   }
 
 }

@@ -28,25 +28,25 @@ final class LinksHistoryItemCell: BaseCollectionViewCell {
 
   // MARK: - Properties - Subviews
 
-  private lazy var originalURLLabel = UILabel() ->> { originalURLLabel in
-    originalURLLabel.textColor = ColorAsset.tuna
-    originalURLLabel.font = .systemFont(ofSize: 17)
+  private lazy var originalURLLabel = UILabel() ->> {
+    $0.textColor = ColorAsset.tuna
+    $0.font = .systemFont(ofSize: 17)
   }
 
-  private lazy var shortenURLLabel = UILabel() ->> { shortenURLLabel in
-    shortenURLLabel.textColor = ColorAsset.turquoise
-    shortenURLLabel.font = .systemFont(ofSize: 17)
+  private lazy var shortenURLLabel = UILabel() ->> {
+    $0.textColor = ColorAsset.turquoise
+    $0.font = .systemFont(ofSize: 17)
   }
 
-  private lazy var copyButton = CopyButton() ->> { copyButton in
-    copyButton.configure(for: .copy)
-    copyButton.addTarget(self, action: #selector(copyButtonTouchUpInside), for: .touchUpInside)
+  private lazy var copyButton = CopyButton() ->> {
+    $0.configure(for: .copy)
+    $0.addTarget(self, action: #selector(copyButtonTouchUpInside), for: .touchUpInside)
   }
 
-  private lazy var deleteButton = UIButton(type: .system) ->> { deleteButton in
-    deleteButton.setImage(ImageAsset.delete, for: .normal)
-    deleteButton.tintColor = ColorAsset.tuna
-    deleteButton.addTarget(self, action: #selector(deleteButtonTouchUpInside), for: .touchUpInside)
+  private lazy var deleteButton = UIButton(type: .system) ->> {
+    $0.setImage(ImageAsset.delete, for: .normal)
+    $0.tintColor = ColorAsset.tuna
+    $0.addTarget(self, action: #selector(deleteButtonTouchUpInside), for: .touchUpInside)
   }
 
   // MARK: - Base Class
@@ -57,17 +57,17 @@ final class LinksHistoryItemCell: BaseCollectionViewCell {
     contentView.backgroundColor = .white
 
     // Original URL stack view.
-    let originalURLStackView = UIStackView() ->> { originalURLStackView in
-      originalURLStackView.alignment = .fill
-      originalURLStackView.axis = .horizontal
-      originalURLStackView.distribution = .fill
-      originalURLStackView.spacing = 8
+    let originalURLStackView = UIStackView() ->> {
+      $0.alignment = .fill
+      $0.axis = .horizontal
+      $0.distribution = .fill
+      $0.spacing = 8
     }
 
-    originalURLStackView.add(to: contentView) { stackView, contentView in
-      stackView.leadingAnchor.constraint(equalTo: contentView.leadingMarginAnchor, constant: 23)
-      contentView.trailingMarginAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 23)
-      stackView.topAnchor.constraint(equalTo: contentView.topMarginAnchor, constant: 23)
+    originalURLStackView.add(to: contentView) {
+      $0.leadingAnchor.constraint(equalTo: $1.leadingMarginAnchor, constant: Constant.largeInset)
+      $1.trailingMarginAnchor.constraint(equalTo: $0.trailingAnchor, constant: Constant.largeInset)
+      $0.topAnchor.constraint(equalTo: $1.topMarginAnchor, constant: Constant.largeInset)
     }
 
     // Original URL label.
@@ -79,30 +79,30 @@ final class LinksHistoryItemCell: BaseCollectionViewCell {
     }
 
     // Separator.
-    let separatorView = UIView() ->> { separatorView in
-      separatorView.backgroundColor = ColorAsset.tuna
+    let separatorView = UIView() ->> {
+      $0.backgroundColor = ColorAsset.tuna
     }
 
-    separatorView.add(to: contentView) { separatorView, contentView in
-      separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
-      contentView.trailingAnchor.constraint(equalTo: separatorView.trailingAnchor)
-      separatorView.topAnchor.constraint(equalTo: originalURLStackView.bottomAnchor, constant: 12)
-      separatorView.heightAnchor.constraint(equalToConstant: 1)
+    separatorView.add(to: contentView) {
+      $0.leadingAnchor.constraint(equalTo: $1.leadingAnchor)
+      $1.trailingAnchor.constraint(equalTo: $0.trailingAnchor)
+      $0.topAnchor.constraint(equalTo: originalURLStackView.bottomAnchor, constant: Constant.smallInset)
+      $0.heightAnchor.constraint(equalToConstant: 1)
     }
 
     // Bottom stack view.
-    let bottomStackView = UIStackView() ->> { bottomStackView in
-      bottomStackView.alignment = .fill
-      bottomStackView.axis = .vertical
-      bottomStackView.distribution = .fill
-      bottomStackView.spacing = 23
+    let bottomStackView = UIStackView() ->> {
+      $0.alignment = .fill
+      $0.axis = .vertical
+      $0.distribution = .fill
+      $0.spacing = 23
     }
 
-    bottomStackView.add(to: contentView) { bottomStackView, contentView in
-      bottomStackView.leadingAnchor.constraint(equalTo: contentView.leadingMarginAnchor, constant: 23)
-      contentView.trailingMarginAnchor.constraint(equalTo: bottomStackView.trailingAnchor, constant: 23)
-      bottomStackView.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 12)
-      contentView.bottomMarginAnchor.constraint(equalTo: bottomStackView.bottomAnchor, constant: 23)
+    bottomStackView.add(to: contentView) {
+      $0.leadingAnchor.constraint(equalTo: $1.leadingMarginAnchor, constant: Constant.largeInset)
+      $1.trailingMarginAnchor.constraint(equalTo: $0.trailingAnchor, constant: Constant.largeInset)
+      $0.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: Constant.smallInset)
+      $1.bottomMarginAnchor.constraint(equalTo: $0.bottomAnchor, constant: Constant.largeInset)
     }
 
     // Shorten URL label.
@@ -148,6 +148,19 @@ private extension LinksHistoryItemCell {
   @objc
   func deleteButtonTouchUpInside() {
     deleteRelay.accept()
+  }
+
+}
+
+// MARK: - Constants
+
+private extension LinksHistoryItemCell {
+
+  enum Constant {
+
+    static let largeInset: CGFloat = 23
+    static let smallInset: CGFloat = 12
+
   }
 
 }

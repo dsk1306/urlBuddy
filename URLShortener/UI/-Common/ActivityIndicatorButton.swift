@@ -31,9 +31,9 @@ private extension ActivityIndicatorButton {
     activity.startAnimating()
     activityIndicatorView = activity
 
-    activity.add(to: self) { activity, view in
-      activity.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-      activity.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+    activity.add(to: self) {
+      $0.centerXAnchor.constraint(equalTo: $1.centerXAnchor)
+      $0.centerYAnchor.constraint(equalTo: $1.centerYAnchor)
     }
   }
 

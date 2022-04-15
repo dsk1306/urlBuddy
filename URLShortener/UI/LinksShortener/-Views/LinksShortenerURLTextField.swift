@@ -11,8 +11,8 @@ final class LinksShortenerURLTextField: UITextField {
 
     private typealias LocalizedString = URLShortener.LocalizedString.LinkShortener
 
-    private static let paragraphStyle = NSMutableParagraphStyle() ->> { paragraphStyle in
-      paragraphStyle.alignment = .center
+    private static let paragraphStyle = NSMutableParagraphStyle() ->> {
+      $0.alignment = .center
     }
 
     private static let commonAttributes: [NSAttributedString.Key: Any] = [
