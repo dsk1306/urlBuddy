@@ -82,13 +82,11 @@ private extension LinksShortenerViewController {
       stackView.spacing = 16
     }
 
-    view.translatesAutoresizingMaskIntoConstraints = false
-
-    stackView.add(to: view) { childControllerView, view in
-      childControllerView.leadingAnchor.constraint(equalTo: view.leadingSafeAnchor, constant: 48)
-      view.trailingAnchor.constraint(equalTo: childControllerView.trailingSafeAnchor, constant: 48)
-      view.bottomAnchor.constraint(equalTo: childControllerView.bottomAnchor, constant: 50)
-      childControllerView.topAnchor.constraint(equalTo: view.topSafeAnchor, constant: 46)
+    stackView.add(to: view) { stackView, view in
+      stackView.leadingAnchor.constraint(equalTo: view.leadingSafeAnchor, constant: 48)
+      view.trailingSafeAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 48)
+      view.bottomSafeAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 50)
+      stackView.topAnchor.constraint(equalTo: view.topSafeAnchor, constant: 46)
     }
 
     // URL text field.

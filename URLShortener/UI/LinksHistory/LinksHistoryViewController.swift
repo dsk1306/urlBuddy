@@ -2,7 +2,7 @@ import Combine
 import CombineExtensions
 import UIKit
 
-final class LinksHistoryViewController: UICollectionViewController {
+final class LinksHistoryViewController: UIViewController {
 
   // MARK: - Typealiases
 
@@ -29,6 +29,8 @@ final class LinksHistoryViewController: UICollectionViewController {
     return cell
   }
 
+  private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: Self.layout())
+
   // MARK: - Properties - Subviews
 
   private lazy var emptyView = LinksHistoryEmptyView()
@@ -43,7 +45,7 @@ final class LinksHistoryViewController: UICollectionViewController {
   init(viewModel: LinksHistoryViewModel) {
     self.viewModel = viewModel
 
-    super.init(collectionViewLayout: Self.layout())
+    super.init(nibName: nil, bundle: nil)
   }
 
   @available(*, unavailable)
@@ -58,8 +60,15 @@ final class LinksHistoryViewController: UICollectionViewController {
 
     view.backgroundColor = .systemBackground
 
+    collectionView.add(to: view) { collectionView, view in
+      collectionView.leadingAnchor.constraint(equalTo: view.leadingSafeAnchor)
+      collectionView.topAnchor.constraint(equalTo: view.topSafeAnchor)
+      view.trailingSafeAnchor.constraint(equalTo: collectionView.trailingAnchor)
+      view.bottomSafeAnchor.constraint(equalTo: collectionView.bottomAnchor)
+    }
+
     configureTitleView()
-    configureTableView()
+    configureCollectionView()
     bind()
   }
 
@@ -69,7 +78,7 @@ final class LinksHistoryViewController: UICollectionViewController {
     // TODO: Maybe move it somewhere else.
     childController.view.add(to: view) { childControllerView, view in
       childControllerView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-      childControllerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+      view.trailingAnchor.constraint(equalTo: childControllerView.trailingAnchor)
       childControllerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     }
 
@@ -80,10 +89,11 @@ final class LinksHistoryViewController: UICollectionViewController {
       }
       .removeDuplicates()
       .sinkValue { [weak self] inset in
-        self?.collectionView.contentInset.bottom = inset
-        self?.collectionView.verticalScrollIndicatorInsets.bottom = inset
-        self?.emptyViewBottomConstraint?.constant = inset
-        self?.view.layoutIfNeeded()
+        guard let self = self else { return }
+        self.collectionView.contentInset.bottom = inset
+        self.collectionView.verticalScrollIndicatorInsets.bottom = inset
+        self.emptyViewBottomConstraint?.constant = inset
+        self.view.layoutIfNeeded()
       }
   }
 
@@ -105,7 +115,7 @@ private extension LinksHistoryViewController {
     return snapShot
   }
 
-  func configureTableView() {
+  func configureCollectionView() {
     collectionView.register(cellClass: LinksHistoryItemCell.self)
   }
 
@@ -146,26 +156,16 @@ private extension LinksHistoryViewController {
     }
 
     if isEmpty, let backgroundView = collectionView.backgroundView {
-      let leading = emptyView.leadingAnchor.constraint(equalTo: collectionView.leadingMarginAnchor)
-      leading.priority = .init(rawValue: 999)
-
-      let top = emptyView.topAnchor.constraint(equalTo: collectionView.topMarginAnchor)
-      top.priority = .init(rawValue: 999)
-
-      let trailing = collectionView.trailingMarginAnchor.constraint(equalTo: emptyView.trailingAnchor)
-      trailing.priority = .init(rawValue: 999)
-
-      emptyView.add(to: backgroundView) { _, _ in
-        leading
-        top
-        trailing
+      emptyView.add(to: backgroundView) { emptyView, backgroundView in
+        emptyView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor)
+        emptyView.topAnchor.constraint(equalTo: backgroundView.topAnchor)
+        backgroundView.trailingAnchor.constraint(equalTo: emptyView.trailingAnchor)
       }
 
-      emptyViewBottomConstraint = backgroundView.bottomMarginAnchor.constraint(
+      emptyViewBottomConstraint = backgroundView.bottomAnchor.constraint(
         equalTo: emptyView.bottomAnchor,
         constant: collectionView.contentInset.bottom
       )
-      emptyViewBottomConstraint?.priority = .init(rawValue: 999)
       emptyViewBottomConstraint?.isActive = true
     } else {
       emptyView.removeFromSuperview()
