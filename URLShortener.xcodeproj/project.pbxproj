@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C71603F0280B480B00B41298 /* URLStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603EF280B480B00B41298 /* URLStringValidator.swift */; };
 		C71603F3280B555400B41298 /* URLStringValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603F2280B555400B41298 /* URLStringValidatorTests.swift */; };
+		C71603F5280B57BB00B41298 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603F4280B57BB00B41298 /* BaseViewController.swift */; };
 		C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAAE27F1BBE500A818F3 /* Services.swift */; };
 		C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C753FAB127F1BC2700A818F3 /* CombineExtensions */; };
 		C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */; };
@@ -94,6 +95,7 @@
 /* Begin PBXFileReference section */
 		C71603EF280B480B00B41298 /* URLStringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStringValidator.swift; sourceTree = "<group>"; };
 		C71603F2280B555400B41298 /* URLStringValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStringValidatorTests.swift; sourceTree = "<group>"; };
+		C71603F4280B57BB00B41298 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C753FAAE27F1BBE500A818F3 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPersistenceService.swift; sourceTree = "<group>"; };
 		C753FAB627F1D7CC00A818F3 /* DatabaseLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLink.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			children = (
 				C78C890B27F8BDB800302E75 /* BaseCollectionViewCell.swift */,
 				C78C890D27F8BDC700302E75 /* BaseView.swift */,
+				C71603F4280B57BB00B41298 /* BaseViewController.swift */,
 				C78C891227F8DED500302E75 /* BaseViewModel.swift */,
 			);
 			path = Base;
@@ -726,6 +729,7 @@
 				C7AB8B4427F10675006592C2 /* AppLifecycleSubscribableService.swift in Sources */,
 				C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */,
 				C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */,
+				C71603F5280B57BB00B41298 /* BaseViewController.swift in Sources */,
 				C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */,
 				C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */,
 				C78C88F127F8BACC00302E75 /* UICollectionView+Ext.swift in Sources */,

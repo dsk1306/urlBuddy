@@ -2,7 +2,7 @@ import Combine
 import CombineExtensions
 import UIKit
 
-final class LinksHistoryViewController: UIViewController {
+final class LinksHistoryViewController: BaseViewController {
 
   // MARK: - Typealiases
 
@@ -45,23 +45,44 @@ final class LinksHistoryViewController: UIViewController {
   init(viewModel: LinksHistoryViewModel) {
     self.viewModel = viewModel
 
-    super.init(nibName: nil, bundle: nil)
-  }
-
-  @available(*, unavailable)
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+    super.init()
   }
 
   // MARK: - Base Class
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  override func configureSubviews() {
+    super.configureSubviews()
 
     view.backgroundColor = .systemBackground
 
-    configureCollectionView()
-    bind()
+    // Collection View.
+    collectionView.register(cellClass: LinksHistoryItemCell.self)
+
+    collectionView.add(to: view) {
+      $0.leadingAnchor.constraint(equalTo: $1.leadingSafeAnchor)
+      $0.topAnchor.constraint(equalTo: $1.topSafeAnchor)
+      $1.trailingSafeAnchor.constraint(equalTo: $0.trailingAnchor)
+      $1.bottomSafeAnchor.constraint(equalTo: $0.bottomAnchor)
+    }
+  }
+
+  override func bind() {
+    super.bind()
+
+    viewModel.bind()
+
+    cancellable {
+      viewModel.output.savedLinks
+        .map(Self.snapshot)
+        .sinkValue { [weak dataSource] in dataSource?.apply($0) }
+      viewModel.output.savedLinks
+        .map { $0.isEmpty }
+        .removeDuplicates()
+        .sinkValue { [weak self] isEmpty in
+          self?.navigationItem.titleView = isEmpty ? nil : self?.titleView
+          self?.configureEmptyView(isEmpty: isEmpty)
+        }
+    }
   }
 
   override func addChild(_ childController: UIViewController) {
@@ -105,40 +126,6 @@ private extension LinksHistoryViewController {
     }
 
     return snapShot
-  }
-
-  func configureCollectionView() {
-    collectionView.register(cellClass: LinksHistoryItemCell.self)
-
-    collectionView.add(to: view) {
-      $0.leadingAnchor.constraint(equalTo: $1.leadingSafeAnchor)
-      $0.topAnchor.constraint(equalTo: $1.topSafeAnchor)
-      $1.trailingSafeAnchor.constraint(equalTo: $0.trailingAnchor)
-      $1.bottomSafeAnchor.constraint(equalTo: $0.bottomAnchor)
-    }
-  }
-
-}
-
-// MARK: - Private Methods - Binding
-
-private extension LinksHistoryViewController {
-
-  func bind() {
-    viewModel.bind()
-
-    cancellable {
-      viewModel.output.savedLinks
-        .map(Self.snapshot)
-        .sinkValue { [weak dataSource] in dataSource?.apply($0) }
-      viewModel.output.savedLinks
-        .map { $0.isEmpty }
-        .removeDuplicates()
-        .sinkValue { [weak self] isEmpty in
-          self?.navigationItem.titleView = isEmpty ? nil : self?.titleView
-          self?.configureEmptyView(isEmpty: isEmpty)
-        }
-    }
   }
 
   func configureEmptyView(isEmpty: Bool) {
