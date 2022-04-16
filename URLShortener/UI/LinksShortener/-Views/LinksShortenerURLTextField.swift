@@ -42,6 +42,23 @@ final class LinksShortenerURLTextField: UITextField {
 
   }
 
+  // MARK: - Initialization
+
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+
+    layer.borderWidth = 1
+    backgroundColor = .white
+    textAlignment = .center
+    autocorrectionType = .no
+    autocapitalizationType = .none
+  }
+
+  @available(*, unavailable)
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
 }
 
 // MARK: - Public Methods
@@ -49,10 +66,6 @@ final class LinksShortenerURLTextField: UITextField {
 extension LinksShortenerURLTextField {
 
   func configure(for state: State) {
-    layer.borderWidth = 1
-    backgroundColor = .white
-    textAlignment = .center
-
     UIView.animate(withDuration: 0.5, delay: 0) { [self] in
       layer.borderColor = state.borderColor
       attributedPlaceholder = state.attributedPlaceholder
