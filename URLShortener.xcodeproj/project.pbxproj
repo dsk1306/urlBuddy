@@ -38,6 +38,7 @@
 		C7892090280B5E52007FCBF7 /* LinksHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C789208F280B5E52007FCBF7 /* LinksHistory.swift */; };
 		C7892092280B5FA3007FCBF7 /* LinksHistoryItemCell+ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7892091280B5FA3007FCBF7 /* LinksHistoryItemCell+ItemModel.swift */; };
 		C7892094280B600E007FCBF7 /* LinksShortener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7892093280B600E007FCBF7 /* LinksShortener.swift */; };
+		C7892096280B6145007FCBF7 /* ImageAsset+SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7892095280B6145007FCBF7 /* ImageAsset+SFSymbols.swift */; };
 		C78C88EE27F8BAAA00302E75 /* ActivityIndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88ED27F8BAAA00302E75 /* ActivityIndicatorButton.swift */; };
 		C78C88F127F8BACC00302E75 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */; };
 		C78C88F327F8BAE400302E75 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F227F8BAE400302E75 /* UIView+Ext.swift */; };
@@ -126,6 +127,7 @@
 		C789208F280B5E52007FCBF7 /* LinksHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistory.swift; sourceTree = "<group>"; };
 		C7892091280B5FA3007FCBF7 /* LinksHistoryItemCell+ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinksHistoryItemCell+ItemModel.swift"; sourceTree = "<group>"; };
 		C7892093280B600E007FCBF7 /* LinksShortener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksShortener.swift; sourceTree = "<group>"; };
+		C7892095280B6145007FCBF7 /* ImageAsset+SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageAsset+SFSymbols.swift"; sourceTree = "<group>"; };
 		C78C88ED27F8BAAA00302E75 /* ActivityIndicatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorButton.swift; sourceTree = "<group>"; };
 		C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 		C78C88F227F8BAE400302E75 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 			children = (
 				C78FCB8C27EA67A10095E352 /* ColorAsset.swift */,
 				C78FCB8D27EA67A10095E352 /* ImageAsset.swift */,
+				C7892095280B6145007FCBF7 /* ImageAsset+SFSymbols.swift */,
 				C7DF191E27EA5BC800D1FAD6 /* Colors.xcassets */,
 				C7DF18F427EA590400D1FAD6 /* Images.xcassets */,
 				C7DF18F627EA590400D1FAD6 /* LaunchScreen.storyboard */,
@@ -728,6 +731,7 @@
 				C7892094280B600E007FCBF7 /* LinksShortener.swift in Sources */,
 				C77166EA27F103B600C0B472 /* Link.swift in Sources */,
 				C78C88F527F8BAFD00302E75 /* Publisher+Ext.swift in Sources */,
+				C7892096280B6145007FCBF7 /* ImageAsset+SFSymbols.swift in Sources */,
 				C796498B27F7392600B613F4 /* DefaultLoggerService.swift in Sources */,
 				C753FAC027F2451500A818F3 /* PersistenceEncodableModel.swift in Sources */,
 				C78C88FB27F8BCE100302E75 /* LinksHistoryItemCell.swift in Sources */,
