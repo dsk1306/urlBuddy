@@ -6,7 +6,7 @@ extension LinksHistoryItemCell {
 
     // MARK: - State
 
-    enum State {
+    enum ButtonType {
 
       case copy
       case copied
@@ -44,29 +44,41 @@ extension LinksHistoryItemCell {
 
     fileprivate typealias LocalizedString = URLShortener.LocalizedString.LinksHistory
 
+    // MARK: - Properties
+
+    var type = ButtonType.copy {
+      didSet {
+        updateWithType(animated: true)
+      }
+    }
+
     // MARK: - Initialization
 
     convenience init() {
-      self.init(type: .system)
+      self.init(configuration: UIButton.Configuration.filled())
+
+      configuration?.baseForegroundColor = .white
+
+      updateWithType(animated: false)
     }
 
   }
 
 }
 
-// MARK: - Public Methods
+// MARK: - Private Methods
 
-extension LinksHistoryItemCell.CopyButton {
+private extension LinksHistoryItemCell.CopyButton {
 
-  func configure(for state: State) {
-    setTitleColor(.white, for: .normal)
-    titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+  func updateWithType(animated: Bool) {
+    isUserInteractionEnabled = type.isUserInteractionEnabled
+    configuration?.baseBackgroundColor = type.backgroundColor
 
-    UIView.animate(withDuration: 0.5) { [self] in
-      setTitle(state.title, for: .normal)
-      backgroundColor = state.backgroundColor
-      isUserInteractionEnabled = state.isUserInteractionEnabled
-    }
+    let attributes = AttributeContainer([
+      .foregroundColor: UIColor.white,
+      .font: UIFont.systemFont(ofSize: 17, weight: .semibold)
+    ])
+    configuration?.attributedTitle = .init(type.title, attributes: attributes)
   }
 
 }

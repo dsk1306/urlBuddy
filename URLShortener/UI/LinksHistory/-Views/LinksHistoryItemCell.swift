@@ -4,20 +4,6 @@ import UIKit
 
 final class LinksHistoryItemCell: BaseCollectionViewCell {
 
-  // MARK: - ItemModel
-
-  struct ItemModel {
-
-    let originalURL: String
-    let shortenURL: String
-
-    init(link: Link) {
-      originalURL = link.originalString
-      shortenURL = link.shortenString
-    }
-
-  }
-
   // MARK: - Properties
 
   private(set) lazy var copy = copyRelay.eraseToAnyPublisher()
@@ -39,7 +25,6 @@ final class LinksHistoryItemCell: BaseCollectionViewCell {
   }
 
   private lazy var copyButton = CopyButton() ->> {
-    $0.configure(for: .copy)
     $0.addTarget(self, action: #selector(copyButtonTouchUpInside), for: .touchUpInside)
   }
 
@@ -136,12 +121,12 @@ private extension LinksHistoryItemCell {
     copyRelay.accept()
 
     // Update copyButton style.
-    copyButton.configure(for: .copied)
+    copyButton.type = .copied
 
     Task {
       // Wait for 2 seconds and revert copyButton style.
       try await Task.sleep(nanoseconds: 2 * 1_000_000_000)
-      copyButton.configure(for: .copy)
+      copyButton.type = .copy
     }
   }
 
@@ -160,6 +145,24 @@ private extension LinksHistoryItemCell {
 
     static let largeInset: CGFloat = 23
     static let smallInset: CGFloat = 12
+
+  }
+
+}
+
+// MARK: - ItemModel
+
+extension LinksHistoryItemCell {
+
+  struct ItemModel {
+
+    let originalURL: String
+    let shortenURL: String
+
+    init(link: Link) {
+      originalURL = link.originalString
+      shortenURL = link.shortenString
+    }
 
   }
 
