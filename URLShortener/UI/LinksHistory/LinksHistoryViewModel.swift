@@ -29,8 +29,6 @@ final class LinksHistoryViewModel: BaseViewModel {
   let output: Output
   let input = Input()
 
-  private weak var cordinator: RootCoordinator?
-
   private let persistenceService: PersistenceService
   private let clipboardService: ClipboardService
 
@@ -41,16 +39,15 @@ final class LinksHistoryViewModel: BaseViewModel {
 
   // MARK: - Initialization
 
-  init(services: Services, cordinator: RootCoordinator) {
+  override init(services: Services, cordinator: RootCoordinator) {
     self.persistenceService = services.persistence
     self.clipboardService = services.clipboard
-    self.cordinator = cordinator
 
     self.output = Output(
       savedLinks: savedLinksRelay.removeDuplicates().prepareToOutput()
     )
 
-    super.init()
+    super.init(services: services, cordinator: cordinator)
   }
 
   // MARK: - Base Class

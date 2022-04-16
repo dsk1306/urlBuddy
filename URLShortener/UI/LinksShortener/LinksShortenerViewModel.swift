@@ -36,8 +36,6 @@ final class LinksShortenerViewModel: BaseViewModel {
   let output: Output
   let input = Input()
 
-  private weak var cordinator: RootCoordinator?
-
   private let linksShortenerService: LinksShortenerService
   private let clipboardService: ClipboardService
 
@@ -50,10 +48,9 @@ final class LinksShortenerViewModel: BaseViewModel {
 
   // MARK: - Initialization
 
-  init(services: Services, cordinator: RootCoordinator) {
+  override init(services: Services, cordinator: RootCoordinator) {
     self.linksShortenerService = services.linksShortener
     self.clipboardService = services.clipboard
-    self.cordinator = cordinator
 
     self.output = Output(
       error: errorRelay.prepareToOutput(),
@@ -61,7 +58,7 @@ final class LinksShortenerViewModel: BaseViewModel {
       shortenedLink: shortenedLinkRelay.prepareToOutput()
     )
 
-    super.init()
+    super.init(services: services, cordinator: cordinator)
   }
 
   // MARK: - Base Class
