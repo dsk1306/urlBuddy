@@ -27,18 +27,18 @@ extension RootCoordinator {
       return
     }
 
-    let historyViewModel = LinksHistoryViewModel(
+    let historyViewModel = LinksHistory.ViewModel(
       services: services,
       cordinator: self
     )
-    let historyController = LinksHistoryViewController(viewModel: historyViewModel)
+    let historyController = LinksHistory.ViewController(viewModel: historyViewModel)
     let navigationController = UINavigationController(rootViewController: historyController)
 
-    let shortenerViewModel = LinksShortenerViewModel(
+    let shortenerViewModel = LinksShortener.ViewModel(
       services: services,
       cordinator: self
     )
-    let shortenerController = LinksShortenerViewController(viewModel: shortenerViewModel)
+    let shortenerController = LinksShortener.ViewController(viewModel: shortenerViewModel)
     historyController.addChild(shortenerController)
 
     shortenerViewModel.bind(to: historyViewModel.input)

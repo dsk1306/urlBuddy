@@ -35,6 +35,9 @@
 		C77DD6D027F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6CF27F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift */; };
 		C77DD6D227F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6D127F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift */; };
 		C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6D327F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift */; };
+		C7892090280B5E52007FCBF7 /* LinksHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C789208F280B5E52007FCBF7 /* LinksHistory.swift */; };
+		C7892092280B5FA3007FCBF7 /* LinksHistoryItemCell+ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7892091280B5FA3007FCBF7 /* LinksHistoryItemCell+ItemModel.swift */; };
+		C7892094280B600E007FCBF7 /* LinksShortener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7892093280B600E007FCBF7 /* LinksShortener.swift */; };
 		C78C88EE27F8BAAA00302E75 /* ActivityIndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88ED27F8BAAA00302E75 /* ActivityIndicatorButton.swift */; };
 		C78C88F127F8BACC00302E75 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */; };
 		C78C88F327F8BAE400302E75 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F227F8BAE400302E75 /* UIView+Ext.swift */; };
@@ -120,6 +123,9 @@
 		C77DD6CF27F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultLinksShortenerService+ResponseErrorModel.swift"; sourceTree = "<group>"; };
 		C77DD6D127F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultLinksShortenerService+ResponseModel.swift"; sourceTree = "<group>"; };
 		C77DD6D327F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultLinksShortenerService+ResponseModelResult.swift"; sourceTree = "<group>"; };
+		C789208F280B5E52007FCBF7 /* LinksHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistory.swift; sourceTree = "<group>"; };
+		C7892091280B5FA3007FCBF7 /* LinksHistoryItemCell+ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinksHistoryItemCell+ItemModel.swift"; sourceTree = "<group>"; };
+		C7892093280B600E007FCBF7 /* LinksShortener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksShortener.swift; sourceTree = "<group>"; };
 		C78C88ED27F8BAAA00302E75 /* ActivityIndicatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorButton.swift; sourceTree = "<group>"; };
 		C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 		C78C88F227F8BAE400302E75 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -328,6 +334,7 @@
 		C78C88F627F8BCA700302E75 /* LinksHistory */ = {
 			isa = PBXGroup;
 			children = (
+				C789208F280B5E52007FCBF7 /* LinksHistory.swift */,
 				C78C890027F8BD1800302E75 /* LinksHistoryViewController.swift */,
 				C78C88FE27F8BD0700302E75 /* LinksHistoryViewModel.swift */,
 				C78C88F727F8BCB600302E75 /* -Views */,
@@ -341,6 +348,7 @@
 				C78C88F827F8BCC400302E75 /* LinksHistoryEmptyView.swift */,
 				C78C88FA27F8BCE100302E75 /* LinksHistoryItemCell.swift */,
 				C78C88FC27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift */,
+				C7892091280B5FA3007FCBF7 /* LinksHistoryItemCell+ItemModel.swift */,
 			);
 			path = "-Views";
 			sourceTree = "<group>";
@@ -348,6 +356,7 @@
 		C78C890227F8BD3400302E75 /* LinksShortener */ = {
 			isa = PBXGroup;
 			children = (
+				C7892093280B600E007FCBF7 /* LinksShortener.swift */,
 				C78C890327F8BD3F00302E75 /* LinksShortenerViewController.swift */,
 				C78C890527F8BD5400302E75 /* LinksShortenerViewModel.swift */,
 				C78C890727F8BD6700302E75 /* -Views */,
@@ -712,9 +721,11 @@
 			files = (
 				C78C88F327F8BAE400302E75 /* UIView+Ext.swift in Sources */,
 				C753FAB827F1D7CC00A818F3 /* DatabaseLink.swift in Sources */,
+				C7892090280B5E52007FCBF7 /* LinksHistory.swift in Sources */,
 				C78C88FD27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift in Sources */,
 				C71603F0280B480B00B41298 /* URLStringValidator.swift in Sources */,
 				C77DD6CE27F07B680037ACFF /* LinksShortenerService.swift in Sources */,
+				C7892094280B600E007FCBF7 /* LinksShortener.swift in Sources */,
 				C77166EA27F103B600C0B472 /* Link.swift in Sources */,
 				C78C88F527F8BAFD00302E75 /* Publisher+Ext.swift in Sources */,
 				C796498B27F7392600B613F4 /* DefaultLoggerService.swift in Sources */,
@@ -729,6 +740,7 @@
 				C7AB8B4427F10675006592C2 /* AppLifecycleSubscribableService.swift in Sources */,
 				C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */,
 				C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */,
+				C7892092280B5FA3007FCBF7 /* LinksHistoryItemCell+ItemModel.swift in Sources */,
 				C71603F5280B57BB00B41298 /* BaseViewController.swift in Sources */,
 				C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */,
 				C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */,

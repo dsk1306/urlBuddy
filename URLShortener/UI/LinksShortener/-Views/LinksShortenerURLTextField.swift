@@ -1,10 +1,48 @@
 import UIKit
 
-final class LinksShortenerURLTextField: UITextField {
+extension LinksShortener {
 
-  // MARK: - State
+  final class URLTextField: UITextField {
 
-  enum State {
+    // MARK: - Initialization
+
+    override init(frame: CGRect) {
+      super.init(frame: frame)
+
+      layer.borderWidth = 1
+      backgroundColor = .white
+      textAlignment = .center
+      autocorrectionType = .no
+      autocapitalizationType = .none
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+    }
+
+  }
+
+}
+
+// MARK: - Public Methods
+
+extension LinksShortener.URLTextField {
+
+  func configure(for state: TextFieldType) {
+    UIView.animate(withDuration: 0.5, delay: 0) { [self] in
+      layer.borderColor = state.borderColor
+      attributedPlaceholder = state.attributedPlaceholder
+    }
+  }
+
+}
+
+// MARK: - TextFieldType
+
+extension LinksShortener.URLTextField {
+
+  enum TextFieldType {
 
     case normal
     case emptyLink
@@ -40,36 +78,6 @@ final class LinksShortenerURLTextField: UITextField {
       }
     }
 
-  }
-
-  // MARK: - Initialization
-
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-
-    layer.borderWidth = 1
-    backgroundColor = .white
-    textAlignment = .center
-    autocorrectionType = .no
-    autocapitalizationType = .none
-  }
-
-  @available(*, unavailable)
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
-}
-
-// MARK: - Public Methods
-
-extension LinksShortenerURLTextField {
-
-  func configure(for state: State) {
-    UIView.animate(withDuration: 0.5, delay: 0) { [self] in
-      layer.borderColor = state.borderColor
-      attributedPlaceholder = state.attributedPlaceholder
-    }
   }
 
 }

@@ -2,104 +2,108 @@ import Combine
 import CombineExtensions
 import UIKit
 
-final class LinksShortenerViewController: BaseViewController {
+extension LinksShortener {
 
-  // MARK: - Typealiases
+  final class ViewController: BaseViewController {
 
-  fileprivate typealias LocalizedString = URLShortener.LocalizedString.LinkShortener
+    // MARK: - Typealiases
 
-  // MARK: - Properties
+    fileprivate typealias LocalizedString = URLShortener.LocalizedString.LinkShortener
 
-  private let viewModel: LinksShortenerViewModel
+    // MARK: - Properties
 
-  private let cancellable = CombineCancellable()
+    private let viewModel: ViewModel
 
-  private lazy var shortenButtonConfiguration: UIButton.Configuration = {
-    var configuration = UIButton.Configuration.filled()
-    configuration.baseBackgroundColor = ColorAsset.roman
-    configuration.attributedTitle = Self.shortenButtonTitle(for: .disabled)
-    return configuration
-  }()
+    private let cancellable = CombineCancellable()
 
-  // MARK: - Properties - Subviews
+    private lazy var shortenButtonConfiguration: UIButton.Configuration = {
+      var configuration = UIButton.Configuration.filled()
+      configuration.baseBackgroundColor = ColorAsset.roman
+      configuration.attributedTitle = Self.shortenButtonTitle(for: .disabled)
+      return configuration
+    }()
 
-  private lazy var shortenButton = ActivityIndicatorButton(configuration: shortenButtonConfiguration) ->> {
-    $0.addTarget(self, action: #selector(shortenButtonTouchUpInside), for: .touchUpInside)
-    $0.configurationUpdateHandler = {
-      $0.configuration?.attributedTitle = Self.shortenButtonTitle(for: $0.state)
-    }
-  }
+    // MARK: - Properties - Subviews
 
-  private lazy var urlTextField = LinksShortenerURLTextField() ->> {
-    $0.configure(for: .normal)
-    $0.addTarget(self, action: #selector(urlTextFieldEditingChanged(sender:)), for: .editingChanged)
-  }
-
-  // MARK: - Initialization
-
-  init(viewModel: LinksShortenerViewModel) {
-    self.viewModel = viewModel
-
-    super.init()
-  }
-
-  // MARK: - Base Class
-
-  override func configureSubviews() {
-    super.configureSubviews()
-
-    view.backgroundColor = ColorAsset.martinique
-    view.setContentHuggingPriority(.defaultLow, for: .vertical)
-    view.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-
-    // Stack view.
-    let stackView = UIStackView() ->> {
-      $0.axis = .vertical
-      $0.distribution = .fillEqually
-      $0.alignment = .fill
-      $0.spacing = 16
+    private lazy var shortenButton = ActivityIndicatorButton(configuration: shortenButtonConfiguration) ->> {
+      $0.addTarget(self, action: #selector(shortenButtonTouchUpInside), for: .touchUpInside)
+      $0.configurationUpdateHandler = {
+        $0.configuration?.attributedTitle = Self.shortenButtonTitle(for: $0.state)
+      }
     }
 
-    stackView.add(to: view) {
-      $0.leadingAnchor.constraint(equalTo: $1.leadingSafeAnchor, constant: 48)
-      $1.trailingSafeAnchor.constraint(equalTo: $0.trailingAnchor, constant: 48)
-      $1.bottomSafeAnchor.constraint(equalTo: $0.bottomAnchor, constant: 50)
-      $0.topAnchor.constraint(equalTo: $1.topSafeAnchor, constant: 46)
+    private lazy var urlTextField = URLTextField() ->> {
+      $0.configure(for: .normal)
+      $0.addTarget(self, action: #selector(urlTextFieldEditingChanged(sender:)), for: .editingChanged)
     }
 
-    // URL text field.
-    urlTextField.addAsArrangedSubview(to: stackView) { urlTextField, _ in
-      urlTextField.heightAnchor.constraint(equalToConstant: 49)
+    // MARK: - Initialization
+
+    init(viewModel: ViewModel) {
+      self.viewModel = viewModel
+
+      super.init()
     }
 
-    // Shorten button.
-    shortenButton.addAsArrangedSubview(to: stackView)
-  }
+    // MARK: - Base Class
 
-  override func bind() {
-    super.bind()
+    override func configureSubviews() {
+      super.configureSubviews()
 
-    viewModel.bind()
+      view.backgroundColor = ColorAsset.martinique
+      view.setContentHuggingPriority(.defaultLow, for: .vertical)
+      view.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
 
-    cancellable {
-      viewModel.output.emptyURLError
-        .sinkValue { [weak self] in self?.urlTextField.configure(for: .emptyLink) }
-      viewModel.output.isValidURL
-        .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
-      Publishers.Merge3(
-        viewModel.output.error.map { _ in () },
-        viewModel.output.emptyURLError,
-        viewModel.output.shortenedLink.map { _ in () }
-      )
-      .sinkValue { [weak shortenButton] in shortenButton?.configureLoadingState(isLoading: false) }
+      // Stack view.
+      let stackView = UIStackView() ->> {
+        $0.axis = .vertical
+        $0.distribution = .fillEqually
+        $0.alignment = .fill
+        $0.spacing = 16
+      }
+
+      stackView.add(to: view) {
+        $0.leadingAnchor.constraint(equalTo: $1.leadingSafeAnchor, constant: 48)
+        $1.trailingSafeAnchor.constraint(equalTo: $0.trailingAnchor, constant: 48)
+        $1.bottomSafeAnchor.constraint(equalTo: $0.bottomAnchor, constant: 50)
+        $0.topAnchor.constraint(equalTo: $1.topSafeAnchor, constant: 46)
+      }
+
+      // URL text field.
+      urlTextField.addAsArrangedSubview(to: stackView) { urlTextField, _ in
+        urlTextField.heightAnchor.constraint(equalToConstant: 49)
+      }
+
+      // Shorten button.
+      shortenButton.addAsArrangedSubview(to: stackView)
     }
+
+    override func bind() {
+      super.bind()
+
+      viewModel.bind()
+
+      cancellable {
+        viewModel.output.emptyURLError
+          .sinkValue { [weak self] in self?.urlTextField.configure(for: .emptyLink) }
+        viewModel.output.isValidURL
+          .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
+        Publishers.Merge3(
+          viewModel.output.error.map { _ in () },
+          viewModel.output.emptyURLError,
+          viewModel.output.shortenedLink.map { _ in () }
+        )
+        .sinkValue { [weak shortenButton] in shortenButton?.configureLoadingState(isLoading: false) }
+      }
+    }
+
   }
 
 }
 
 // MARK: - Private Methods
 
-private extension LinksShortenerViewController {
+private extension LinksShortener.ViewController {
 
   static func shortenButtonTitle(for state: UIControl.State) -> AttributedString {
     let color: UIColor

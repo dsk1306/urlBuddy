@@ -1,44 +1,8 @@
 import UIKit
 
-extension LinksHistoryItemCell {
+extension LinksHistory.ItemCell {
 
   final class CopyButton: UIButton {
-
-    // MARK: - State
-
-    enum ButtonType {
-
-      case copy
-      case copied
-
-      fileprivate var title: String {
-        switch self {
-        case .copy:
-          return LocalizedString.copy.uppercased()
-        case .copied:
-          return LocalizedString.copied.uppercased()
-        }
-      }
-
-      fileprivate var backgroundColor: UIColor {
-        switch self {
-        case .copied:
-          return ColorAsset.martinique
-        case .copy:
-          return ColorAsset.roman
-        }
-      }
-
-      fileprivate var isUserInteractionEnabled: Bool {
-        switch self {
-        case .copied:
-          return false
-        case .copy:
-          return true
-        }
-      }
-
-    }
 
     // MARK: - Typealiases
 
@@ -68,7 +32,7 @@ extension LinksHistoryItemCell {
 
 // MARK: - Private Methods
 
-private extension LinksHistoryItemCell.CopyButton {
+private extension LinksHistory.ItemCell.CopyButton {
 
   func updateWithType(animated: Bool) {
     isUserInteractionEnabled = type.isUserInteractionEnabled
@@ -79,6 +43,46 @@ private extension LinksHistoryItemCell.CopyButton {
       .font: UIFont.systemFont(ofSize: 17, weight: .semibold)
     ])
     configuration?.attributedTitle = .init(type.title, attributes: attributes)
+  }
+
+}
+
+// MARK: - ButtonType
+
+extension LinksHistory.ItemCell.CopyButton {
+
+  enum ButtonType {
+
+    case copy
+    case copied
+
+    fileprivate var title: String {
+      switch self {
+      case .copy:
+        return LocalizedString.copy.uppercased()
+      case .copied:
+        return LocalizedString.copied.uppercased()
+      }
+    }
+
+    fileprivate var backgroundColor: UIColor {
+      switch self {
+      case .copied:
+        return ColorAsset.martinique
+      case .copy:
+        return ColorAsset.roman
+      }
+    }
+
+    fileprivate var isUserInteractionEnabled: Bool {
+      switch self {
+      case .copied:
+        return false
+      case .copy:
+        return true
+      }
+    }
+
   }
 
 }

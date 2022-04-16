@@ -10,97 +10,101 @@ protocol LinksShortenerViewModelBindable {
 
 // MARK: -
 
-final class LinksShortenerViewModel: BaseViewModel {
+extension LinksShortener {
 
-  // MARK: - Input
+  final class ViewModel: BaseViewModel {
 
-  struct Input {
+    // MARK: - Input
 
-    let shorten = PassthroughRelay<Void>()
-    let urlTextChanged = PassthroughRelay<String>()
+    struct Input {
 
-  }
+      let shorten = PassthroughRelay<Void>()
+      let urlTextChanged = PassthroughRelay<String>()
 
-  // MARK: - Output
-
-  struct Output {
-
-    let error: AnyPublisher<Error, Never>
-    let emptyURLError: AnyPublisher<Void, Never>
-    let shortenedLink: AnyPublisher<Link, Never>
-    let isValidURL: AnyPublisher<Bool, Never>
-
-  }
-
-  // MARK: - Properties
-
-  let output: Output
-  let input = Input()
-
-  private let linksShortenerService: LinksShortenerService
-  private let clipboardService: ClipboardService
-
-  // MARK: - Properties - Relays
-
-  private let urlTextRelay = CurrentValueRelay<String>("")
-  private let errorRelay = PassthroughRelay<Error>()
-  private let emptyURLErrorRelay = PassthroughRelay<Void>()
-  private let shortenedLinkRelay = PassthroughRelay<Link>()
-  private let isValidURLRelay = CurrentValueRelay<Bool>(false)
-
-  // MARK: - Initialization
-
-  override init(services: Services, cordinator: RootCoordinator) {
-    self.linksShortenerService = services.linksShortener
-    self.clipboardService = services.clipboard
-
-    self.output = Output(
-      error: errorRelay.prepareToOutput(),
-      emptyURLError: emptyURLErrorRelay.prepareToOutput(),
-      shortenedLink: shortenedLinkRelay.prepareToOutput(),
-      isValidURL: isValidURLRelay.prepareToOutput()
-    )
-
-    super.init(services: services, cordinator: cordinator)
-  }
-
-  // MARK: - Base Class
-
-  override func bind() {
-    super.bind()
-
-    cancellable {
-      input.urlTextChanged.subscribe(urlTextRelay)
-      input.shorten
-        .withLatestFrom(urlTextRelay)
-        .compactMap { [weak self] in self?.url(from: $0) }
-        .flatMap { [weak self] url in
-          self?.shortenerPublisher(for: url) ?? Empty().eraseToAnyPublisher()
-        }
-        .subscribe(shortenedLinkRelay)
-      urlTextRelay
-        .map { [weak self] urlString -> Bool in
-          do {
-            return try URLStringValidator(urlString: urlString).isValid
-          } catch {
-            self?.log(error: error)
-            return false
-          }
-        }
-        .removeDuplicates()
-        .subscribe(isValidURLRelay)
-      errorRelay
-        .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
-      shortenedLinkRelay
-        .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
     }
+
+    // MARK: - Output
+
+    struct Output {
+
+      let error: AnyPublisher<Error, Never>
+      let emptyURLError: AnyPublisher<Void, Never>
+      let shortenedLink: AnyPublisher<Link, Never>
+      let isValidURL: AnyPublisher<Bool, Never>
+
+    }
+
+    // MARK: - Properties
+
+    let output: Output
+    let input = Input()
+
+    private let linksShortenerService: LinksShortenerService
+    private let clipboardService: ClipboardService
+
+    // MARK: - Properties - Relays
+
+    private let urlTextRelay = CurrentValueRelay<String>("")
+    private let errorRelay = PassthroughRelay<Error>()
+    private let emptyURLErrorRelay = PassthroughRelay<Void>()
+    private let shortenedLinkRelay = PassthroughRelay<Link>()
+    private let isValidURLRelay = CurrentValueRelay<Bool>(false)
+
+    // MARK: - Initialization
+
+    override init(services: Services, cordinator: RootCoordinator) {
+      self.linksShortenerService = services.linksShortener
+      self.clipboardService = services.clipboard
+
+      self.output = Output(
+        error: errorRelay.prepareToOutput(),
+        emptyURLError: emptyURLErrorRelay.prepareToOutput(),
+        shortenedLink: shortenedLinkRelay.prepareToOutput(),
+        isValidURL: isValidURLRelay.prepareToOutput()
+      )
+
+      super.init(services: services, cordinator: cordinator)
+    }
+
+    // MARK: - Base Class
+
+    override func bind() {
+      super.bind()
+
+      cancellable {
+        input.urlTextChanged.subscribe(urlTextRelay)
+        input.shorten
+          .withLatestFrom(urlTextRelay)
+          .compactMap { [weak self] in self?.url(from: $0) }
+          .flatMap { [weak self] url in
+            self?.shortenerPublisher(for: url) ?? Empty().eraseToAnyPublisher()
+          }
+          .subscribe(shortenedLinkRelay)
+        urlTextRelay
+          .map { [weak self] urlString -> Bool in
+            do {
+              return try URLStringValidator(urlString: urlString).isValid
+            } catch {
+              self?.log(error: error)
+              return false
+            }
+          }
+          .removeDuplicates()
+          .subscribe(isValidURLRelay)
+        errorRelay
+          .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
+        shortenedLinkRelay
+          .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
+      }
+    }
+
   }
 
 }
 
 // MARK: - Public Methods
 
-extension LinksShortenerViewModel {
+extension LinksShortener.ViewModel {
 
   func bind(to input: LinksShortenerViewModelBindable) {
     cancellable {
@@ -112,7 +116,7 @@ extension LinksShortenerViewModel {
 
 // MARK: - Private Methods
 
-private extension LinksShortenerViewModel {
+private extension LinksShortener.ViewModel {
 
   func url(from urlString: String) -> URL? {
     guard !urlString.isEmpty else {
