@@ -16,12 +16,18 @@ final class LinksShortenerViewController: UIViewController {
 
   // MARK: - Properties - Subviews
 
-  private lazy var shortenButton = ActivityIndicatorButton() ->> {
-    $0.backgroundColor = ColorAsset.roman
-    $0.setTitle(LocalizedString.cta.uppercased(), for: .normal)
-    $0.setTitleColor(.white, for: .normal)
+  private lazy var shortenButtonConfiguration: UIButton.Configuration = {
+    var configuration = UIButton.Configuration.filled()
+    configuration.baseBackgroundColor = ColorAsset.roman
+    configuration.attributedTitle = Self.shortenButtonTitle(for: .normal)
+    return configuration
+  }()
+
+  private lazy var shortenButton = ActivityIndicatorButton(configuration: shortenButtonConfiguration) ->> {
     $0.addTarget(self, action: #selector(shortenButtonTouchUpInside), for: .touchUpInside)
-    $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
+    $0.configurationUpdateHandler = {
+      $0.configuration?.attributedTitle = Self.shortenButtonTitle(for: $0.state)
+    }
   }
 
   private lazy var urlTextField = LinksShortenerURLTextField() ->> {
@@ -60,6 +66,22 @@ final class LinksShortenerViewController: UIViewController {
 // MARK: - Private Methods
 
 private extension LinksShortenerViewController {
+
+  static func shortenButtonTitle(for state: UIControl.State) -> AttributedString {
+    let color: UIColor
+    switch state {
+    case .normal:
+      color = .white
+    default:
+      color = .lightGray
+    }
+
+    let attributes = AttributeContainer([
+      .foregroundColor: color,
+      .font: UIFont.systemFont(ofSize: 20, weight: .semibold)
+    ])
+    return AttributedString(LocalizedString.cta, attributes: attributes)
+  }
 
   @objc
   func shortenButtonTouchUpInside() {
@@ -110,6 +132,8 @@ private extension LinksShortenerViewController {
     cancellable {
       viewModel.output.emptyURLError
         .sinkValue { [weak self] in self?.urlTextField.configure(for: .emptyLink) }
+      viewModel.output.isValidURL
+        .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
       Publishers.Merge3(
         viewModel.output.error.map { _ in () },
         viewModel.output.emptyURLError,

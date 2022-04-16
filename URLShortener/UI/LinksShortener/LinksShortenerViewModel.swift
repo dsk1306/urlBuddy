@@ -28,6 +28,7 @@ final class LinksShortenerViewModel: BaseViewModel {
     let error: AnyPublisher<Error, Never>
     let emptyURLError: AnyPublisher<Void, Never>
     let shortenedLink: AnyPublisher<Link, Never>
+    let isValidURL: AnyPublisher<Bool, Never>
 
   }
 
@@ -45,6 +46,7 @@ final class LinksShortenerViewModel: BaseViewModel {
   private let errorRelay = PassthroughRelay<Error>()
   private let emptyURLErrorRelay = PassthroughRelay<Void>()
   private let shortenedLinkRelay = PassthroughRelay<Link>()
+  private let isValidURLRelay = CurrentValueRelay<Bool>(false)
 
   // MARK: - Initialization
 
@@ -55,7 +57,8 @@ final class LinksShortenerViewModel: BaseViewModel {
     self.output = Output(
       error: errorRelay.prepareToOutput(),
       emptyURLError: emptyURLErrorRelay.prepareToOutput(),
-      shortenedLink: shortenedLinkRelay.prepareToOutput()
+      shortenedLink: shortenedLinkRelay.prepareToOutput(),
+      isValidURL: isValidURLRelay.prepareToOutput()
     )
 
     super.init(services: services, cordinator: cordinator)
@@ -75,6 +78,17 @@ final class LinksShortenerViewModel: BaseViewModel {
           self?.shortenerPublisher(for: url) ?? Empty().eraseToAnyPublisher()
         }
         .subscribe(shortenedLinkRelay)
+      urlTextRelay
+        .map { [weak self] urlString -> Bool in
+          do {
+            return try URLStringValidator(urlString: urlString).isValid
+          } catch {
+            self?.log(error: error)
+            return false
+          }
+        }
+        .removeDuplicates()
+        .subscribe(isValidURLRelay)
       errorRelay
         .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
       shortenedLinkRelay
