@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C71603F0280B480B00B41298 /* URLStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603EF280B480B00B41298 /* URLStringValidator.swift */; };
+		C71603F3280B555400B41298 /* URLStringValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603F2280B555400B41298 /* URLStringValidatorTests.swift */; };
 		C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAAE27F1BBE500A818F3 /* Services.swift */; };
 		C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C753FAB127F1BC2700A818F3 /* CombineExtensions */; };
 		C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */; };
@@ -92,6 +93,7 @@
 
 /* Begin PBXFileReference section */
 		C71603EF280B480B00B41298 /* URLStringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStringValidator.swift; sourceTree = "<group>"; };
+		C71603F2280B555400B41298 /* URLStringValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStringValidatorTests.swift; sourceTree = "<group>"; };
 		C753FAAE27F1BBE500A818F3 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPersistenceService.swift; sourceTree = "<group>"; };
 		C753FAB627F1D7CC00A818F3 /* DatabaseLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLink.swift; sourceTree = "<group>"; };
@@ -189,6 +191,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C71603F1280B554700B41298 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C71603F2280B555400B41298 /* URLStringValidatorTests.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		C753FAB327F1BD0A00A818F3 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +466,7 @@
 				C767EE0B27F0F88F0053DC26 /* -MockJSONs */,
 				C7BB4B3827F25F9C00AC3E1B /* Models */,
 				C7BB4B3727F25F6E00AC3E1B /* Services */,
+				C71603F1280B554700B41298 /* Utilities */,
 			);
 			path = URLShortenerTests;
 			sourceTree = "<group>";
@@ -756,6 +767,7 @@
 				C767EE1327F0F9840053DC26 /* MockJSONLoader.swift in Sources */,
 				C7BB4B3A27F25FAB00AC3E1B /* LinkTests.swift in Sources */,
 				C767EE1527F0FA7E0053DC26 /* MockJSONType.swift in Sources */,
+				C71603F3280B555400B41298 /* URLStringValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

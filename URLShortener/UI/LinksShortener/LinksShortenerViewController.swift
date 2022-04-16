@@ -19,7 +19,7 @@ final class LinksShortenerViewController: UIViewController {
   private lazy var shortenButtonConfiguration: UIButton.Configuration = {
     var configuration = UIButton.Configuration.filled()
     configuration.baseBackgroundColor = ColorAsset.roman
-    configuration.attributedTitle = Self.shortenButtonTitle(for: .normal)
+    configuration.attributedTitle = Self.shortenButtonTitle(for: .disabled)
     return configuration
   }()
 
