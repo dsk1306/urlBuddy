@@ -18,12 +18,12 @@ extension LinksHistory {
 
     private lazy var originalURLLabel = UILabel() ->> {
       $0.textColor = ColorAsset.tuna
-      $0.font = .systemFont(ofSize: 17)
+      $0.font = .systemFont(ofSize: 17, weight: .medium)
     }
 
     private lazy var shortenURLLabel = UILabel() ->> {
       $0.textColor = ColorAsset.roman
-      $0.font = .systemFont(ofSize: 17)
+      $0.font = .systemFont(ofSize: 17, weight: .medium)
     }
 
     private lazy var copyButton = CopyButton() ->> {
