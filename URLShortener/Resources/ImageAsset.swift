@@ -5,7 +5,6 @@ import UIKit
 enum ImageAsset {
 
   static var background: UIImage { Asset(name: "background").image }
-  static var logo: UIImage { Asset(name: "logo").image }
 
   static var onError: ((Error) -> Void)?
 
