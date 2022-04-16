@@ -55,7 +55,8 @@ extension LinksHistory {
     override func configureSubviews() {
       super.configureSubviews()
 
-      view.backgroundColor = .systemBackground
+      view.backgroundColor = .systemGroupedBackground
+      collectionView.backgroundColor = view.backgroundColor
 
       // Collection View.
       collectionView.register(cellClass: ItemCell.self)
