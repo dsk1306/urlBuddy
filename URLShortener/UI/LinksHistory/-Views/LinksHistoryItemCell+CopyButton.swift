@@ -59,9 +59,9 @@ extension LinksHistory.ItemCell.CopyButton {
     fileprivate var title: String {
       switch self {
       case .copy:
-        return LocalizedString.copy.uppercased()
+        return LocalizedString.copy
       case .copied:
-        return LocalizedString.copied.uppercased()
+        return LocalizedString.copied
       }
     }
 
