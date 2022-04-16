@@ -25,7 +25,7 @@ extension LinksHistoryItemCell {
         case .copied:
           return ColorAsset.martinique
         case .copy:
-          return ColorAsset.turquoise
+          return ColorAsset.roman
         }
       }
 

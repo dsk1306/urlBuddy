@@ -17,7 +17,7 @@ final class LinksShortenerViewController: UIViewController {
   // MARK: - Properties - Subviews
 
   private lazy var shortenButton = ActivityIndicatorButton() ->> {
-    $0.backgroundColor = ColorAsset.turquoise
+    $0.backgroundColor = ColorAsset.roman
     $0.setTitle(LocalizedString.cta.uppercased(), for: .normal)
     $0.setTitleColor(.white, for: .normal)
     $0.addTarget(self, action: #selector(shortenButtonTouchUpInside), for: .touchUpInside)

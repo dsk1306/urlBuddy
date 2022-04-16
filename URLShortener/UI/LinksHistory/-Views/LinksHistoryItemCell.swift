@@ -34,7 +34,7 @@ final class LinksHistoryItemCell: BaseCollectionViewCell {
   }
 
   private lazy var shortenURLLabel = UILabel() ->> {
-    $0.textColor = ColorAsset.turquoise
+    $0.textColor = ColorAsset.roman
     $0.font = .systemFont(ofSize: 17)
   }
 
