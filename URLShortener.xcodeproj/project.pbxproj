@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C71603F0280B480B00B41298 /* URLStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603EF280B480B00B41298 /* URLStringValidator.swift */; };
 		C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAAE27F1BBE500A818F3 /* Services.swift */; };
 		C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C753FAB127F1BC2700A818F3 /* CombineExtensions */; };
 		C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */; };
@@ -90,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C71603EF280B480B00B41298 /* URLStringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStringValidator.swift; sourceTree = "<group>"; };
 		C753FAAE27F1BBE500A818F3 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPersistenceService.swift; sourceTree = "<group>"; };
 		C753FAB627F1D7CC00A818F3 /* DatabaseLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLink.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				C7CC818727F8B549008EE891 /* LocalizedString.swift */,
+				C71603EF280B480B00B41298 /* URLStringValidator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				C78C88F327F8BAE400302E75 /* UIView+Ext.swift in Sources */,
 				C753FAB827F1D7CC00A818F3 /* DatabaseLink.swift in Sources */,
 				C78C88FD27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift in Sources */,
+				C71603F0280B480B00B41298 /* URLStringValidator.swift in Sources */,
 				C77DD6CE27F07B680037ACFF /* LinksShortenerService.swift in Sources */,
 				C77166EA27F103B600C0B472 /* Link.swift in Sources */,
 				C78C88F527F8BAFD00302E75 /* Publisher+Ext.swift in Sources */,
