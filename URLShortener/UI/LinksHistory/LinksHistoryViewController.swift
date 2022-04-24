@@ -101,7 +101,7 @@ extension LinksHistory {
       childControllerFrameSubscription = childController.view.publisher(for: \.bounds)
         .map { [weak self] bounds -> CGFloat in
           guard let self = self else { return bounds.height }
-          return bounds.height - self.collectionView.safeAreaInsets.bottom
+          return bounds.height - self.view.safeAreaInsets.bottom
         }
         .removeDuplicates()
         .sinkValue { [weak self] inset in
