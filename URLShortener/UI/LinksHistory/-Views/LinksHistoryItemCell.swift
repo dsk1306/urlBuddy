@@ -109,7 +109,7 @@ extension LinksHistory {
 
 extension LinksHistory.ItemCell {
 
-  func configure(with model: ItemModel) {
+  func configure(with model: Model) {
     originalURLLabel.text = model.originalURL
     shortenURLLabel.text = model.shortenURL
   }

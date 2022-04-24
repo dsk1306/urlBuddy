@@ -2,7 +2,7 @@ import Foundation
 
 extension LinksHistory.ItemCell {
 
-  struct ItemModel {
+  struct Model {
 
     // MARK: - Properties
 
