@@ -88,6 +88,9 @@ extension LinksShortener {
           .sinkValue { [weak self] in self?.urlTextField.configure(for: .emptyLink) }
         viewModel.output.isValidURL
           .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
+        viewModel.output.shortenedLink
+          .map { _ in nil }
+          .assign(to: \.text, on: urlTextField, ownership: .weak)
         Publishers.Merge3(
           viewModel.output.error.map { _ in () },
           viewModel.output.emptyURLError,
