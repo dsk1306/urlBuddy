@@ -10,9 +10,9 @@ extension LinksHistory.ItemCell {
 
     // MARK: - Properties
 
-    var type = ButtonType.copy {
+    var type = ButtonState.copy {
       didSet {
-        updateWithType(animated: true)
+        updateWithType()
       }
     }
 
@@ -23,7 +23,7 @@ extension LinksHistory.ItemCell {
 
       configuration?.baseForegroundColor = .white
 
-      updateWithType(animated: false)
+      updateWithType()
     }
 
   }
@@ -34,7 +34,7 @@ extension LinksHistory.ItemCell {
 
 private extension LinksHistory.ItemCell.CopyButton {
 
-  func updateWithType(animated: Bool) {
+  func updateWithType() {
     isUserInteractionEnabled = type.isUserInteractionEnabled
     configuration?.baseBackgroundColor = type.backgroundColor
 
@@ -47,11 +47,11 @@ private extension LinksHistory.ItemCell.CopyButton {
 
 }
 
-// MARK: - ButtonType
+// MARK: - ButtonState
 
 extension LinksHistory.ItemCell.CopyButton {
 
-  enum ButtonType {
+  enum ButtonState {
 
     case copy
     case copied
