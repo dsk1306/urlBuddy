@@ -68,6 +68,7 @@
 		C7CC818827F8B549008EE891 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC818727F8B549008EE891 /* LocalizedString.swift */; };
 		C7CC818E27F8B751008EE891 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7CC819027F8B751008EE891 /* Localizable.strings */; };
 		C7CE0AE227F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */; };
+		C7D211812815B2C700AB636C /* LinksHistoryItemCellModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D211802815B2C700AB636C /* LinksHistoryItemCellModelTests.swift */; };
 		C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */; };
 		C7DF18EB27EA590200D1FAD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18EA27EA590200D1FAD6 /* SceneDelegate.swift */; };
 		C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18F127EA590200D1FAD6 /* URLShortener.xcdatamodeld */; };
@@ -156,6 +157,7 @@
 		C7CC818A27F8B617008EE891 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C7CC818F27F8B751008EE891 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLinksShortenerServiceTests.swift; sourceTree = "<group>"; };
+		C7D211802815B2C700AB636C /* LinksHistoryItemCellModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryItemCellModelTests.swift; sourceTree = "<group>"; };
 		C7DF18E527EA590200D1FAD6 /* URLShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DF18EA27EA590200D1FAD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -426,6 +428,22 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		C7D2117E2815B2A100AB636C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C7D2117F2815B2A900AB636C /* LinksHistory */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C7D2117F2815B2A900AB636C /* LinksHistory */ = {
+			isa = PBXGroup;
+			children = (
+				C7D211802815B2C700AB636C /* LinksHistoryItemCellModelTests.swift */,
+			);
+			path = LinksHistory;
+			sourceTree = "<group>";
+		};
 		C7DF18DC27EA590200D1FAD6 = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +487,7 @@
 				C767EE0B27F0F88F0053DC26 /* -MockJSONs */,
 				C7BB4B3827F25F9C00AC3E1B /* Models */,
 				C7BB4B3727F25F6E00AC3E1B /* Services */,
+				C7D2117E2815B2A100AB636C /* UI */,
 				C71603F1280B554700B41298 /* Utilities */,
 			);
 			path = URLShortenerTests;
@@ -773,6 +792,7 @@
 				C767EE1127F0F9000053DC26 /* MockJSON.swift in Sources */,
 				C7CE0AE227F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift in Sources */,
 				C767EE1327F0F9840053DC26 /* MockJSONLoader.swift in Sources */,
+				C7D211812815B2C700AB636C /* LinksHistoryItemCellModelTests.swift in Sources */,
 				C7BB4B3A27F25FAB00AC3E1B /* LinkTests.swift in Sources */,
 				C767EE1527F0FA7E0053DC26 /* MockJSONType.swift in Sources */,
 				C71603F3280B555400B41298 /* URLStringValidatorTests.swift in Sources */,
