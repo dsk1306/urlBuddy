@@ -28,7 +28,6 @@ extension LinksShortener {
     struct Output {
 
       let error: AnyPublisher<Error, Never>
-      let emptyURLError: AnyPublisher<Void, Never>
       let shortenedLink: AnyPublisher<Link, Never>
       let isValidURL: AnyPublisher<Bool, Never>
 
@@ -46,7 +45,6 @@ extension LinksShortener {
 
     private let urlTextRelay = CurrentValueRelay<String>("")
     private let errorRelay = PassthroughRelay<Error>()
-    private let emptyURLErrorRelay = PassthroughRelay<Void>()
     private let shortenedLinkRelay = PassthroughRelay<Link>()
     private let isValidURLRelay = CurrentValueRelay<Bool>(false)
 
@@ -58,7 +56,6 @@ extension LinksShortener {
 
       self.output = Output(
         error: errorRelay.prepareToOutput(),
-        emptyURLError: emptyURLErrorRelay.prepareToOutput(),
         shortenedLink: shortenedLinkRelay.prepareToOutput(),
         isValidURL: isValidURLRelay.prepareToOutput()
       )
@@ -119,10 +116,6 @@ extension LinksShortener.ViewModel {
 private extension LinksShortener.ViewModel {
 
   func url(from urlString: String) -> URL? {
-    guard !urlString.isEmpty else {
-      emptyURLErrorRelay.accept()
-      return nil
-    }
     guard let url = URL(string: urlString) else {
       errorRelay.accept(LinksShortenerError.badURL)
       return nil

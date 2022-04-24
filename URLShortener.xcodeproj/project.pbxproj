@@ -50,7 +50,6 @@
 		C78C890127F8BD1800302E75 /* LinksHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890027F8BD1800302E75 /* LinksHistoryViewController.swift */; };
 		C78C890427F8BD3F00302E75 /* LinksShortenerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890327F8BD3F00302E75 /* LinksShortenerViewController.swift */; };
 		C78C890627F8BD5400302E75 /* LinksShortenerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890527F8BD5400302E75 /* LinksShortenerViewModel.swift */; };
-		C78C890927F8BD7000302E75 /* LinksShortenerURLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890827F8BD7000302E75 /* LinksShortenerURLTextField.swift */; };
 		C78C890C27F8BDB800302E75 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890B27F8BDB800302E75 /* BaseCollectionViewCell.swift */; };
 		C78C890E27F8BDC700302E75 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890D27F8BDC700302E75 /* BaseView.swift */; };
 		C78C891127F8BDEA00302E75 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C891027F8BDEA00302E75 /* RootCoordinator.swift */; };
@@ -139,7 +138,6 @@
 		C78C890027F8BD1800302E75 /* LinksHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryViewController.swift; sourceTree = "<group>"; };
 		C78C890327F8BD3F00302E75 /* LinksShortenerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksShortenerViewController.swift; sourceTree = "<group>"; };
 		C78C890527F8BD5400302E75 /* LinksShortenerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksShortenerViewModel.swift; sourceTree = "<group>"; };
-		C78C890827F8BD7000302E75 /* LinksShortenerURLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksShortenerURLTextField.swift; sourceTree = "<group>"; };
 		C78C890B27F8BDB800302E75 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		C78C890D27F8BDC700302E75 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C78C891027F8BDEA00302E75 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
@@ -361,17 +359,8 @@
 				C7892093280B600E007FCBF7 /* LinksShortener.swift */,
 				C78C890327F8BD3F00302E75 /* LinksShortenerViewController.swift */,
 				C78C890527F8BD5400302E75 /* LinksShortenerViewModel.swift */,
-				C78C890727F8BD6700302E75 /* -Views */,
 			);
 			path = LinksShortener;
-			sourceTree = "<group>";
-		};
-		C78C890727F8BD6700302E75 /* -Views */ = {
-			isa = PBXGroup;
-			children = (
-				C78C890827F8BD7000302E75 /* LinksShortenerURLTextField.swift */,
-			);
-			path = "-Views";
 			sourceTree = "<group>";
 		};
 		C78C890A27F8BDAC00302E75 /* Base */ = {
@@ -757,7 +746,6 @@
 				C78C891127F8BDEA00302E75 /* RootCoordinator.swift in Sources */,
 				C753FAC427F24CBC00A818F3 /* PersistenceService.swift in Sources */,
 				C78C890127F8BD1800302E75 /* LinksHistoryViewController.swift in Sources */,
-				C78C890927F8BD7000302E75 /* LinksShortenerURLTextField.swift in Sources */,
 				C77DD6D027F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift in Sources */,
 				C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */,
 				C78C88FF27F8BD0700302E75 /* LinksHistoryViewModel.swift in Sources */,

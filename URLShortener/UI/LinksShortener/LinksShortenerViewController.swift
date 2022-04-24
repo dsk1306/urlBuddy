@@ -32,8 +32,13 @@ extension LinksShortener {
       }
     }
 
-    private lazy var urlTextField = URLTextField() ->> {
-      $0.configure(for: .normal)
+    private lazy var urlTextField = UITextField() ->> {
+      $0.layer.cornerRadius = Constant.urlTextFieldCornerRadius
+      $0.backgroundColor = .white
+      $0.textAlignment = .center
+      $0.autocorrectionType = .no
+      $0.autocapitalizationType = .none
+      $0.attributedPlaceholder = Constant.urlTextFieldPlaceholder
       $0.addTarget(self, action: #selector(urlTextFieldEditingChanged(sender:)), for: .editingChanged)
     }
 
@@ -84,19 +89,18 @@ extension LinksShortener {
       viewModel.bind()
 
       cancellable {
-        viewModel.output.emptyURLError
-          .sinkValue { [weak self] in self?.urlTextField.configure(for: .emptyLink) }
         viewModel.output.isValidURL
           .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
         viewModel.output.shortenedLink
           .map { _ in nil }
           .assign(to: \.text, on: urlTextField, ownership: .weak)
-        Publishers.Merge3(
+        Publishers.Merge(
           viewModel.output.error.map { _ in () },
-          viewModel.output.emptyURLError,
           viewModel.output.shortenedLink.map { _ in () }
         )
-        .sinkValue { [weak shortenButton] in shortenButton?.configureLoadingState(isLoading: false) }
+        .sinkValue { [weak shortenButton] in
+          shortenButton?.configureLoadingState(isLoading: false)
+        }
       }
     }
 
@@ -132,8 +136,31 @@ private extension LinksShortener.ViewController {
 
   @objc
   func urlTextFieldEditingChanged(sender: UITextField) {
-    urlTextField.configure(for: .normal)
     viewModel.input.urlTextChanged.accept(sender.text ?? "")
+  }
+
+}
+
+// MARK: - Constants
+
+private extension LinksShortener.ViewController {
+
+  enum Constant {
+
+    static let urlTextFieldCornerRadius: CGFloat = 6
+
+    static let urlTextFieldPlaceholder = NSAttributedString(
+      string: LocalizedString.placeholder,
+      attributes: [
+        .paragraphStyle: urlTextFieldParagraphStyle,
+        .font: UIFont.systemFont(ofSize: 17)
+      ]
+    )
+
+    private static let urlTextFieldParagraphStyle = NSMutableParagraphStyle() ->> {
+      $0.alignment = .center
+    }
+
   }
 
 }
