@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C71603F0280B480B00B41298 /* URLStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603EF280B480B00B41298 /* URLStringValidator.swift */; };
+		C71603F3280B555400B41298 /* URLStringValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603F2280B555400B41298 /* URLStringValidatorTests.swift */; };
+		C71603F5280B57BB00B41298 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603F4280B57BB00B41298 /* BaseViewController.swift */; };
 		C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAAE27F1BBE500A818F3 /* Services.swift */; };
 		C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C753FAB127F1BC2700A818F3 /* CombineExtensions */; };
 		C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */; };
@@ -32,6 +35,25 @@
 		C77DD6D027F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6CF27F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift */; };
 		C77DD6D227F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6D127F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift */; };
 		C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6D327F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift */; };
+		C7892090280B5E52007FCBF7 /* LinksHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C789208F280B5E52007FCBF7 /* LinksHistory.swift */; };
+		C7892092280B5FA3007FCBF7 /* LinksHistoryItemCell+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7892091280B5FA3007FCBF7 /* LinksHistoryItemCell+Model.swift */; };
+		C7892094280B600E007FCBF7 /* LinksShortener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7892093280B600E007FCBF7 /* LinksShortener.swift */; };
+		C7892096280B6145007FCBF7 /* ImageAsset+SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7892095280B6145007FCBF7 /* ImageAsset+SFSymbols.swift */; };
+		C78C88EE27F8BAAA00302E75 /* ActivityIndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88ED27F8BAAA00302E75 /* ActivityIndicatorButton.swift */; };
+		C78C88F127F8BACC00302E75 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */; };
+		C78C88F327F8BAE400302E75 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F227F8BAE400302E75 /* UIView+Ext.swift */; };
+		C78C88F527F8BAFD00302E75 /* Publisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F427F8BAFD00302E75 /* Publisher+Ext.swift */; };
+		C78C88F927F8BCC400302E75 /* LinksHistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F827F8BCC400302E75 /* LinksHistoryEmptyView.swift */; };
+		C78C88FB27F8BCE100302E75 /* LinksHistoryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88FA27F8BCE100302E75 /* LinksHistoryItemCell.swift */; };
+		C78C88FD27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88FC27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift */; };
+		C78C88FF27F8BD0700302E75 /* LinksHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88FE27F8BD0700302E75 /* LinksHistoryViewModel.swift */; };
+		C78C890127F8BD1800302E75 /* LinksHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890027F8BD1800302E75 /* LinksHistoryViewController.swift */; };
+		C78C890427F8BD3F00302E75 /* LinksShortenerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890327F8BD3F00302E75 /* LinksShortenerViewController.swift */; };
+		C78C890627F8BD5400302E75 /* LinksShortenerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890527F8BD5400302E75 /* LinksShortenerViewModel.swift */; };
+		C78C890C27F8BDB800302E75 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890B27F8BDB800302E75 /* BaseCollectionViewCell.swift */; };
+		C78C890E27F8BDC700302E75 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890D27F8BDC700302E75 /* BaseView.swift */; };
+		C78C891127F8BDEA00302E75 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C891027F8BDEA00302E75 /* RootCoordinator.swift */; };
+		C78C891327F8DED500302E75 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C891227F8DED500302E75 /* BaseViewModel.swift */; };
 		C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8C27EA67A10095E352 /* ColorAsset.swift */; };
 		C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8D27EA67A10095E352 /* ImageAsset.swift */; };
 		C796498B27F7392600B613F4 /* DefaultLoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C796498A27F7392600B613F4 /* DefaultLoggerService.swift */; };
@@ -46,6 +68,7 @@
 		C7CC818827F8B549008EE891 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC818727F8B549008EE891 /* LocalizedString.swift */; };
 		C7CC818E27F8B751008EE891 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7CC819027F8B751008EE891 /* Localizable.strings */; };
 		C7CE0AE227F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */; };
+		C7D211812815B2C700AB636C /* LinksHistoryItemCellModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D211802815B2C700AB636C /* LinksHistoryItemCellModelTests.swift */; };
 		C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */; };
 		C7DF18EB27EA590200D1FAD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18EA27EA590200D1FAD6 /* SceneDelegate.swift */; };
 		C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18F127EA590200D1FAD6 /* URLShortener.xcdatamodeld */; };
@@ -74,6 +97,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C71603EF280B480B00B41298 /* URLStringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStringValidator.swift; sourceTree = "<group>"; };
+		C71603F2280B555400B41298 /* URLStringValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStringValidatorTests.swift; sourceTree = "<group>"; };
+		C71603F4280B57BB00B41298 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C753FAAE27F1BBE500A818F3 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPersistenceService.swift; sourceTree = "<group>"; };
 		C753FAB627F1D7CC00A818F3 /* DatabaseLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLink.swift; sourceTree = "<group>"; };
@@ -98,6 +124,25 @@
 		C77DD6CF27F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultLinksShortenerService+ResponseErrorModel.swift"; sourceTree = "<group>"; };
 		C77DD6D127F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultLinksShortenerService+ResponseModel.swift"; sourceTree = "<group>"; };
 		C77DD6D327F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultLinksShortenerService+ResponseModelResult.swift"; sourceTree = "<group>"; };
+		C789208F280B5E52007FCBF7 /* LinksHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistory.swift; sourceTree = "<group>"; };
+		C7892091280B5FA3007FCBF7 /* LinksHistoryItemCell+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinksHistoryItemCell+Model.swift"; sourceTree = "<group>"; };
+		C7892093280B600E007FCBF7 /* LinksShortener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksShortener.swift; sourceTree = "<group>"; };
+		C7892095280B6145007FCBF7 /* ImageAsset+SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageAsset+SFSymbols.swift"; sourceTree = "<group>"; };
+		C78C88ED27F8BAAA00302E75 /* ActivityIndicatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorButton.swift; sourceTree = "<group>"; };
+		C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
+		C78C88F227F8BAE400302E75 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		C78C88F427F8BAFD00302E75 /* Publisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Ext.swift"; sourceTree = "<group>"; };
+		C78C88F827F8BCC400302E75 /* LinksHistoryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryEmptyView.swift; sourceTree = "<group>"; };
+		C78C88FA27F8BCE100302E75 /* LinksHistoryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryItemCell.swift; sourceTree = "<group>"; };
+		C78C88FC27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinksHistoryItemCell+CopyButton.swift"; sourceTree = "<group>"; };
+		C78C88FE27F8BD0700302E75 /* LinksHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryViewModel.swift; sourceTree = "<group>"; };
+		C78C890027F8BD1800302E75 /* LinksHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryViewController.swift; sourceTree = "<group>"; };
+		C78C890327F8BD3F00302E75 /* LinksShortenerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksShortenerViewController.swift; sourceTree = "<group>"; };
+		C78C890527F8BD5400302E75 /* LinksShortenerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksShortenerViewModel.swift; sourceTree = "<group>"; };
+		C78C890B27F8BDB800302E75 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		C78C890D27F8BDC700302E75 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		C78C891027F8BDEA00302E75 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		C78C891227F8DED500302E75 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		C78FCB8C27EA67A10095E352 /* ColorAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
 		C78FCB8D27EA67A10095E352 /* ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
 		C796498A27F7392600B613F4 /* DefaultLoggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoggerService.swift; sourceTree = "<group>"; };
@@ -112,6 +157,7 @@
 		C7CC818A27F8B617008EE891 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C7CC818F27F8B751008EE891 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLinksShortenerServiceTests.swift; sourceTree = "<group>"; };
+		C7D211802815B2C700AB636C /* LinksHistoryItemCellModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryItemCellModelTests.swift; sourceTree = "<group>"; };
 		C7DF18E527EA590200D1FAD6 /* URLShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DF18EA27EA590200D1FAD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +201,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C71603F1280B554700B41298 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C71603F2280B555400B41298 /* URLStringValidatorTests.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		C753FAB327F1BD0A00A818F3 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +305,85 @@
 			path = ResponseModels;
 			sourceTree = "<group>";
 		};
+		C78C88EB27F8BA9400302E75 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C78C88EC27F8BAA300302E75 /* -Common */,
+				C78C88F627F8BCA700302E75 /* LinksHistory */,
+				C78C890227F8BD3400302E75 /* LinksShortener */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C78C88EC27F8BAA300302E75 /* -Common */ = {
+			isa = PBXGroup;
+			children = (
+				C78C88ED27F8BAAA00302E75 /* ActivityIndicatorButton.swift */,
+			);
+			path = "-Common";
+			sourceTree = "<group>";
+		};
+		C78C88EF27F8BABE00302E75 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C78C88F427F8BAFD00302E75 /* Publisher+Ext.swift */,
+				C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */,
+				C78C88F227F8BAE400302E75 /* UIView+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C78C88F627F8BCA700302E75 /* LinksHistory */ = {
+			isa = PBXGroup;
+			children = (
+				C789208F280B5E52007FCBF7 /* LinksHistory.swift */,
+				C78C890027F8BD1800302E75 /* LinksHistoryViewController.swift */,
+				C78C88FE27F8BD0700302E75 /* LinksHistoryViewModel.swift */,
+				C78C88F727F8BCB600302E75 /* -Views */,
+			);
+			path = LinksHistory;
+			sourceTree = "<group>";
+		};
+		C78C88F727F8BCB600302E75 /* -Views */ = {
+			isa = PBXGroup;
+			children = (
+				C78C88F827F8BCC400302E75 /* LinksHistoryEmptyView.swift */,
+				C78C88FA27F8BCE100302E75 /* LinksHistoryItemCell.swift */,
+				C78C88FC27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift */,
+				C7892091280B5FA3007FCBF7 /* LinksHistoryItemCell+Model.swift */,
+			);
+			path = "-Views";
+			sourceTree = "<group>";
+		};
+		C78C890227F8BD3400302E75 /* LinksShortener */ = {
+			isa = PBXGroup;
+			children = (
+				C7892093280B600E007FCBF7 /* LinksShortener.swift */,
+				C78C890327F8BD3F00302E75 /* LinksShortenerViewController.swift */,
+				C78C890527F8BD5400302E75 /* LinksShortenerViewModel.swift */,
+			);
+			path = LinksShortener;
+			sourceTree = "<group>";
+		};
+		C78C890A27F8BDAC00302E75 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C78C890B27F8BDB800302E75 /* BaseCollectionViewCell.swift */,
+				C78C890D27F8BDC700302E75 /* BaseView.swift */,
+				C71603F4280B57BB00B41298 /* BaseViewController.swift */,
+				C78C891227F8DED500302E75 /* BaseViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C78C890F27F8BDDF00302E75 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				C78C891027F8BDEA00302E75 /* RootCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		C796498927F7391600B613F4 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,8 +423,25 @@
 			isa = PBXGroup;
 			children = (
 				C7CC818727F8B549008EE891 /* LocalizedString.swift */,
+				C71603EF280B480B00B41298 /* URLStringValidator.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C7D2117E2815B2A100AB636C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C7D2117F2815B2A900AB636C /* LinksHistory */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C7D2117F2815B2A900AB636C /* LinksHistory */ = {
+			isa = PBXGroup;
+			children = (
+				C7D211802815B2C700AB636C /* LinksHistoryItemCellModelTests.swift */,
+			);
+			path = LinksHistory;
 			sourceTree = "<group>";
 		};
 		C7DF18DC27EA590200D1FAD6 = {
@@ -319,9 +469,13 @@
 			isa = PBXGroup;
 			children = (
 				C7DF191C27EA59F600D1FAD6 /* App */,
+				C78C890A27F8BDAC00302E75 /* Base */,
+				C78C890F27F8BDDF00302E75 /* Coordinators */,
+				C78C88EF27F8BABE00302E75 /* Extensions */,
 				C77166E827F103AD00C0B472 /* Models */,
 				C7DF191D27EA5BB400D1FAD6 /* Resources */,
 				C77DD6C227F0779B0037ACFF /* Services */,
+				C78C88EB27F8BA9400302E75 /* UI */,
 				C7CC818627F8B539008EE891 /* Utilities */,
 			);
 			path = URLShortener;
@@ -333,6 +487,8 @@
 				C767EE0B27F0F88F0053DC26 /* -MockJSONs */,
 				C7BB4B3827F25F9C00AC3E1B /* Models */,
 				C7BB4B3727F25F6E00AC3E1B /* Services */,
+				C7D2117E2815B2A100AB636C /* UI */,
+				C71603F1280B554700B41298 /* Utilities */,
 			);
 			path = URLShortenerTests;
 			sourceTree = "<group>";
@@ -362,6 +518,7 @@
 			children = (
 				C78FCB8C27EA67A10095E352 /* ColorAsset.swift */,
 				C78FCB8D27EA67A10095E352 /* ImageAsset.swift */,
+				C7892095280B6145007FCBF7 /* ImageAsset+SFSymbols.swift */,
 				C7DF191E27EA5BC800D1FAD6 /* Colors.xcassets */,
 				C7DF18F427EA590400D1FAD6 /* Images.xcassets */,
 				C7DF18F627EA590400D1FAD6 /* LaunchScreen.storyboard */,
@@ -573,11 +730,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C78C88F327F8BAE400302E75 /* UIView+Ext.swift in Sources */,
 				C753FAB827F1D7CC00A818F3 /* DatabaseLink.swift in Sources */,
+				C7892090280B5E52007FCBF7 /* LinksHistory.swift in Sources */,
+				C78C88FD27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift in Sources */,
+				C71603F0280B480B00B41298 /* URLStringValidator.swift in Sources */,
 				C77DD6CE27F07B680037ACFF /* LinksShortenerService.swift in Sources */,
+				C7892094280B600E007FCBF7 /* LinksShortener.swift in Sources */,
 				C77166EA27F103B600C0B472 /* Link.swift in Sources */,
+				C78C88F527F8BAFD00302E75 /* Publisher+Ext.swift in Sources */,
+				C7892096280B6145007FCBF7 /* ImageAsset+SFSymbols.swift in Sources */,
 				C796498B27F7392600B613F4 /* DefaultLoggerService.swift in Sources */,
 				C753FAC027F2451500A818F3 /* PersistenceEncodableModel.swift in Sources */,
+				C78C88FB27F8BCE100302E75 /* LinksHistoryItemCell.swift in Sources */,
 				C796499727F78E1F00B613F4 /* LoggerService.swift in Sources */,
 				C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */,
 				C7AB8B4627F108FA006592C2 /* DefaultCoreDataStack.swift in Sources */,
@@ -587,22 +752,35 @@
 				C7AB8B4427F10675006592C2 /* AppLifecycleSubscribableService.swift in Sources */,
 				C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */,
 				C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */,
+				C7892092280B5FA3007FCBF7 /* LinksHistoryItemCell+Model.swift in Sources */,
+				C71603F5280B57BB00B41298 /* BaseViewController.swift in Sources */,
 				C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */,
 				C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */,
+				C78C88F127F8BACC00302E75 /* UICollectionView+Ext.swift in Sources */,
+				C78C88F927F8BCC400302E75 /* LinksHistoryEmptyView.swift in Sources */,
 				C753FABE27F2439B00A818F3 /* PersistenceDecodingError.swift in Sources */,
+				C78C890627F8BD5400302E75 /* LinksShortenerViewModel.swift in Sources */,
 				C7CC818827F8B549008EE891 /* LocalizedString.swift in Sources */,
 				C753FAC227F2452B00A818F3 /* PersistenceDecodableModel.swift in Sources */,
+				C78C891127F8BDEA00302E75 /* RootCoordinator.swift in Sources */,
 				C753FAC427F24CBC00A818F3 /* PersistenceService.swift in Sources */,
+				C78C890127F8BD1800302E75 /* LinksHistoryViewController.swift in Sources */,
 				C77DD6D027F07BD00037ACFF /* DefaultLinksShortenerService+ResponseErrorModel.swift in Sources */,
 				C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */,
+				C78C88FF27F8BD0700302E75 /* LinksHistoryViewModel.swift in Sources */,
 				C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */,
 				C77166ED27F103D800C0B472 /* ClipboardService.swift in Sources */,
 				C796499527F7412A00B613F4 /* LoggableError.swift in Sources */,
 				C77DD6CA27F079AB0037ACFF /* DefaultLinksShortenerService.swift in Sources */,
+				C78C890427F8BD3F00302E75 /* LinksShortenerViewController.swift in Sources */,
+				C78C891327F8DED500302E75 /* BaseViewModel.swift in Sources */,
+				C78C890C27F8BDB800302E75 /* BaseCollectionViewCell.swift in Sources */,
 				C7AB8B4227F10657006592C2 /* CoreDataStack.swift in Sources */,
 				C7DF18EB27EA590200D1FAD6 /* SceneDelegate.swift in Sources */,
 				C77DD6CC27F07ABC0037ACFF /* LinksShortenerError.swift in Sources */,
 				C77166EF27F103E700C0B472 /* DefaultClipboardService.swift in Sources */,
+				C78C890E27F8BDC700302E75 /* BaseView.swift in Sources */,
+				C78C88EE27F8BAAA00302E75 /* ActivityIndicatorButton.swift in Sources */,
 				C77DD6D227F07C030037ACFF /* DefaultLinksShortenerService+ResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,8 +792,10 @@
 				C767EE1127F0F9000053DC26 /* MockJSON.swift in Sources */,
 				C7CE0AE227F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift in Sources */,
 				C767EE1327F0F9840053DC26 /* MockJSONLoader.swift in Sources */,
+				C7D211812815B2C700AB636C /* LinksHistoryItemCellModelTests.swift in Sources */,
 				C7BB4B3A27F25FAB00AC3E1B /* LinkTests.swift in Sources */,
 				C767EE1527F0FA7E0053DC26 /* MockJSONType.swift in Sources */,
+				C71603F3280B555400B41298 /* URLStringValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,7 +973,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -823,7 +1004,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

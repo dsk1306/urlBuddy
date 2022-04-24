@@ -4,6 +4,7 @@ import UIKit
 // swiftlint:disable all
 enum ImageAsset {
 
+  static var background: UIImage { Asset(name: "background").image }
 
   static var onError: ((Error) -> Void)?
 
@@ -32,7 +33,7 @@ private extension ImageAsset {
 
 // MARK: - InitError
 
-private extension ImageAsset {
+extension ImageAsset {
 
   enum InitError: Error {
 

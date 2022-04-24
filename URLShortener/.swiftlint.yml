@@ -85,7 +85,6 @@ opt_in_rules:
   - vertical_whitespace
   - void_return
   - xctfail_message
-  - anonymous_argument_in_multiline_closure
   - anyobject_protocol
   - attributes
   - capture_variable

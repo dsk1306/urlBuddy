@@ -71,7 +71,7 @@ private extension {{enumName}} {
 
 // MARK: - InitError
 
-private extension {{enumName}} {
+extension {{enumName}} {
 
   enum InitError: Error {
 

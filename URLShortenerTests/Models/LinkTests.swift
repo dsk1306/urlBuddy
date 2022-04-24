@@ -6,72 +6,49 @@ final class LinkTests: XCTestCase {
   // MARK: - Tests
 
   func test_originalString1() {
-    let model = Link(
-      id: Constant.id,
-      original: Constant.original,
-      shorten: Constant.shorten,
-      modified: Constant.modified
-    )
+    let model = Link.convenienceInit()
     XCTAssertEqual(model.originalString, "example.com")
   }
 
   func test_originalString2() {
-    let model = Link(
-      id: Constant.id,
+    let model = Link.convenienceInit(
       original: URL(string: "eXample.com")!,
-      shorten: URL(string: "eXample22.com")!,
-      modified: Constant.modified
+      shorten: URL(string: "eXample22.com")!
     )
     XCTAssertEqual(model.originalString, "example.com")
   }
 
   func test_originalString3() {
-    let model = Link(
-      id: Constant.id,
+    let model = Link.convenienceInit(
       original: URL(string: "eXample.com/someTesS?sOme=1")!,
-      shorten: URL(string: "eXample22.com/someTesS?sOme=1")!,
-      modified: Constant.modified
+      shorten: URL(string: "eXample22.com/someTesS?sOme=1")!
     )
     XCTAssertEqual(model.originalString, "example.com/sometess?some=1")
   }
 
   func test_shortenString1() {
-    let model = Link(
-      id: Constant.id,
-      original: Constant.original,
-      shorten: Constant.shorten,
-      modified: Constant.modified
-    )
+    let model = Link.convenienceInit()
     XCTAssertEqual(model.shortenString, "example2.com")
   }
 
   func test_shortenString2() {
-    let model = Link(
-      id: Constant.id,
+    let model = Link.convenienceInit(
       original: URL(string: "eXample22.com")!,
-      shorten: URL(string: "eXample.com")!,
-      modified: Constant.modified
+      shorten: URL(string: "eXample.com")!
     )
     XCTAssertEqual(model.shortenString, "example.com")
   }
 
   func test_shortenString3() {
-    let model = Link(
-      id: Constant.id,
+    let model = Link.convenienceInit(
       original: URL(string: "eXample22.com/someTesS?sOme=1")!,
-      shorten: URL(string: "eXample.com/someTesS?sOme=1")!,
-      modified: Constant.modified
+      shorten: URL(string: "eXample.com/someTesS?sOme=1")!
     )
     XCTAssertEqual(model.shortenString, "example.com/sometess?some=1")
   }
 
   func test_persistenceEncodableModel() {
-    let model = Link(
-      id: Constant.id,
-      original: Constant.original,
-      shorten: Constant.shorten,
-      modified: Constant.modified
-    )
+    let model = Link.convenienceInit()
     let representation = model.keyValueRepresentation
 
     XCTAssertEqual(representation[Constant.idKey] as? UUID, Constant.id)
@@ -111,12 +88,7 @@ final class LinkTests: XCTestCase {
   }
 
   func test_persistenceEncodableDecodable() throws {
-    let model = Link(
-      id: Constant.id,
-      original: Constant.original,
-      shorten: Constant.shorten,
-      modified: Constant.modified
-    )
+    let model = Link.convenienceInit()
     let model2 = try Link(keyValueRepresentation: model.keyValueRepresentation)
     XCTAssertEqual(model, model2)
   }
@@ -125,20 +97,30 @@ final class LinkTests: XCTestCase {
 
 // MARK: - Constants
 
-private extension LinkTests {
+private enum Constant {
 
-  enum Constant {
+  static let id = UUID()
+  static let modified = Date()
+  static let original = URL(string: "example.com")!
+  static let shorten = URL(string: "example2.com")!
 
-    static let id = UUID()
-    static let modified = Date()
-    static let original = URL(string: "example.com")!
-    static let shorten = URL(string: "example2.com")!
+  static let idKey = "id"
+  static let modifiedKey = "modified"
+  static let originalKey = "original"
+  static let shortenKey = "shorten"
 
-    static let idKey = "id"
-    static let modifiedKey = "modified"
-    static let originalKey = "original"
-    static let shortenKey = "shorten"
+}
 
+// MARK: - Link Convenience Init
+
+private extension Link {
+
+  static func convenienceInit(original: URL = Constant.original,
+                              shorten: URL = Constant.shorten,
+                              id: UUID = Constant.id,
+                              modified: Date = Constant.modified) -> Link {
+
+    Link(original: original, shorten: shorten, id: id, modified: modified)
   }
 
 }
