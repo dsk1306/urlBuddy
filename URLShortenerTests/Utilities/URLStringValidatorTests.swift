@@ -5,12 +5,12 @@ final class URLStringValidatorTests: XCTestCase {
 
   // MARK: - Tests
 
-  func test_isValid1() throws {
+  func test_valid1() throws {
     let validator = try URLStringValidator(urlString: "google.com")
     XCTAssertTrue(validator.isValid)
   }
 
-  func test_isValid2() throws {
+  func test_valid2() throws {
     let validator = try URLStringValidator(urlString: "yandex.ru")
     XCTAssertTrue(validator.isValid)
   }
