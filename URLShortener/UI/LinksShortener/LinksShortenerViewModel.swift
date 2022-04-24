@@ -70,6 +70,10 @@ extension LinksShortener {
 
       cancellable {
         input.urlTextChanged.subscribe(urlTextRelay)
+        errorRelay
+          .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
+        shortenedLinkRelay
+          .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
         input.shorten
           .withLatestFrom(urlTextRelay)
           .compactMap { [weak self] in self?.url(from: $0) }
@@ -78,20 +82,9 @@ extension LinksShortener {
           }
           .subscribe(shortenedLinkRelay)
         urlTextRelay
-          .map { [weak self] urlString -> Bool in
-            do {
-              return try URLStringValidator(urlString: urlString).isValid
-            } catch {
-              self?.log(error: error)
-              return false
-            }
-          }
+          .compactMap { [weak self] in self?.isURLStringValid($0) }
           .removeDuplicates()
           .subscribe(isValidURLRelay)
-        errorRelay
-          .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
-        shortenedLinkRelay
-          .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
       }
     }
 
@@ -128,6 +121,15 @@ private extension LinksShortener.ViewModel {
       .map { Link(original: originalURL, shorten: $0) }
       .catch { [weak errorRelay] in errorRelay?.accept($0) }
       .eraseToAnyPublisher()
+  }
+
+  func isURLStringValid(_ urlString: String) -> Bool {
+    do {
+      return try URLStringValidator(urlString: urlString).isValid
+    } catch {
+      log(error: error)
+      return false
+    }
   }
 
 }
