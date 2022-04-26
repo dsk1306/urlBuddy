@@ -1,6 +1,6 @@
 import Foundation
 
-enum LinksShortenerError: LocalizedError, Equatable {
+enum LinksShortenerError: Equatable {
 
   case decoding
   case badURL
@@ -8,6 +8,10 @@ enum LinksShortenerError: LocalizedError, Equatable {
   case invalidURLSubmitted
   case tooManyRequests
   case custom(String)
+
+  // MARK: - Typealiases
+
+  private typealias LocalizedString = URLShortener.LocalizedString.LinksShortenerError
 
   // MARK: - Initialization
 
@@ -31,6 +35,27 @@ enum LinksShortenerError: LocalizedError, Equatable {
     }
 
     self = .custom(error.localizedDescription)
+  }
+
+}
+
+// MARK: - LinksShortenerError
+
+extension LinksShortenerError: LocalizedError {
+
+  var errorDescription: String? {
+    switch self {
+    case .decoding:
+      return LocalizedString.decoding
+    case .badURL, .invalidURLSubmitted:
+      return LocalizedString.badURL
+    case .badServerResponse:
+      return LocalizedString.badServerResponse
+    case .tooManyRequests:
+      return LocalizedString.tooManyRequests
+    case .custom(let string):
+      return string
+    }
   }
 
 }
