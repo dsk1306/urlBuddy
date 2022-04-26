@@ -60,6 +60,7 @@
 		C796498E27F73AEE00B613F4 /* Bugsnag in Frameworks */ = {isa = PBXBuildFile; productRef = C796498D27F73AEE00B613F4 /* Bugsnag */; };
 		C796499527F7412A00B613F4 /* LoggableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C796499427F7412A00B613F4 /* LoggableError.swift */; };
 		C796499727F78E1F00B613F4 /* LoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C796499627F78E1F00B613F4 /* LoggerService.swift */; };
+		C79F321C28185A0C00DE520B /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C79F321B28185A0C00DE520B /* CombineCocoa */; };
 		C7AB8B4227F10657006592C2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4127F10657006592C2 /* CoreDataStack.swift */; };
 		C7AB8B4427F10675006592C2 /* AppLifecycleSubscribableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4327F10675006592C2 /* AppLifecycleSubscribableService.swift */; };
 		C7AB8B4627F108FA006592C2 /* DefaultCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4527F108FA006592C2 /* DefaultCoreDataStack.swift */; };
@@ -180,6 +181,7 @@
 			files = (
 				C796498E27F73AEE00B613F4 /* Bugsnag in Frameworks */,
 				C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */,
+				C79F321C28185A0C00DE520B /* CombineCocoa in Frameworks */,
 				C753FABC27F1D86A00A818F3 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,6 +552,7 @@
 			packageProductDependencies = (
 				C753FAB127F1BC2700A818F3 /* CombineExtensions */,
 				C796498D27F73AEE00B613F4 /* Bugsnag */,
+				C79F321B28185A0C00DE520B /* CombineCocoa */,
 			);
 			productName = URLShortener;
 			productReference = C7DF18E527EA590200D1FAD6 /* URLShortener.app */;
@@ -626,6 +629,7 @@
 			packageReferences = (
 				C753FAB027F1BC2700A818F3 /* XCRemoteSwiftPackageReference "combineExtensions" */,
 				C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
+				C79F321A28185A0C00DE520B /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 			);
 			productRefGroup = C7DF18E627EA590200D1FAD6 /* Products */;
 			projectDirPath = "";
@@ -1154,6 +1158,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		C79F321A28185A0C00DE520B /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1166,6 +1178,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */;
 			productName = Bugsnag;
+		};
+		C79F321B28185A0C00DE520B /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C79F321A28185A0C00DE520B /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 
