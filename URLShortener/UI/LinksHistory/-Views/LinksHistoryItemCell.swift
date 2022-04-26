@@ -1,4 +1,5 @@
 import Combine
+import CombineCocoa
 import CombineExtensions
 import UIKit
 
@@ -8,15 +9,13 @@ extension LinksHistory {
 
     // MARK: - Properties
 
-    private(set) lazy var copy = copyRelay.eraseToAnyPublisher()
-    private(set) lazy var delete = deleteRelay.eraseToAnyPublisher()
-    private(set) lazy var shortenedLinkTap = shortenedLinkTapRelay.eraseToAnyPublisher()
-
-    private lazy var copyRelay = PassthroughRelay<Void>()
-    private lazy var deleteRelay = PassthroughRelay<Void>()
-    private lazy var shortenedLinkTapRelay = PassthroughRelay<Void>()
+    private(set) lazy var copy = copyButton.tapPublisher.eraseToAnyPublisher()
+    private(set) lazy var delete = deleteButton.tapPublisher.eraseToAnyPublisher()
+    private(set) lazy var shortenedLinkTap = shortenURLButton.tapPublisher.eraseToAnyPublisher()
 
     // MARK: - Properties - Subviews
+
+    private lazy var copyButton = CopyButton()
 
     private lazy var originalURLLabel = UILabel() ->> {
       $0.textColor = ColorAsset.tuna
@@ -29,14 +28,9 @@ extension LinksHistory {
       $0.contentHorizontalAlignment = .leading
     }
 
-    private lazy var copyButton = CopyButton() ->> {
-      $0.addTarget(self, action: #selector(copyButtonTouchUpInside), for: .touchUpInside)
-    }
-
     private lazy var deleteButton = UIButton(type: .system) ->> {
       $0.setImage(ImageAsset.delete, for: .normal)
       $0.tintColor = ColorAsset.tuna
-      $0.addTarget(self, action: #selector(deleteButtonTouchUpInside), for: .touchUpInside)
     }
 
     // MARK: - Base Class
@@ -104,6 +98,24 @@ extension LinksHistory {
       }
     }
 
+    override func reusableBind() {
+      super.reusableBind()
+
+      reusableCancellable {
+        copy
+          .sinkValue { [weak copyButton] in
+            // Update copyButton style.
+            copyButton?.type = .copied
+
+            Task { [weak copyButton] in
+              // Wait for 2 seconds and revert copyButton style.
+              try await Task.sleep(nanoseconds: 2 * 1_000_000_000)
+              copyButton?.type = .copy
+            }
+          }
+      }
+    }
+
   }
 
 }
@@ -128,25 +140,6 @@ private extension LinksHistory.ItemCell {
       .font: UIFont.systemFont(ofSize: 17, weight: .medium),
       .foregroundColor: ColorAsset.roman
     ]))
-  }
-
-  @objc
-  func copyButtonTouchUpInside() {
-    copyRelay.accept()
-
-    // Update copyButton style.
-    copyButton.type = .copied
-
-    Task {
-      // Wait for 2 seconds and revert copyButton style.
-      try await Task.sleep(nanoseconds: 2 * 1_000_000_000)
-      copyButton.type = .copy
-    }
-  }
-
-  @objc
-  func deleteButtonTouchUpInside() {
-    deleteRelay.accept()
   }
 
 }
