@@ -10,9 +10,11 @@ extension LinksHistory {
 
     private(set) lazy var copy = copyRelay.eraseToAnyPublisher()
     private(set) lazy var delete = deleteRelay.eraseToAnyPublisher()
+    private(set) lazy var shortenedLinkTap = shortenedLinkTapRelay.eraseToAnyPublisher()
 
     private lazy var copyRelay = PassthroughRelay<Void>()
     private lazy var deleteRelay = PassthroughRelay<Void>()
+    private lazy var shortenedLinkTapRelay = PassthroughRelay<Void>()
 
     // MARK: - Properties - Subviews
 
@@ -21,9 +23,10 @@ extension LinksHistory {
       $0.font = .systemFont(ofSize: 17, weight: .medium)
     }
 
-    private lazy var shortenURLLabel = UILabel() ->> {
-      $0.textColor = ColorAsset.roman
-      $0.font = .systemFont(ofSize: 17, weight: .medium)
+    private lazy var shortenURLButton = UIButton(configuration: .plain()) ->> {
+      $0.configuration?.contentInsets = .zero
+      $0.configuration?.titleAlignment = .leading
+      $0.contentHorizontalAlignment = .leading
     }
 
     private lazy var copyButton = CopyButton() ->> {
@@ -93,7 +96,7 @@ extension LinksHistory {
       }
 
       // Shorten URL label.
-      shortenURLLabel.addAsArrangedSubview(to: bottomStackView)
+      shortenURLButton.addAsArrangedSubview(to: bottomStackView)
 
       // Copy button.
       copyButton.addAsArrangedSubview(to: bottomStackView) { copyButton, _ in
@@ -111,7 +114,7 @@ extension LinksHistory.ItemCell {
 
   func configure(with model: Model) {
     originalURLLabel.text = model.originalURL
-    shortenURLLabel.text = model.shortenURL
+    shortenURLButton.configuration?.attributedTitle = Self.shortenURLTitle(with: model)
   }
 
 }
@@ -119,6 +122,13 @@ extension LinksHistory.ItemCell {
 // MARK: - Private Methods
 
 private extension LinksHistory.ItemCell {
+
+  static func shortenURLTitle(with model: Model) -> AttributedString {
+    .init(model.shortenURL, attributes: AttributeContainer([
+      .font: UIFont.systemFont(ofSize: 17, weight: .medium),
+      .foregroundColor: ColorAsset.roman
+    ]))
+  }
 
   @objc
   func copyButtonTouchUpInside() {
