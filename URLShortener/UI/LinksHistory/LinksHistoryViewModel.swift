@@ -13,6 +13,7 @@ extension LinksHistory {
       let copyLink = PassthroughRelay<Link>()
       let deleteLink = PassthroughRelay<Link>()
       let saveLink = PassthroughRelay<Link>()
+      let openLink = PassthroughRelay<URL>()
 
     }
 
@@ -78,6 +79,9 @@ extension LinksHistory {
         errorRelay.sinkValue { [weak cordinator] in
           cordinator?.showAlert(for: $0)
         }
+        input.openLink.sinkValue { [weak cordinator] in
+            await cordinator?.open(link: $0)
+          }
       }
     }
 
