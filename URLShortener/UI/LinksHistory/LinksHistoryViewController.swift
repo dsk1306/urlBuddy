@@ -17,7 +17,6 @@ extension LinksHistory {
 
     private let cancellable = CombineCancellable()
     private var childControllerFrameSubscription: AnyCancellable?
-    private var emptyViewBottomConstraint: NSLayoutConstraint?
 
     private lazy var dataSource = DataSource(collectionView: collectionView) { [weak viewModel] collectionView, indexPath, item in
       let cell: ItemCell = collectionView.dequeueReusableCell(for: indexPath)
@@ -30,7 +29,10 @@ extension LinksHistory {
       return cell
     }
 
-    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: Self.layout())
+    // MARK: - Properties - Constraints
+
+    private var emptyViewBottomConstraint: NSLayoutConstraint?
+    private var shortenerViewBottomConstraint: NSLayoutConstraint?
 
     // MARK: - Properties - Subviews
 
@@ -39,6 +41,10 @@ extension LinksHistory {
     private lazy var titleView = UILabel() ->> {
       $0.text = LocalizedString.LinksHistory.yourHistory
       $0.textColor = ColorAsset.tuna
+    }
+
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: Self.layout()) ->> {
+      $0.keyboardDismissMode = .onDrag
     }
 
     // MARK: - Initialization
@@ -84,17 +90,25 @@ extension LinksHistory {
             self?.navigationItem.titleView = isEmpty ? nil : self?.titleView
             self?.configureEmptyView(isEmpty: isEmpty)
           }
+        NotificationCenter.default.keyboardPublisher
+          .receive(on: DispatchQueue.main)
+          .sinkValue { [weak self] in
+            self?.updateShortenerViewBottomConstraint(with: $0)
+          }
       }
     }
 
     override func addChild(_ childController: UIViewController) {
       super.addChild(childController)
 
+      let childControllerBottomConstraint = view.bottomAnchor.constraint(equalTo: childController.view.bottomAnchor)
+      shortenerViewBottomConstraint = childControllerBottomConstraint
+
       // TODO: Maybe move it somewhere else.
       childController.view.add(to: view) {
         $0.leadingAnchor.constraint(equalTo: $1.leadingAnchor)
         $1.trailingAnchor.constraint(equalTo: $0.trailingAnchor)
-        $0.bottomAnchor.constraint(equalTo: $1.bottomAnchor)
+        childControllerBottomConstraint
       }
 
       childControllerFrameSubscription = childController.view.publisher(for: \.bounds)
@@ -151,6 +165,14 @@ private extension LinksHistory.ViewController {
       emptyViewBottomConstraint?.isActive = true
     } else {
       emptyView.removeFromSuperview()
+    }
+  }
+
+  func updateShortenerViewBottomConstraint(with output: NotificationCenter.KeyboardPublisherOutput) {
+    UIView.animate(withDuration: output.animationDuration, delay: 0, options: output.animationOptions) { [weak self] in
+      guard let self = self else { return }
+      self.shortenerViewBottomConstraint?.constant = output.frameHeight
+      self.view?.layoutIfNeeded()
     }
   }
 
