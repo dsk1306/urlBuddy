@@ -77,7 +77,7 @@ extension LinksHistory {
           await self?.save(link: link)
         }
         errorRelay.sinkValue { [weak cordinator] in
-          cordinator?.showAlert(for: $0)
+          await cordinator?.showAlert(for: $0)
         }
         input.openLink.sinkValue { [weak cordinator] in
           await cordinator?.open(link: $0)

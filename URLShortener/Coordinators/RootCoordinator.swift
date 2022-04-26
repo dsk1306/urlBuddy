@@ -47,7 +47,8 @@ extension RootCoordinator {
     window.makeKeyAndVisible()
   }
 
-  func showAlert(for error: Error) {
+  @MainActor
+  func showAlert(for error: Error) async {
     typealias LocalizedString = URLShortener.LocalizedString.ErrorAlert
 
     let alert = UIAlertController(
@@ -57,9 +58,7 @@ extension RootCoordinator {
     )
     alert.addAction(.init(title: LocalizedString.okAction, style: .cancel))
 
-    DispatchQueue.main.async { [weak window] in
-      window?.rootViewController?.present(alert, animated: true)
-    }
+    window?.rootViewController?.present(alert, animated: true)
   }
 
   @MainActor

@@ -71,7 +71,7 @@ extension LinksShortener {
       cancellable {
         input.urlTextChanged.subscribe(urlTextRelay)
         errorRelay.sinkValue { [weak cordinator] in
-          cordinator?.showAlert(for: $0)
+          await cordinator?.showAlert(for: $0)
         }
         shortenedLinkRelay.sinkValue { [weak self] in
           self?.clipboardService.paste(link: $0)
