@@ -70,6 +70,7 @@
 		C7CC818E27F8B751008EE891 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7CC819027F8B751008EE891 /* Localizable.strings */; };
 		C7CE0AE227F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */; };
 		C7D211812815B2C700AB636C /* LinksHistoryItemCellModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D211802815B2C700AB636C /* LinksHistoryItemCellModelTests.swift */; };
+		C7D569CE2818768F00F58F7F /* NotificationCenter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D569CD2818768F00F58F7F /* NotificationCenter+Ext.swift */; };
 		C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */; };
 		C7DF18EB27EA590200D1FAD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18EA27EA590200D1FAD6 /* SceneDelegate.swift */; };
 		C7DF18F327EA590200D1FAD6 /* URLShortener.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7DF18F127EA590200D1FAD6 /* URLShortener.xcdatamodeld */; };
@@ -159,6 +160,7 @@
 		C7CC818F27F8B751008EE891 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7CE0AE127F0808A0019F254 /* DefaultLinksShortenerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLinksShortenerServiceTests.swift; sourceTree = "<group>"; };
 		C7D211802815B2C700AB636C /* LinksHistoryItemCellModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryItemCellModelTests.swift; sourceTree = "<group>"; };
+		C7D569CD2818768F00F58F7F /* NotificationCenter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Ext.swift"; sourceTree = "<group>"; };
 		C7DF18E527EA590200D1FAD6 /* URLShortener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLShortener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF18E827EA590200D1FAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DF18EA27EA590200D1FAD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 		C78C88EF27F8BABE00302E75 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C7D569CD2818768F00F58F7F /* NotificationCenter+Ext.swift */,
 				C78C88F427F8BAFD00302E75 /* Publisher+Ext.swift */,
 				C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */,
 				C78C88F227F8BAE400302E75 /* UIView+Ext.swift */,
@@ -738,6 +741,7 @@
 				C753FAB827F1D7CC00A818F3 /* DatabaseLink.swift in Sources */,
 				C7892090280B5E52007FCBF7 /* LinksHistory.swift in Sources */,
 				C78C88FD27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift in Sources */,
+				C7D569CE2818768F00F58F7F /* NotificationCenter+Ext.swift in Sources */,
 				C71603F0280B480B00B41298 /* URLStringValidator.swift in Sources */,
 				C77DD6CE27F07B680037ACFF /* LinksShortenerService.swift in Sources */,
 				C7892094280B600E007FCBF7 /* LinksShortener.swift in Sources */,
