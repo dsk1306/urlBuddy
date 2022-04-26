@@ -80,8 +80,8 @@ extension LinksHistory {
           cordinator?.showAlert(for: $0)
         }
         input.openLink.sinkValue { [weak cordinator] in
-            await cordinator?.open(link: $0)
-          }
+          await cordinator?.open(link: $0)
+        }
       }
     }
 
