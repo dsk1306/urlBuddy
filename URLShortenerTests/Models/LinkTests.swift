@@ -15,7 +15,7 @@ final class LinkTests: XCTestCase {
       original: URL(string: "eXample.com")!,
       shorten: URL(string: "eXample22.com")!
     )
-    XCTAssertEqual(model.originalString, "example.com")
+    XCTAssertEqual(model.originalString, "eXample.com")
   }
 
   func test_originalString3() {
@@ -23,7 +23,7 @@ final class LinkTests: XCTestCase {
       original: URL(string: "eXample.com/someTesS?sOme=1")!,
       shorten: URL(string: "eXample22.com/someTesS?sOme=1")!
     )
-    XCTAssertEqual(model.originalString, "example.com/sometess?some=1")
+    XCTAssertEqual(model.originalString, "eXample.com/someTesS?sOme=1")
   }
 
   func test_shortenString1() {
@@ -36,7 +36,7 @@ final class LinkTests: XCTestCase {
       original: URL(string: "eXample22.com")!,
       shorten: URL(string: "eXample.com")!
     )
-    XCTAssertEqual(model.shortenString, "example.com")
+    XCTAssertEqual(model.shortenString, "eXample.com")
   }
 
   func test_shortenString3() {
@@ -44,7 +44,7 @@ final class LinkTests: XCTestCase {
       original: URL(string: "eXample22.com/someTesS?sOme=1")!,
       shorten: URL(string: "eXample.com/someTesS?sOme=1")!
     )
-    XCTAssertEqual(model.shortenString, "example.com/sometess?some=1")
+    XCTAssertEqual(model.shortenString, "eXample.com/someTesS?sOme=1")
   }
 
   func test_persistenceEncodableModel() {

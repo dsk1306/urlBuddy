@@ -26,7 +26,6 @@ extension LinksShortener {
     // MARK: - Properties - Subviews
 
     private lazy var shortenButton = ActivityIndicatorButton(configuration: shortenButtonConfiguration) ->> {
-      $0.addTarget(self, action: #selector(shortenButtonTouchUpInside), for: .touchUpInside)
       $0.configurationUpdateHandler = {
         $0.configuration?.attributedTitle = Self.shortenButtonTitle(for: $0.state)
       }
@@ -39,7 +38,6 @@ extension LinksShortener {
       $0.autocorrectionType = .no
       $0.autocapitalizationType = .none
       $0.attributedPlaceholder = Constant.urlTextFieldPlaceholder
-      $0.addTarget(self, action: #selector(urlTextFieldEditingChanged(sender:)), for: .editingChanged)
     }
 
     // MARK: - Initialization
@@ -89,11 +87,18 @@ extension LinksShortener {
       viewModel.bind()
 
       cancellable {
+        shortenButton.tapPublisher.subscribe(viewModel.input.shorten)
         viewModel.output.isValidURL
           .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
         viewModel.output.shortenedLink
           .map { _ in nil }
           .assign(to: \.text, on: urlTextField, ownership: .weak)
+        shortenButton.tapPublisher.sinkValue { [weak shortenButton] in
+          shortenButton?.configureLoadingState(isLoading: true)
+        }
+        urlTextField.textPublisher
+          .map { $0 ?? "" }
+          .subscribe(viewModel.input.urlTextChanged)
         Publishers.Merge(
           viewModel.output.error.map { _ in () },
           viewModel.output.shortenedLink.map { _ in () }
@@ -126,17 +131,6 @@ private extension LinksShortener.ViewController {
       .font: UIFont.systemFont(ofSize: 20, weight: .semibold)
     ])
     return AttributedString(LocalizedString.cta, attributes: attributes)
-  }
-
-  @objc
-  func shortenButtonTouchUpInside() {
-    shortenButton.configureLoadingState(isLoading: true)
-    viewModel.input.shorten.accept()
-  }
-
-  @objc
-  func urlTextFieldEditingChanged(sender: UITextField) {
-    viewModel.input.urlTextChanged.accept(sender.text ?? "")
   }
 
 }

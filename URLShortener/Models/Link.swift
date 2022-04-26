@@ -9,13 +9,8 @@ struct Link: Codable, Hashable, Identifiable {
   let shorten: URL
   var modified: Date
 
-  var originalString: String {
-    original.absoluteString.lowercased()
-  }
-
-  var shortenString: String {
-    shorten.absoluteString.lowercased()
-  }
+  var originalString: String { original.absoluteString }
+  var shortenString: String { shorten.absoluteString }
 
   // MARK: - Initialization
 

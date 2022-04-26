@@ -23,10 +23,9 @@ extension LinksHistory {
       let cell: ItemCell = collectionView.dequeueReusableCell(for: indexPath)
       cell.configure(with: .init(link: item))
       cell.reusableCancellable {
-        cell.copy
-          .sinkValue { viewModel?.input.copyLink.accept(item) }
-        cell.delete
-          .sinkValue { viewModel?.input.deleteLink.accept(item) }
+        cell.copy.sinkValue { viewModel?.input.copyLink.accept(item) }
+        cell.delete.sinkValue { viewModel?.input.deleteLink.accept(item) }
+        cell.shortenedLinkTap.sinkValue { viewModel?.input.openLink.accept(item.shorten) }
       }
       return cell
     }

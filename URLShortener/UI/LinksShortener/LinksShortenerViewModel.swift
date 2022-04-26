@@ -70,10 +70,15 @@ extension LinksShortener {
 
       cancellable {
         input.urlTextChanged.subscribe(urlTextRelay)
-        errorRelay
-          .sinkValue { [weak cordinator] in cordinator?.showAlert(for: $0) }
+        errorRelay.sinkValue { [weak cordinator] in
+          await cordinator?.showAlert(for: $0)
+        }
+        shortenedLinkRelay.sinkValue { [weak self] in
+          self?.clipboardService.paste(link: $0)
+        }
         shortenedLinkRelay
-          .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
+          .map { _ in "" }
+          .subscribe(urlTextRelay)
         input.shorten
           .withLatestFrom(urlTextRelay)
           .compactMap { [weak self] in self?.url(from: $0) }
@@ -83,7 +88,6 @@ extension LinksShortener {
           .subscribe(shortenedLinkRelay)
         urlTextRelay
           .compactMap { [weak self] in self?.isURLStringValid($0) }
-          .removeDuplicates()
           .subscribe(isValidURLRelay)
       }
     }

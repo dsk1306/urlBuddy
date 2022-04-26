@@ -141,3 +141,53 @@ extension LocalizedString {
   }
 
 }
+
+// MARK: - LinksShortenerError
+
+extension LocalizedString {
+
+  enum LinksShortenerError {
+
+    /// Localized string with a key equal to `linksShortenerError::decoding`
+    /// and value equal to `Unexpected server response 😕`.
+    static var decoding: String {
+      NSLocalizedString(
+        "linksShortenerError::decoding",
+        value: "Unexpected server response 😕",
+        comment: "Description of decoding error."
+      )
+    }
+
+    /// Localized string with a key equal to `linksShortenerError::badURL`
+    /// and value equal to `Incorrect URL format 😕`.
+    static var badURL: String {
+      NSLocalizedString(
+        "linksShortenerError::badURL",
+        value: "Incorrect URL format 😕",
+        comment: "Description of bad URL error."
+      )
+    }
+
+    /// Localized string with a key equal to `linksShortenerError::badServerResponse`
+    /// and value equal to `Internal server error 😕`.
+    static var badServerResponse: String {
+      NSLocalizedString(
+        "linksShortenerError::badServerResponse",
+        value: "Internal server error 😕",
+        comment: "Description of bad server response error."
+      )
+    }
+
+    /// Localized string with a key equal to `linksShortenerError::tooManyRequests`
+    /// and value equal to `Too maybe requests 😕`.
+    static var tooManyRequests: String {
+      NSLocalizedString(
+        "linksShortenerError::tooManyRequests",
+        value: "Too maybe requests 😕",
+        comment: "Description of too many requests error."
+      )
+    }
+
+  }
+
+}
