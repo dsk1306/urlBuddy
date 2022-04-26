@@ -102,17 +102,16 @@ extension LinksHistory {
       super.reusableBind()
 
       reusableCancellable {
-        copy
-          .sinkValue { [weak copyButton] in
-            // Update copyButton style.
-            copyButton?.type = .copied
+        copy.sinkValue { [weak copyButton] in
+          // Update copyButton style.
+          copyButton?.type = .copied
 
-            Task { [weak copyButton] in
-              // Wait for 2 seconds and revert copyButton style.
-              try await Task.sleep(nanoseconds: 2 * 1_000_000_000)
-              copyButton?.type = .copy
-            }
+          Task { [weak copyButton] in
+            // Wait for 2 seconds and revert copyButton style.
+            try await Task.sleep(nanoseconds: 2 * 1_000_000_000)
+            copyButton?.type = .copy
           }
+        }
       }
     }
 
