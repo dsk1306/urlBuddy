@@ -10,15 +10,6 @@
       }
     },
     {
-      "identity" : "combinecocoa",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/CombineCommunity/CombineCocoa",
-      "state" : {
-        "revision" : "4e262c2f9fb1cee1cb3be5717f7e6b55eb823971",
-        "version" : "0.4.0"
-      }
-    },
-    {
       "identity" : "combineextensions",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dsk1306/combineExtensions",
