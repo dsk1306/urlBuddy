@@ -37,14 +37,11 @@ extension LinksHistory {
     // MARK: - Properties - Subviews
 
     private lazy var emptyView = EmptyView()
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: Self.layout())
 
     private lazy var titleView = UILabel() ->> {
       $0.text = LocalizedString.LinksHistory.yourHistory
       $0.textColor = ColorAsset.tuna
-    }
-
-    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: Self.layout()) ->> {
-      $0.keyboardDismissMode = .onDrag
     }
 
     // MARK: - Initialization
@@ -95,32 +92,40 @@ extension LinksHistory {
           .sinkValue { [weak self] in
             self?.updateShortenerViewBottomConstraint(with: $0)
           }
+        NotificationCenter.default.keyboardPublisher
+          .map { $0.frameHeight == 0 ? 1 : 0 }
+          .removeDuplicates()
+          .assign(to: \.alpha, on: collectionView, ownership: .weak)
       }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+      super.touchesBegan(touches, with: event)
+
+      view.endEditing(true)
     }
 
     override func addChild(_ childController: UIViewController) {
       super.addChild(childController)
 
-      let childControllerBottomConstraint = view.bottomAnchor.constraint(equalTo: childController.view.bottomAnchor)
+      childController.view.layer.cornerRadius = Constant.shortenerCornerRadius
+
+      let childControllerBottomConstraint = view.bottomMarginAnchor.constraint(equalTo: childController.view.bottomAnchor)
       shortenerViewBottomConstraint = childControllerBottomConstraint
 
       // TODO: Maybe move it somewhere else.
       childController.view.add(to: view) {
-        $0.leadingAnchor.constraint(equalTo: $1.leadingAnchor)
-        $1.trailingAnchor.constraint(equalTo: $0.trailingAnchor)
+        $0.leadingAnchor.constraint(equalTo: $1.leadingMarginAnchor)
+        $1.trailingMarginAnchor.constraint(equalTo: $0.trailingAnchor)
         childControllerBottomConstraint
       }
 
       childControllerFrameSubscription = childController.view.publisher(for: \.bounds)
-        .map { [weak self] bounds -> CGFloat in
-          guard let self = self else { return bounds.height }
-          return bounds.height - self.view.safeAreaInsets.bottom
-        }
+        .map(\.height)
         .removeDuplicates()
         .sinkValue { [weak self] inset in
           guard let self = self else { return }
           self.collectionView.contentInset.bottom = inset
-          self.collectionView.verticalScrollIndicatorInsets.bottom = inset
           self.emptyViewBottomConstraint?.constant = inset
           self.view.layoutIfNeeded()
         }
@@ -186,6 +191,18 @@ private extension LinksHistory.ViewController {
     UICollectionViewCompositionalLayout.list(
       using: UICollectionLayoutListConfiguration(appearance: .insetGrouped)
     )
+  }
+
+}
+
+// MARK: - Constants
+
+private extension LinksHistory.ViewController {
+
+  enum Constant {
+
+    static let shortenerCornerRadius: CGFloat = 16
+
   }
 
 }
