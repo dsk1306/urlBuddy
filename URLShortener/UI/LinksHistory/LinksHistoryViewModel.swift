@@ -67,21 +67,16 @@ extension LinksHistory {
             self?.fetchedLinks() ?? Empty().eraseToAnyPublisher()
           }
           .subscribe(savedLinksRelay)
-        input.copyLink.sinkValue { [weak self] link in
-          self?.clipboardService.paste(link: link)
-        }
-        input.deleteLink.sinkValue { [weak self] link in
-          await self?.delete(link: link)
-        }
-        input.saveLink.sinkValue { [weak self] link in
-          await self?.save(link: link)
-        }
-        errorRelay.sinkValue { [weak cordinator] in
-          await cordinator?.showAlert(for: $0)
-        }
-        input.openLink.sinkValue { [weak cordinator] in
-          await cordinator?.open(link: $0)
-        }
+        input.copyLink
+          .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
+        input.deleteLink
+          .sinkValue { [weak self] in await self?.delete(link: $0) }
+        input.saveLink
+          .sinkValue { [weak self] in await self?.save(link: $0) }
+        errorRelay
+          .sinkValue { [weak cordinator] in await cordinator?.showAlert(for: $0) }
+        input.openLink
+          .sinkValue { [weak cordinator] in await cordinator?.open(link: $0) }
       }
     }
 

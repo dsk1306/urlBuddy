@@ -66,10 +66,10 @@ extension LinksShortener {
       }
 
       stackView.add(to: view) {
-        $0.leadingAnchor.constraint(equalTo: $1.leadingSafeAnchor, constant: 48)
-        $1.trailingSafeAnchor.constraint(equalTo: $0.trailingAnchor, constant: 48)
-        $1.bottomSafeAnchor.constraint(equalTo: $0.bottomAnchor, constant: 50)
-        $0.topAnchor.constraint(equalTo: $1.topSafeAnchor, constant: 46)
+        $0.leadingAnchor.constraint(equalTo: $1.leadingSafeAnchor, constant: Constant.inset)
+        $1.trailingSafeAnchor.constraint(equalTo: $0.trailingAnchor, constant: Constant.inset)
+        $1.bottomSafeAnchor.constraint(equalTo: $0.bottomAnchor, constant: Constant.inset)
+        $0.topAnchor.constraint(equalTo: $1.topSafeAnchor, constant: Constant.inset)
       }
 
       // URL text field.
@@ -87,15 +87,19 @@ extension LinksShortener {
       viewModel.bind()
 
       cancellable {
-        shortenButton.tapPublisher.subscribe(viewModel.input.shorten)
+        shortenButton.tapPublisher
+          .subscribe(viewModel.input.shorten)
         viewModel.output.isValidURL
           .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
         viewModel.output.shortenedLink
-          .map { _ in nil }
-          .assign(to: \.text, on: urlTextField, ownership: .weak)
-        shortenButton.tapPublisher.sinkValue { [weak shortenButton] in
-          shortenButton?.configureLoadingState(isLoading: true)
-        }
+          .sinkValue { [weak urlTextField] _ in
+            urlTextField?.text = nil
+            urlTextField?.endEditing(true)
+          }
+        shortenButton.tapPublisher
+          .sinkValue { [weak shortenButton] in
+            shortenButton?.configureLoadingState(isLoading: true)
+          }
         urlTextField.textPublisher
           .map { $0 ?? "" }
           .subscribe(viewModel.input.urlTextChanged)
@@ -142,6 +146,7 @@ private extension LinksShortener.ViewController {
   enum Constant {
 
     static let urlTextFieldCornerRadius: CGFloat = 6
+    static let inset: CGFloat = 32
 
     static let urlTextFieldPlaceholder = NSAttributedString(
       string: LocalizedString.placeholder,

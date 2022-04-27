@@ -69,13 +69,12 @@ extension LinksShortener {
       super.bind()
 
       cancellable {
-        input.urlTextChanged.subscribe(urlTextRelay)
-        errorRelay.sinkValue { [weak cordinator] in
-          await cordinator?.showAlert(for: $0)
-        }
-        shortenedLinkRelay.sinkValue { [weak self] in
-          self?.clipboardService.paste(link: $0)
-        }
+        input.urlTextChanged
+          .subscribe(urlTextRelay)
+        errorRelay
+          .sinkValue { [weak cordinator] in await cordinator?.showAlert(for: $0) }
+        shortenedLinkRelay
+          .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
         shortenedLinkRelay
           .map { _ in "" }
           .subscribe(urlTextRelay)
@@ -102,7 +101,8 @@ extension LinksShortener.ViewModel {
 
   func bind(to input: LinksShortenerViewModelBindable) {
     cancellable {
-      output.shortenedLink.subscribe(input.saveLink)
+      output.shortenedLink
+        .subscribe(input.saveLink)
     }
   }
 
