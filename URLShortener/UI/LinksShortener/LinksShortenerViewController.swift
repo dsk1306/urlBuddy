@@ -87,16 +87,19 @@ extension LinksShortener {
       viewModel.bind()
 
       cancellable {
-        shortenButton.tapPublisher.subscribe(viewModel.input.shorten)
+        shortenButton.tapPublisher
+          .subscribe(viewModel.input.shorten)
         viewModel.output.isValidURL
           .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
-        viewModel.output.shortenedLink.sinkValue { [weak urlTextField] _ in
-          urlTextField?.text = nil
-          urlTextField?.endEditing(true)
-        }
-        shortenButton.tapPublisher.sinkValue { [weak shortenButton] in
-          shortenButton?.configureLoadingState(isLoading: true)
-        }
+        viewModel.output.shortenedLink
+          .sinkValue { [weak urlTextField] _ in
+            urlTextField?.text = nil
+            urlTextField?.endEditing(true)
+          }
+        shortenButton.tapPublisher
+          .sinkValue { [weak shortenButton] in
+            shortenButton?.configureLoadingState(isLoading: true)
+          }
         urlTextField.textPublisher
           .map { $0 ?? "" }
           .subscribe(viewModel.input.urlTextChanged)
