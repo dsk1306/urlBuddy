@@ -38,6 +38,7 @@ extension LinksShortener {
       $0.autocorrectionType = .no
       $0.autocapitalizationType = .none
       $0.attributedPlaceholder = Constant.urlTextFieldPlaceholder
+      $0.clearButtonMode = .whileEditing
     }
 
     // MARK: - Initialization
@@ -91,6 +92,9 @@ extension LinksShortener {
           .subscribe(viewModel.input.shorten)
         viewModel.output.isValidURL
           .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
+        viewModel.output.clipboardURLString
+          .map { $0 }
+          .assign(to: \.text, on: urlTextField, ownership: .weak)
         viewModel.output.shortenedLink
           .sinkValue { [weak urlTextField] _ in
             urlTextField?.text = nil

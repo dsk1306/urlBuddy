@@ -1,6 +1,6 @@
 import Combine
 import CombineExtensions
-import Foundation
+import UIKit
 
 protocol LinksShortenerViewModelBindable {
 
@@ -30,6 +30,7 @@ extension LinksShortener {
       let error: AnyPublisher<Error, Never>
       let shortenedLink: AnyPublisher<Link, Never>
       let isValidURL: AnyPublisher<Bool, Never>
+      let clipboardURLString: AnyPublisher<String, Never>
 
     }
 
@@ -41,12 +42,23 @@ extension LinksShortener {
     private let linksShortenerService: LinksShortenerService
     private let clipboardService: ClipboardService
 
+    private var clipboardString: String? {
+      do {
+        guard let string = clipboardService.string else { return nil }
+        guard try URLStringValidator(urlString: string).isValid else { return nil }
+        return string
+      } catch {
+        return nil
+      }
+    }
+
     // MARK: - Properties - Relays
 
     private let urlTextRelay = CurrentValueRelay<String>("")
     private let errorRelay = PassthroughRelay<Error>()
     private let shortenedLinkRelay = PassthroughRelay<Link>()
     private let isValidURLRelay = CurrentValueRelay<Bool>(false)
+    private let clipboardURLStringRelay = PassthroughRelay<String>()
 
     // MARK: - Initialization
 
@@ -57,7 +69,8 @@ extension LinksShortener {
       self.output = Output(
         error: errorRelay.prepareToOutput(),
         shortenedLink: shortenedLinkRelay.prepareToOutput(),
-        isValidURL: isValidURLRelay.prepareToOutput()
+        isValidURL: isValidURLRelay.prepareToOutput(),
+        clipboardURLString: clipboardURLStringRelay.prepareToOutput()
       )
 
       super.init(services: services, cordinator: cordinator)
@@ -70,6 +83,8 @@ extension LinksShortener {
 
       cancellable {
         input.urlTextChanged
+          .subscribe(urlTextRelay)
+        clipboardURLStringRelay
           .subscribe(urlTextRelay)
         errorRelay
           .sinkValue { [weak cordinator] in await cordinator?.showAlert(for: $0) }
@@ -88,6 +103,11 @@ extension LinksShortener {
         urlTextRelay
           .compactMap { [weak self] in self?.isURLStringValid($0) }
           .subscribe(isValidURLRelay)
+        NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+          .withLatestFrom(urlTextRelay)
+          .filter { $0.isEmpty }
+          .compactMap { [weak self] _ in self?.clipboardString }
+          .subscribe(clipboardURLStringRelay)
       }
     }
 
