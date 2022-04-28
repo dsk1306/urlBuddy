@@ -81,17 +81,10 @@ extension LinksShortener {
     override func bind() {
       super.bind()
 
+      bindRelays()
+
       cancellable {
         input.urlTextChanged
-          .subscribe(urlTextRelay)
-        clipboardURLStringRelay
-          .subscribe(urlTextRelay)
-        errorRelay
-          .sinkValue { [weak cordinator] in await cordinator?.showAlert(for: $0) }
-        shortenedLinkRelay
-          .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
-        shortenedLinkRelay
-          .map { _ in "" }
           .subscribe(urlTextRelay)
         input.shorten
           .withLatestFrom(urlTextRelay)
@@ -100,9 +93,6 @@ extension LinksShortener {
             self?.shortenerPublisher(for: url) ?? Empty().eraseToAnyPublisher()
           }
           .subscribe(shortenedLinkRelay)
-        urlTextRelay
-          .compactMap { [weak self] in self?.isURLStringValid($0) }
-          .subscribe(isValidURLRelay)
         NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
           .withLatestFrom(urlTextRelay)
           .filter { $0.isEmpty }
@@ -153,6 +143,29 @@ private extension LinksShortener.ViewModel {
     } catch {
       log(error: error)
       return false
+    }
+  }
+
+}
+
+// MARK: - Private Methods - Binding
+
+private extension LinksShortener.ViewModel {
+
+  func bindRelays() {
+    cancellable {
+      clipboardURLStringRelay
+        .subscribe(urlTextRelay)
+      errorRelay
+        .sinkValue { [weak cordinator] in await cordinator?.showAlert(for: $0) }
+      shortenedLinkRelay
+        .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
+      shortenedLinkRelay
+        .map { _ in "" }
+        .subscribe(urlTextRelay)
+      urlTextRelay
+        .compactMap { [weak self] in self?.isURLStringValid($0) }
+        .subscribe(isValidURLRelay)
     }
   }
 

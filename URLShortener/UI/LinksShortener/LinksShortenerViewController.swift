@@ -87,20 +87,11 @@ extension LinksShortener {
       super.bind()
 
       viewModel.bind()
+      bindOutput()
 
       cancellable {
         shortenButton.tapPublisher
           .subscribe(viewModel.input.shorten)
-        viewModel.output.isValidURL
-          .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
-        viewModel.output.clipboardURLString
-          .map { $0 }
-          .assign(to: \.text, on: urlTextField, ownership: .weak)
-        viewModel.output.shortenedLink
-          .sinkValue { [weak urlTextField] _ in
-            urlTextField?.text = nil
-            urlTextField?.endEditing(true)
-          }
         shortenButton.tapPublisher
           .sinkValue { [weak shortenButton] in
             shortenButton?.configureLoadingState(isLoading: true)
@@ -108,13 +99,6 @@ extension LinksShortener {
         urlTextField.textPublisher
           .map { $0 ?? "" }
           .subscribe(viewModel.input.urlTextChanged)
-        Publishers.Merge(
-          viewModel.output.error.map { _ in () },
-          viewModel.output.shortenedLink.map { _ in () }
-        )
-        .sinkValue { [weak shortenButton] in
-          shortenButton?.configureLoadingState(isLoading: false)
-        }
       }
     }
 
@@ -140,6 +124,34 @@ private extension LinksShortener.ViewController {
       .font: UIFont.systemFont(ofSize: 20, weight: .semibold)
     ])
     return AttributedString(LocalizedString.cta, attributes: attributes)
+  }
+
+}
+
+// MARK: - Private Methods - Binding
+
+private extension LinksShortener.ViewController {
+
+  func bindOutput() {
+    cancellable {
+      viewModel.output.isValidURL
+        .assign(to: \.isEnabled, on: shortenButton, ownership: .weak)
+      viewModel.output.clipboardURLString
+        .map { $0 }
+        .assign(to: \.text, on: urlTextField, ownership: .weak)
+      viewModel.output.shortenedLink
+        .sinkValue { [weak urlTextField] _ in
+          urlTextField?.text = nil
+          urlTextField?.endEditing(true)
+        }
+      Publishers.Merge(
+        viewModel.output.error.map { _ in () },
+        viewModel.output.shortenedLink.map { _ in () }
+      )
+      .sinkValue { [weak shortenButton] in
+        shortenButton?.configureLoadingState(isLoading: false)
+      }
+    }
   }
 
 }
