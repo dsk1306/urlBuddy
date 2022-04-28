@@ -38,6 +38,7 @@ extension LinksShortener {
       $0.autocorrectionType = .no
       $0.autocapitalizationType = .none
       $0.attributedPlaceholder = Constant.urlTextFieldPlaceholder
+      $0.keyboardType = .URL
     }
 
     // MARK: - Initialization
