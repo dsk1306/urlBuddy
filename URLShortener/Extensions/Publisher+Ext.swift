@@ -20,15 +20,4 @@ extension Publisher {
       .eraseToAnyPublisher()
   }
 
-  func sinkValue(valueHandler: @escaping ((Output) async -> Void)) -> AnyCancellable {
-    sink(
-      receiveCompletion: { _ in },
-      receiveValue: { output in
-        Task {
-          await valueHandler(output)
-        }
-      }
-    )
-  }
-
 }
