@@ -108,15 +108,13 @@ extension LinksHistory {
     override func addChild(_ childController: UIViewController) {
       super.addChild(childController)
 
-      childController.view.layer.cornerRadius = Constant.shortenerCornerRadius
-
-      let childControllerBottomConstraint = view.bottomMarginAnchor.constraint(equalTo: childController.view.bottomAnchor)
+      let childControllerBottomConstraint = view.bottomAnchor.constraint(equalTo: childController.view.bottomAnchor)
       shortenerViewBottomConstraint = childControllerBottomConstraint
 
       // TODO: Maybe move it somewhere else.
       childController.view.add(to: view) {
-        $0.leadingAnchor.constraint(equalTo: $1.leadingMarginAnchor)
-        $1.trailingMarginAnchor.constraint(equalTo: $0.trailingAnchor)
+        $0.leadingAnchor.constraint(equalTo: $1.leadingAnchor)
+        $1.trailingAnchor.constraint(equalTo: $0.trailingAnchor)
         childControllerBottomConstraint
       }
 
@@ -126,6 +124,7 @@ extension LinksHistory {
         .sinkValue { [weak self] inset in
           guard let self = self else { return }
           self.collectionView.contentInset.bottom = inset
+          self.collectionView.verticalScrollIndicatorInsets.bottom = inset
           self.emptyViewBottomConstraint?.constant = inset
           self.view.layoutIfNeeded()
         }
@@ -191,18 +190,6 @@ private extension LinksHistory.ViewController {
     UICollectionViewCompositionalLayout.list(
       using: UICollectionLayoutListConfiguration(appearance: .insetGrouped)
     )
-  }
-
-}
-
-// MARK: - Constants
-
-private extension LinksHistory.ViewController {
-
-  enum Constant {
-
-    static let shortenerCornerRadius: CGFloat = 16
-
   }
 
 }
