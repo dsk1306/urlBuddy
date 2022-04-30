@@ -1150,7 +1150,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dsk1306/combineExtensions";
 			requirement = {
-				branch = operators;
+				branch = dev;
 				kind = branch;
 			};
 		};
