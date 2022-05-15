@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dsk1306/combineExtensions",
       "state" : {
-        "branch" : "dev",
-        "revision" : "175c74668a7cd095ea7c9a77b843d9e9478218e8"
+        "branch" : "catch",
+        "revision" : "15e6b2368893a716bfaeabd9f5568afb1c1bb72a"
       }
     }
   ],
