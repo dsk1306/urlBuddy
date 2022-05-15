@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/bugsnag/bugsnag-cocoa",
       "state" : {
-        "revision" : "394884c5b54fa7192f28fd554c49f16fdeda2f6e",
-        "version" : "6.16.7"
+        "revision" : "f3baf6c0f2a0a3b5a28ec02cb366f72ab5620dd2",
+        "version" : "6.17.0"
       }
     },
     {
