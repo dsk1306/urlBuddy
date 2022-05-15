@@ -42,7 +42,6 @@
 		C78C88EE27F8BAAA00302E75 /* ActivityIndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88ED27F8BAAA00302E75 /* ActivityIndicatorButton.swift */; };
 		C78C88F127F8BACC00302E75 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */; };
 		C78C88F327F8BAE400302E75 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F227F8BAE400302E75 /* UIView+Ext.swift */; };
-		C78C88F527F8BAFD00302E75 /* Publisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F427F8BAFD00302E75 /* Publisher+Ext.swift */; };
 		C78C88F927F8BCC400302E75 /* LinksHistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88F827F8BCC400302E75 /* LinksHistoryEmptyView.swift */; };
 		C78C88FB27F8BCE100302E75 /* LinksHistoryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88FA27F8BCE100302E75 /* LinksHistoryItemCell.swift */; };
 		C78C88FD27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C88FC27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift */; };
@@ -133,7 +132,6 @@
 		C78C88ED27F8BAAA00302E75 /* ActivityIndicatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorButton.swift; sourceTree = "<group>"; };
 		C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 		C78C88F227F8BAE400302E75 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
-		C78C88F427F8BAFD00302E75 /* Publisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Ext.swift"; sourceTree = "<group>"; };
 		C78C88F827F8BCC400302E75 /* LinksHistoryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryEmptyView.swift; sourceTree = "<group>"; };
 		C78C88FA27F8BCE100302E75 /* LinksHistoryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryItemCell.swift; sourceTree = "<group>"; };
 		C78C88FC27F8BCF400302E75 /* LinksHistoryItemCell+CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinksHistoryItemCell+CopyButton.swift"; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				C7D569CD2818768F00F58F7F /* NotificationCenter+Ext.swift */,
-				C78C88F427F8BAFD00302E75 /* Publisher+Ext.swift */,
 				C78C88F027F8BACC00302E75 /* UICollectionView+Ext.swift */,
 				C78C88F227F8BAE400302E75 /* UIView+Ext.swift */,
 			);
@@ -746,7 +743,6 @@
 				C77DD6CE27F07B680037ACFF /* LinksShortenerService.swift in Sources */,
 				C7892094280B600E007FCBF7 /* LinksShortener.swift in Sources */,
 				C77166EA27F103B600C0B472 /* Link.swift in Sources */,
-				C78C88F527F8BAFD00302E75 /* Publisher+Ext.swift in Sources */,
 				C7892096280B6145007FCBF7 /* ImageAsset+SFSymbols.swift in Sources */,
 				C796498B27F7392600B613F4 /* DefaultLoggerService.swift in Sources */,
 				C753FAC027F2451500A818F3 /* PersistenceEncodableModel.swift in Sources */,

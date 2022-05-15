@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/bugsnag/bugsnag-cocoa",
       "state" : {
-        "revision" : "394884c5b54fa7192f28fd554c49f16fdeda2f6e",
-        "version" : "6.16.7"
+        "revision" : "f3baf6c0f2a0a3b5a28ec02cb366f72ab5620dd2",
+        "version" : "6.17.0"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dsk1306/combineExtensions",
       "state" : {
-        "revision" : "a2f31ab53ed930b830b069dbe1db6ab88692e790",
-        "version" : "1.1.0"
+        "revision" : "bf9668d929bd09c4ec22a489e3a78778a3df46db",
+        "version" : "1.2.0"
       }
     }
   ],
