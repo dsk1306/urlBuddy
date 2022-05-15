@@ -455,7 +455,9 @@
 				C7DF18E627EA590200D1FAD6 /* Products */,
 				C753FABA27F1D86A00A818F3 /* Frameworks */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		C7DF18E627EA590200D1FAD6 /* Products */ = {
 			isa = PBXGroup;

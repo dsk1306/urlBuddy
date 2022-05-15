@@ -5,6 +5,7 @@ opt_in_rules:
   - closure_parameter_position
   - colon
   - comma
+  - comma_inheritance
   - comment_spacing
   - compiler_protocol_init
   - computed_accessors_order
