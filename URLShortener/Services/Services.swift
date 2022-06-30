@@ -1,4 +1,5 @@
 import Foundation
+import Logger
 
 protocol Services: AnyObject, AppLifecycleSubscribableService {
 

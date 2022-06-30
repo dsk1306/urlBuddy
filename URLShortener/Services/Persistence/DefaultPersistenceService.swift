@@ -1,6 +1,7 @@
 import Combine
 import CoreData
 import Foundation
+import Logger
 
 final class DefaultPersistenceService {
 
