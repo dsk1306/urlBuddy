@@ -1,6 +1,7 @@
 import Combine
 import CombineExtensions
 import Foundation
+import Logger
 
 /// Base class for all view models.
 class BaseViewModel {
@@ -11,7 +12,7 @@ class BaseViewModel {
 
   private(set) weak var cordinator: RootCoordinator?
 
-  private(set) lazy var errorHandler: LoggerService.ErrorHandler = { [weak self] in
+  private(set) lazy var errorHandler: AppLifecycleSubscribableService.ErrorHandler = { [weak self] in
     self?.log(error: $0)
   }
 

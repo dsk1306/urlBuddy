@@ -57,8 +57,6 @@
 		C78FCB8F27EA67A10095E352 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8D27EA67A10095E352 /* ImageAsset.swift */; };
 		C796498B27F7392600B613F4 /* DefaultLoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C796498A27F7392600B613F4 /* DefaultLoggerService.swift */; };
 		C796498E27F73AEE00B613F4 /* Bugsnag in Frameworks */ = {isa = PBXBuildFile; productRef = C796498D27F73AEE00B613F4 /* Bugsnag */; };
-		C796499527F7412A00B613F4 /* LoggableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C796499427F7412A00B613F4 /* LoggableError.swift */; };
-		C796499727F78E1F00B613F4 /* LoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C796499627F78E1F00B613F4 /* LoggerService.swift */; };
 		C79F321F28185CD200DE520B /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C79F321E28185CD200DE520B /* CombineCocoa */; };
 		C7AB8B4227F10657006592C2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4127F10657006592C2 /* CoreDataStack.swift */; };
 		C7AB8B4427F10675006592C2 /* AppLifecycleSubscribableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB8B4327F10675006592C2 /* AppLifecycleSubscribableService.swift */; };
@@ -78,6 +76,7 @@
 		C7DF190D27EA590400D1FAD6 /* URLShortenerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF190C27EA590400D1FAD6 /* URLShortenerUITests.swift */; };
 		C7DF190F27EA590400D1FAD6 /* URLShortenerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF190E27EA590400D1FAD6 /* URLShortenerUITestsLaunchTests.swift */; };
 		C7DF191F27EA5BC800D1FAD6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DF191E27EA5BC800D1FAD6 /* Colors.xcassets */; };
+		C7FA385E286E3395005B38CC /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = C7FA385D286E3395005B38CC /* Logger */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,8 +145,6 @@
 		C78FCB8C27EA67A10095E352 /* ColorAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
 		C78FCB8D27EA67A10095E352 /* ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
 		C796498A27F7392600B613F4 /* DefaultLoggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoggerService.swift; sourceTree = "<group>"; };
-		C796499427F7412A00B613F4 /* LoggableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggableError.swift; sourceTree = "<group>"; };
-		C796499627F78E1F00B613F4 /* LoggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerService.swift; sourceTree = "<group>"; };
 		C7AB8B4127F10657006592C2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C7AB8B4327F10675006592C2 /* AppLifecycleSubscribableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifecycleSubscribableService.swift; sourceTree = "<group>"; };
 		C7AB8B4527F108FA006592C2 /* DefaultCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoreDataStack.swift; sourceTree = "<group>"; };
@@ -179,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7FA385E286E3395005B38CC /* Logger in Frameworks */,
 				C796498E27F73AEE00B613F4 /* Bugsnag in Frameworks */,
 				C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */,
 				C79F321F28185CD200DE520B /* CombineCocoa in Frameworks */,
@@ -390,8 +388,6 @@
 			isa = PBXGroup;
 			children = (
 				C796498A27F7392600B613F4 /* DefaultLoggerService.swift */,
-				C796499427F7412A00B613F4 /* LoggableError.swift */,
-				C796499627F78E1F00B613F4 /* LoggerService.swift */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -555,6 +551,7 @@
 				C753FAB127F1BC2700A818F3 /* CombineExtensions */,
 				C796498D27F73AEE00B613F4 /* Bugsnag */,
 				C79F321E28185CD200DE520B /* CombineCocoa */,
+				C7FA385D286E3395005B38CC /* Logger */,
 			);
 			productName = URLShortener;
 			productReference = C7DF18E527EA590200D1FAD6 /* URLShortener.app */;
@@ -632,6 +629,7 @@
 				C753FAB027F1BC2700A818F3 /* XCRemoteSwiftPackageReference "combineExtensions" */,
 				C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
 				C79F321D28185CD200DE520B /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+				C7FA385C286E3395005B38CC /* XCRemoteSwiftPackageReference "logger" */,
 			);
 			productRefGroup = C7DF18E627EA590200D1FAD6 /* Products */;
 			projectDirPath = "";
@@ -749,7 +747,6 @@
 				C796498B27F7392600B613F4 /* DefaultLoggerService.swift in Sources */,
 				C753FAC027F2451500A818F3 /* PersistenceEncodableModel.swift in Sources */,
 				C78C88FB27F8BCE100302E75 /* LinksHistoryItemCell.swift in Sources */,
-				C796499727F78E1F00B613F4 /* LoggerService.swift in Sources */,
 				C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */,
 				C7AB8B4627F108FA006592C2 /* DefaultCoreDataStack.swift in Sources */,
 				C77DD6C727F079360037ACFF /* APIService.swift in Sources */,
@@ -776,7 +773,6 @@
 				C78C88FF27F8BD0700302E75 /* LinksHistoryViewModel.swift in Sources */,
 				C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */,
 				C77166ED27F103D800C0B472 /* ClipboardService.swift in Sources */,
-				C796499527F7412A00B613F4 /* LoggableError.swift in Sources */,
 				C77DD6CA27F079AB0037ACFF /* DefaultLinksShortenerService.swift in Sources */,
 				C78C890427F8BD3F00302E75 /* LinksShortenerViewController.swift in Sources */,
 				C78C891327F8DED500302E75 /* BaseViewModel.swift in Sources */,
@@ -1168,6 +1164,14 @@
 				minimumVersion = 0.4.0;
 			};
 		};
+		C7FA385C286E3395005B38CC /* XCRemoteSwiftPackageReference "logger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dsk1306/logger";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1185,6 +1189,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C79F321D28185CD200DE520B /* XCRemoteSwiftPackageReference "CombineCocoa" */;
 			productName = CombineCocoa;
+		};
+		C7FA385D286E3395005B38CC /* Logger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7FA385C286E3395005B38CC /* XCRemoteSwiftPackageReference "logger" */;
+			productName = Logger;
 		};
 /* End XCSwiftPackageProductDependency section */
 
