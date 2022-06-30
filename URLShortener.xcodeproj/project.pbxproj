@@ -78,6 +78,7 @@
 		C7DF190D27EA590400D1FAD6 /* URLShortenerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF190C27EA590400D1FAD6 /* URLShortenerUITests.swift */; };
 		C7DF190F27EA590400D1FAD6 /* URLShortenerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF190E27EA590400D1FAD6 /* URLShortenerUITestsLaunchTests.swift */; };
 		C7DF191F27EA5BC800D1FAD6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DF191E27EA5BC800D1FAD6 /* Colors.xcassets */; };
+		C7FA385E286E3395005B38CC /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = C7FA385D286E3395005B38CC /* Logger */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7FA385E286E3395005B38CC /* Logger in Frameworks */,
 				C796498E27F73AEE00B613F4 /* Bugsnag in Frameworks */,
 				C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */,
 				C79F321F28185CD200DE520B /* CombineCocoa in Frameworks */,
@@ -555,6 +557,7 @@
 				C753FAB127F1BC2700A818F3 /* CombineExtensions */,
 				C796498D27F73AEE00B613F4 /* Bugsnag */,
 				C79F321E28185CD200DE520B /* CombineCocoa */,
+				C7FA385D286E3395005B38CC /* Logger */,
 			);
 			productName = URLShortener;
 			productReference = C7DF18E527EA590200D1FAD6 /* URLShortener.app */;
@@ -632,6 +635,7 @@
 				C753FAB027F1BC2700A818F3 /* XCRemoteSwiftPackageReference "combineExtensions" */,
 				C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
 				C79F321D28185CD200DE520B /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+				C7FA385C286E3395005B38CC /* XCRemoteSwiftPackageReference "logger" */,
 			);
 			productRefGroup = C7DF18E627EA590200D1FAD6 /* Products */;
 			projectDirPath = "";
@@ -1168,6 +1172,14 @@
 				minimumVersion = 0.4.0;
 			};
 		};
+		C7FA385C286E3395005B38CC /* XCRemoteSwiftPackageReference "logger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dsk1306/logger";
+			requirement = {
+				branch = init;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1185,6 +1197,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C79F321D28185CD200DE520B /* XCRemoteSwiftPackageReference "CombineCocoa" */;
 			productName = CombineCocoa;
+		};
+		C7FA385D286E3395005B38CC /* Logger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7FA385C286E3395005B38CC /* XCRemoteSwiftPackageReference "logger" */;
+			productName = Logger;
 		};
 /* End XCSwiftPackageProductDependency section */
 
