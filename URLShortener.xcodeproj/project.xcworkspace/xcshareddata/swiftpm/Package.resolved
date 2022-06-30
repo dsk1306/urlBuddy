@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dsk1306/logger",
       "state" : {
-        "branch" : "init",
-        "revision" : "7d24b3bee569807e7e1d420afec8e5ad5c8598ce"
+        "revision" : "3c4f377a70bbe7bce46138357f596b475df8b354",
+        "version" : "1.0.0"
       }
     }
   ],
