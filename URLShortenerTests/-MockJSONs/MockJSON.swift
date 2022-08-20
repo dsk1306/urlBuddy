@@ -9,6 +9,7 @@ extension MockJSON {
   enum URLShortenerTests: MockJSONType {
 
     case invalidURLSubmitted
+    case badServerResponse
     case success
 
     var fileName: String {
@@ -17,6 +18,8 @@ extension MockJSON {
         return "URLShortenerTests_InvalidURLSubmitted"
       case .success:
         return "URLShortenerTests_Success"
+      case .badServerResponse:
+        return "URLShortenerTests_BadServerResponse"
       }
     }
 

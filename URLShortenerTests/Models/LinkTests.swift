@@ -57,6 +57,14 @@ final class LinkTests: XCTestCase {
     XCTAssertEqual(representation[Constant.shortenKey] as? String, Constant.shorten.absoluteString)
   }
 
+  func test_persistenceEncodableDecodable() throws {
+    let model = Link.convenienceInit()
+    let model2 = try Link(keyValueRepresentation: model.keyValueRepresentation)
+    XCTAssertEqual(model, model2)
+  }
+
+  // MARK: - Tests - Persistence Decodable Model
+
   func test_persistenceDecodableModel_url() throws {
     let representation: PersistenceDecodableModel.KeyValueRepresentation = [
       Constant.idKey: Constant.id,
@@ -87,10 +95,66 @@ final class LinkTests: XCTestCase {
     XCTAssertEqual(model.modified, Constant.modified)
   }
 
-  func test_persistenceEncodableDecodable() throws {
-    let model = Link.convenienceInit()
-    let model2 = try Link(keyValueRepresentation: model.keyValueRepresentation)
-    XCTAssertEqual(model, model2)
+  func test_persistenceDecodableModel_noID() throws {
+    let representation: PersistenceDecodableModel.KeyValueRepresentation = [
+      Constant.modifiedKey: Constant.modified,
+      Constant.originalKey: Constant.original.absoluteString,
+      Constant.shortenKey: Constant.shorten.absoluteString
+    ]
+
+    XCTAssertThrowsError(try Link(keyValueRepresentation: representation))
+  }
+
+  func test_persistenceDecodableModel_noModified() throws {
+    let representation: PersistenceDecodableModel.KeyValueRepresentation = [
+      Constant.idKey: Constant.id,
+      Constant.originalKey: Constant.original.absoluteString,
+      Constant.shortenKey: Constant.shorten.absoluteString
+    ]
+
+    XCTAssertThrowsError(try Link(keyValueRepresentation: representation))
+  }
+
+  func test_persistenceDecodableModel_noOriginal() throws {
+    let representation: PersistenceDecodableModel.KeyValueRepresentation = [
+      Constant.idKey: Constant.id,
+      Constant.modifiedKey: Constant.modified,
+      Constant.shortenKey: Constant.shorten.absoluteString
+    ]
+
+    XCTAssertThrowsError(try Link(keyValueRepresentation: representation))
+  }
+
+  func test_persistenceDecodableModel_wrongOriginal() throws {
+    let representation: PersistenceDecodableModel.KeyValueRepresentation = [
+      Constant.idKey: Constant.id,
+      Constant.modifiedKey: Constant.modified,
+      Constant.originalKey: 1,
+      Constant.shortenKey: Constant.shorten.absoluteString
+    ]
+
+    XCTAssertThrowsError(try Link(keyValueRepresentation: representation))
+  }
+
+  func test_persistenceDecodableModel_noShorten() throws {
+    let representation: PersistenceDecodableModel.KeyValueRepresentation = [
+      Constant.idKey: Constant.id,
+      Constant.modifiedKey: Constant.modified,
+      Constant.originalKey: Constant.original.absoluteString
+    ]
+
+    XCTAssertThrowsError(try Link(keyValueRepresentation: representation))
+  }
+
+  func test_persistenceDecodableModel_wrongShorten() throws {
+    let representation: PersistenceDecodableModel.KeyValueRepresentation = [
+      Constant.idKey: Constant.id,
+      Constant.modifiedKey: Constant.modified,
+      Constant.originalKey: Constant.original.absoluteString,
+      Constant.shortenKey: 1
+    ]
+
+    XCTAssertThrowsError(try Link(keyValueRepresentation: representation))
   }
 
 }

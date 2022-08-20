@@ -81,6 +81,60 @@ final class DefaultLinksShortenerServiceTests: XCTestCase {
     XCTAssertFalse(shorteningFinished)
   }
 
+  func test_badServerResponse() {
+    apiService.mode = .badServerResponse
+
+    let expectationName = "\(Self.self)_\(#function)_"
+    let valueExpectation = expectation(description: expectationName + "valueExpectation")
+    valueExpectation.isInverted = true
+    let completionExpectation = expectation(description: expectationName + "completionExpectation")
+
+    cancellable = service.shorten(link: Constant.linkToShorten)
+      .sink(
+        receiveCompletion: { [weak self] in
+          self?.handle(completion: $0)
+          completionExpectation.fulfill()
+        },
+        receiveValue: { [weak self] in
+          self?.shortenURL = $0
+          valueExpectation.fulfill()
+        }
+      )
+
+    wait(for: [valueExpectation, completionExpectation], timeout: Constant.timeout)
+
+    XCTAssertNil(shortenURL)
+    XCTAssertEqual(shorteningError, .decoding)
+    XCTAssertFalse(shorteningFinished)
+  }
+
+  func test_badServerResponse2() {
+    apiService.mode = .badServerResponse2
+
+    let expectationName = "\(Self.self)_\(#function)_"
+    let valueExpectation = expectation(description: expectationName + "valueExpectation")
+    valueExpectation.isInverted = true
+    let completionExpectation = expectation(description: expectationName + "completionExpectation")
+
+    cancellable = service.shorten(link: Constant.linkToShorten)
+      .sink(
+        receiveCompletion: { [weak self] in
+          self?.handle(completion: $0)
+          completionExpectation.fulfill()
+        },
+        receiveValue: { [weak self] in
+          self?.shortenURL = $0
+          valueExpectation.fulfill()
+        }
+      )
+
+    wait(for: [valueExpectation, completionExpectation], timeout: Constant.timeout)
+
+    XCTAssertNil(shortenURL)
+    XCTAssertEqual(shorteningError, .decoding)
+    XCTAssertFalse(shorteningFinished)
+  }
+
 }
 
 // MARK: - Private Methods
@@ -124,6 +178,8 @@ private extension DefaultLinksShortenerServiceTests {
 
       case success
       case invalidURLSubmitted
+      case badServerResponse
+      case badServerResponse2
 
       func data() throws -> Data {
         switch self {
@@ -131,6 +187,10 @@ private extension DefaultLinksShortenerServiceTests {
           return try MockJSONLoader.loadJSON(MockJSON.URLShortenerTests.success)
         case .invalidURLSubmitted:
           return try MockJSONLoader.loadJSON(MockJSON.URLShortenerTests.invalidURLSubmitted)
+        case .badServerResponse:
+          return Data()
+        case .badServerResponse2:
+          return try MockJSONLoader.loadJSON(MockJSON.URLShortenerTests.badServerResponse)
         }
       }
 
