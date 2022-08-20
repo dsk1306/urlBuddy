@@ -1,0 +1,4 @@
+ignore:
+  - "SwiftGenTemplates"
+  - "URLShortenerTests"
+  - "URLShortenerUITests"
