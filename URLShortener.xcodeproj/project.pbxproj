@@ -426,7 +426,6 @@
 		C7CC818627F8B539008EE891 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				C7CC818727F8B549008EE891 /* LocalizedString.swift */,
 				C71603EF280B480B00B41298 /* URLStringValidator.swift */,
 			);
 			path = Utilities;
@@ -528,6 +527,7 @@
 				C78FCB8C27EA67A10095E352 /* ColorAsset.swift */,
 				C78FCB8D27EA67A10095E352 /* ImageAsset.swift */,
 				C7892095280B6145007FCBF7 /* ImageAsset+SFSymbols.swift */,
+				C7CC818727F8B549008EE891 /* LocalizedString.swift */,
 				C7DF191E27EA5BC800D1FAD6 /* Colors.xcassets */,
 				C7DF18F427EA590400D1FAD6 /* Images.xcassets */,
 				C7DF18F627EA590400D1FAD6 /* LaunchScreen.storyboard */,
