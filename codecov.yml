@@ -2,3 +2,7 @@ ignore:
   - "SwiftGenTemplates"
   - "URLShortenerTests"
   - "URLShortenerUITests"
+  - "URLShortener/App/TestsSceneDelegate.swift"
+  - "URLShortener/App/TestsAppDelegate.swift"
+  - "URLShortener/App/main.swift"
+  - "URLShortener/Resources"
