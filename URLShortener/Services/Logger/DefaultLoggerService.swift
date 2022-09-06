@@ -12,9 +12,9 @@ extension DefaultLoggerService: AppLifecycleSubscribableService {
     #if DEBUG
     releaseStage = .development
     #else
-    configuration.releaseStage = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
-      ? releaseStage = .testFlight
-      : releaseStage = .production
+    releaseStage = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
+      ? .testFlight
+      : .production
     #endif
 
     start(releaseStage: releaseStage, apiKey: Constant.apiKey)
