@@ -62,7 +62,7 @@ extension DefaultAPIService: APIService {
     return URLSession.shared.dataTaskPublisher(for: request)
       .subscribe(on: requestQueue)
       .tryMap { try Self.validate(output: $0) }
-      .map { $0.data }
+      .map(\.data)
       .eraseToAnyPublisher()
   }
 

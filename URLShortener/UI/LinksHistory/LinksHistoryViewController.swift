@@ -81,7 +81,7 @@ extension LinksHistory {
           .map(Self.snapshot)
           .sinkValue { [weak dataSource] in dataSource?.apply($0) }
         viewModel.output.savedLinks
-          .map { $0.isEmpty }
+          .map(\.isEmpty)
           .removeDuplicates()
           .sinkValue { [weak self] isEmpty in
             self?.navigationItem.titleView = isEmpty ? nil : self?.titleView
