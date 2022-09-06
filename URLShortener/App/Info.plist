@@ -13,10 +13,10 @@
 			<key>UIWindowSceneSessionRoleApplication</key>
 			<array>
 				<dict>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).TestsSceneDelegate</string>
 					<key>UISceneConfigurationName</key>
 					<string>Tests</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).TestsSceneDelegate</string>
 				</dict>
 				<dict>
 					<key>UISceneConfigurationName</key>
