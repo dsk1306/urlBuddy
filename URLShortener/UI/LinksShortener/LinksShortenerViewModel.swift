@@ -161,7 +161,7 @@ private extension LinksShortener.ViewModel {
       shortenedLinkRelay
         .sinkValue { [weak self] in self?.clipboardService.paste(link: $0) }
       shortenedLinkRelay
-        .map { _ in "" }
+        .mapToValue("")
         .subscribe(urlTextRelay)
       urlTextRelay
         .compactMap { [weak self] in self?.isURLStringValid($0) }

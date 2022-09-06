@@ -145,8 +145,8 @@ private extension LinksShortener.ViewController {
           urlTextField?.endEditing(true)
         }
       Publishers.Merge(
-        viewModel.output.error.map { _ in () },
-        viewModel.output.shortenedLink.map { _ in () }
+        viewModel.output.error.mapToVoid(),
+        viewModel.output.shortenedLink.mapToVoid()
       )
       .sinkValue { [weak shortenButton] in
         shortenButton?.configureLoadingState(isLoading: false)
