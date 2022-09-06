@@ -61,7 +61,7 @@ extension LinksHistory {
       cancellable {
         NotificationCenter.default.publisher(for: .NSManagedObjectContextObjectsDidChange)
           .debounce(for: Constant.dataReloadDebounceTime, scheduler: RunLoop.main)
-          .map { _ in () }
+          .mapToVoid()
           .prepend(())
           .flatMap { [weak self] in
             self?.fetchedLinks() ?? Empty().eraseToAnyPublisher()
