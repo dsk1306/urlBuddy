@@ -13,7 +13,11 @@ final class ActivityIndicatorButton: UIButton {
 extension ActivityIndicatorButton {
 
   func configureLoadingState(isLoading: Bool) {
-    isLoading ? enableLoadingState() : disableLoadingState()
+    if isLoading {
+      enableLoadingState()
+    } else {
+      disableLoadingState()
+    }
   }
 
 }
