@@ -64,7 +64,7 @@ extension RootCoordinator {
   @MainActor
   func open(link: URL) async {
     guard UIApplication.shared.canOpenURL(link) else { return }
-    await UIApplication.shared.open(link)
+    _ = await UIApplication.shared.open(link)
   }
 
 }
