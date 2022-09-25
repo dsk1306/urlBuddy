@@ -1,6 +1,7 @@
 import Combine
 import CombineExtensions
 import UIKit
+import UIKitExtensions
 
 extension LinksShortener {
 
