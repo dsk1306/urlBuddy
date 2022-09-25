@@ -122,7 +122,7 @@ extension LinksHistory {
         .map(\.height)
         .removeDuplicates()
         .sinkValue { [weak self] inset in
-          guard let self = self else { return }
+          guard let self else { return }
           self.collectionView.contentInset.bottom = inset
           self.collectionView.verticalScrollIndicatorInsets.bottom = inset
           self.emptyViewBottomConstraint?.constant = inset
@@ -174,7 +174,7 @@ private extension LinksHistory.ViewController {
 
   func updateShortenerViewBottomConstraint(with output: NotificationCenter.KeyboardPublisherOutput) {
     UIView.animate(withDuration: output.animationDuration, delay: 0, options: output.animationOptions) { [weak self] in
-      guard let self = self else { return }
+      guard let self else { return }
       self.shortenerViewBottomConstraint?.constant = output.frameHeight
       self.view?.layoutIfNeeded()
     }
