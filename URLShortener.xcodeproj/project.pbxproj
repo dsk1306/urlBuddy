@@ -30,6 +30,7 @@
 		C77166EA27F103B600C0B472 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77166E927F103B600C0B472 /* Link.swift */; };
 		C77166ED27F103D800C0B472 /* ClipboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77166EC27F103D800C0B472 /* ClipboardService.swift */; };
 		C77166EF27F103E700C0B472 /* DefaultClipboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77166EE27F103E700C0B472 /* DefaultClipboardService.swift */; };
+		C77A850228E090D900CB2DB5 /* UIKitExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C77A850128E090D900CB2DB5 /* UIKitExtensions */; };
 		C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C427F078370037ACFF /* DefaultAPIService.swift */; };
 		C77DD6C727F079360037ACFF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C627F079360037ACFF /* APIService.swift */; };
 		C77DD6CA27F079AB0037ACFF /* DefaultLinksShortenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C927F079AB0037ACFF /* DefaultLinksShortenerService.swift */; };
@@ -189,6 +190,7 @@
 				C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */,
 				C79F321F28185CD200DE520B /* CombineCocoa in Frameworks */,
 				C753FABC27F1D86A00A818F3 /* CloudKit.framework in Frameworks */,
+				C77A850228E090D900CB2DB5 /* UIKitExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +566,7 @@
 				C796498D27F73AEE00B613F4 /* Bugsnag */,
 				C79F321E28185CD200DE520B /* CombineCocoa */,
 				C7FA385D286E3395005B38CC /* Logger */,
+				C77A850128E090D900CB2DB5 /* UIKitExtensions */,
 			);
 			productName = URLShortener;
 			productReference = C7DF18E527EA590200D1FAD6 /* URLShortener.app */;
@@ -642,6 +645,7 @@
 				C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
 				C79F321D28185CD200DE520B /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 				C7FA385C286E3395005B38CC /* XCRemoteSwiftPackageReference "logger" */,
+				C77A850028E090D900CB2DB5 /* XCRemoteSwiftPackageReference "uikitExtensions" */,
 			);
 			productRefGroup = C7DF18E627EA590200D1FAD6 /* Products */;
 			projectDirPath = "";
@@ -1167,6 +1171,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		C77A850028E090D900CB2DB5 /* XCRemoteSwiftPackageReference "uikitExtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dsk1306/uikitExtensions";
+			requirement = {
+				branch = base;
+				kind = branch;
+			};
+		};
 		C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bugsnag/bugsnag-cocoa";
@@ -1198,6 +1210,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C753FAB027F1BC2700A818F3 /* XCRemoteSwiftPackageReference "combineExtensions" */;
 			productName = CombineExtensions;
+		};
+		C77A850128E090D900CB2DB5 /* UIKitExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C77A850028E090D900CB2DB5 /* XCRemoteSwiftPackageReference "uikitExtensions" */;
+			productName = UIKitExtensions;
 		};
 		C796498D27F73AEE00B613F4 /* Bugsnag */ = {
 			isa = XCSwiftPackageProductDependency;
