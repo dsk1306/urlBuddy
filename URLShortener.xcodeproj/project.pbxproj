@@ -688,6 +688,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		C78FCB8B27EA67280095E352 /* 🛠SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -706,6 +707,7 @@
 		};
 		C7BEF7D927EA6AD600FA651B /* 🛠SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -724,6 +726,7 @@
 		};
 		C7CC818B27F8B62F008EE891 /* 🛠Genstrings */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
