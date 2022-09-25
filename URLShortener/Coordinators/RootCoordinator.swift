@@ -22,7 +22,7 @@ final class RootCoordinator {
 extension RootCoordinator {
 
   func start() {
-    guard let window = window else {
+    guard let window else {
       services.logger.log(error: "Expected UIWindow object in \(#function) but found nil instead")
       return
     }
@@ -64,7 +64,7 @@ extension RootCoordinator {
   @MainActor
   func open(link: URL) async {
     guard UIApplication.shared.canOpenURL(link) else { return }
-    await UIApplication.shared.open(link)
+    _ = await UIApplication.shared.open(link)
   }
 
 }

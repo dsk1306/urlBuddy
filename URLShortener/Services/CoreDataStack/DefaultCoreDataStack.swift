@@ -16,7 +16,7 @@ extension DefaultCoreDataStack: AppLifecycleSubscribableService {
 
   func handleConnectToScene(with connectionOptions: ConnectionOptions, onError: @escaping ErrorHandler) {
     container.loadPersistentStores { _, error in
-      guard let error = error else { return }
+      guard let error else { return }
       onError(error)
     }
   }
