@@ -1163,8 +1163,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dsk1306/uikitExtensions";
 			requirement = {
-				branch = base;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */ = {
