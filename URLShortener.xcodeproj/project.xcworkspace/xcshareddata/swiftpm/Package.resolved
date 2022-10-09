@@ -35,6 +35,15 @@
         "revision" : "3c4f377a70bbe7bce46138357f596b475df8b354",
         "version" : "1.0.0"
       }
+    },
+    {
+      "identity" : "uikitextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dsk1306/uikitExtensions",
+      "state" : {
+        "revision" : "083adc0e1d5add1f4ab1183214964aba8309475f",
+        "version" : "1.0.0"
+      }
     }
   ],
   "version" : 2

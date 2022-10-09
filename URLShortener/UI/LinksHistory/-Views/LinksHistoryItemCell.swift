@@ -2,6 +2,7 @@ import Combine
 import CombineCocoa
 import CombineExtensions
 import UIKit
+import UIKitExtensions
 
 extension LinksHistory {
 

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C71603F0280B480B00B41298 /* URLStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603EF280B480B00B41298 /* URLStringValidator.swift */; };
 		C71603F3280B555400B41298 /* URLStringValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603F2280B555400B41298 /* URLStringValidatorTests.swift */; };
-		C71603F5280B57BB00B41298 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71603F4280B57BB00B41298 /* BaseViewController.swift */; };
 		C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAAE27F1BBE500A818F3 /* Services.swift */; };
 		C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C753FAB127F1BC2700A818F3 /* CombineExtensions */; };
 		C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */; };
@@ -30,6 +29,7 @@
 		C77166EA27F103B600C0B472 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77166E927F103B600C0B472 /* Link.swift */; };
 		C77166ED27F103D800C0B472 /* ClipboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77166EC27F103D800C0B472 /* ClipboardService.swift */; };
 		C77166EF27F103E700C0B472 /* DefaultClipboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77166EE27F103E700C0B472 /* DefaultClipboardService.swift */; };
+		C77A850228E090D900CB2DB5 /* UIKitExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C77A850128E090D900CB2DB5 /* UIKitExtensions */; };
 		C77DD6C527F078370037ACFF /* DefaultAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C427F078370037ACFF /* DefaultAPIService.swift */; };
 		C77DD6C727F079360037ACFF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C627F079360037ACFF /* APIService.swift */; };
 		C77DD6CA27F079AB0037ACFF /* DefaultLinksShortenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DD6C927F079AB0037ACFF /* DefaultLinksShortenerService.swift */; };
@@ -52,8 +52,6 @@
 		C78C890127F8BD1800302E75 /* LinksHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890027F8BD1800302E75 /* LinksHistoryViewController.swift */; };
 		C78C890427F8BD3F00302E75 /* LinksShortenerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890327F8BD3F00302E75 /* LinksShortenerViewController.swift */; };
 		C78C890627F8BD5400302E75 /* LinksShortenerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890527F8BD5400302E75 /* LinksShortenerViewModel.swift */; };
-		C78C890C27F8BDB800302E75 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890B27F8BDB800302E75 /* BaseCollectionViewCell.swift */; };
-		C78C890E27F8BDC700302E75 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C890D27F8BDC700302E75 /* BaseView.swift */; };
 		C78C891127F8BDEA00302E75 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C891027F8BDEA00302E75 /* RootCoordinator.swift */; };
 		C78C891327F8DED500302E75 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C891227F8DED500302E75 /* BaseViewModel.swift */; };
 		C78FCB8E27EA67A10095E352 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCB8C27EA67A10095E352 /* ColorAsset.swift */; };
@@ -103,7 +101,6 @@
 /* Begin PBXFileReference section */
 		C71603EF280B480B00B41298 /* URLStringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStringValidator.swift; sourceTree = "<group>"; };
 		C71603F2280B555400B41298 /* URLStringValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStringValidatorTests.swift; sourceTree = "<group>"; };
-		C71603F4280B57BB00B41298 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C753FAAE27F1BBE500A818F3 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		C753FAB427F1BD1400A818F3 /* DefaultPersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPersistenceService.swift; sourceTree = "<group>"; };
 		C753FAB627F1D7CC00A818F3 /* DatabaseLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLink.swift; sourceTree = "<group>"; };
@@ -145,8 +142,6 @@
 		C78C890027F8BD1800302E75 /* LinksHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHistoryViewController.swift; sourceTree = "<group>"; };
 		C78C890327F8BD3F00302E75 /* LinksShortenerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksShortenerViewController.swift; sourceTree = "<group>"; };
 		C78C890527F8BD5400302E75 /* LinksShortenerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksShortenerViewModel.swift; sourceTree = "<group>"; };
-		C78C890B27F8BDB800302E75 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
-		C78C890D27F8BDC700302E75 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C78C891027F8BDEA00302E75 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		C78C891227F8DED500302E75 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		C78FCB8C27EA67A10095E352 /* ColorAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
@@ -189,6 +184,7 @@
 				C753FAB227F1BC2700A818F3 /* CombineExtensions in Frameworks */,
 				C79F321F28185CD200DE520B /* CombineCocoa in Frameworks */,
 				C753FABC27F1D86A00A818F3 /* CloudKit.framework in Frameworks */,
+				C77A850228E090D900CB2DB5 /* UIKitExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,9 +373,6 @@
 		C78C890A27F8BDAC00302E75 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C78C890B27F8BDB800302E75 /* BaseCollectionViewCell.swift */,
-				C78C890D27F8BDC700302E75 /* BaseView.swift */,
-				C71603F4280B57BB00B41298 /* BaseViewController.swift */,
 				C78C891227F8DED500302E75 /* BaseViewModel.swift */,
 			);
 			path = Base;
@@ -564,6 +557,7 @@
 				C796498D27F73AEE00B613F4 /* Bugsnag */,
 				C79F321E28185CD200DE520B /* CombineCocoa */,
 				C7FA385D286E3395005B38CC /* Logger */,
+				C77A850128E090D900CB2DB5 /* UIKitExtensions */,
 			);
 			productName = URLShortener;
 			productReference = C7DF18E527EA590200D1FAD6 /* URLShortener.app */;
@@ -642,6 +636,7 @@
 				C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
 				C79F321D28185CD200DE520B /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 				C7FA385C286E3395005B38CC /* XCRemoteSwiftPackageReference "logger" */,
+				C77A850028E090D900CB2DB5 /* XCRemoteSwiftPackageReference "uikitExtensions" */,
 			);
 			productRefGroup = C7DF18E627EA590200D1FAD6 /* Products */;
 			projectDirPath = "";
@@ -773,7 +768,6 @@
 				C7DF18E927EA590200D1FAD6 /* AppDelegate.swift in Sources */,
 				C753FAB527F1BD1400A818F3 /* DefaultPersistenceService.swift in Sources */,
 				C7892092280B5FA3007FCBF7 /* LinksHistoryItemCell+Model.swift in Sources */,
-				C71603F5280B57BB00B41298 /* BaseViewController.swift in Sources */,
 				C77DD6D427F07C4A0037ACFF /* DefaultLinksShortenerService+ResponseModelResult.swift in Sources */,
 				C753FAAF27F1BBE500A818F3 /* Services.swift in Sources */,
 				C78C88F127F8BACC00302E75 /* UICollectionView+Ext.swift in Sources */,
@@ -793,12 +787,10 @@
 				C77DD6CA27F079AB0037ACFF /* DefaultLinksShortenerService.swift in Sources */,
 				C78C890427F8BD3F00302E75 /* LinksShortenerViewController.swift in Sources */,
 				C78C891327F8DED500302E75 /* BaseViewModel.swift in Sources */,
-				C78C890C27F8BDB800302E75 /* BaseCollectionViewCell.swift in Sources */,
 				C7AB8B4227F10657006592C2 /* CoreDataStack.swift in Sources */,
 				C7DF18EB27EA590200D1FAD6 /* SceneDelegate.swift in Sources */,
 				C77DD6CC27F07ABC0037ACFF /* LinksShortenerError.swift in Sources */,
 				C77166EF27F103E700C0B472 /* DefaultClipboardService.swift in Sources */,
-				C78C890E27F8BDC700302E75 /* BaseView.swift in Sources */,
 				C78C88EE27F8BAAA00302E75 /* ActivityIndicatorButton.swift in Sources */,
 				C75D2CDA28B1929800DC1D53 /* TestsAppDelegate.swift in Sources */,
 				C75D2CDE28B192D600DC1D53 /* main.swift in Sources */,
@@ -1167,6 +1159,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		C77A850028E090D900CB2DB5 /* XCRemoteSwiftPackageReference "uikitExtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dsk1306/uikitExtensions";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		C796498C27F73AEE00B613F4 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bugsnag/bugsnag-cocoa";
@@ -1198,6 +1198,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C753FAB027F1BC2700A818F3 /* XCRemoteSwiftPackageReference "combineExtensions" */;
 			productName = CombineExtensions;
+		};
+		C77A850128E090D900CB2DB5 /* UIKitExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C77A850028E090D900CB2DB5 /* XCRemoteSwiftPackageReference "uikitExtensions" */;
+			productName = UIKitExtensions;
 		};
 		C796498D27F73AEE00B613F4 /* Bugsnag */ = {
 			isa = XCSwiftPackageProductDependency;
